@@ -1,0 +1,105 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+    <span>cash deposit</span>
+  </p>
+
+  <form id="cashdepositform" class="grid grid-cols-1 gap-6 lg:grid-cols-2 p-5 xl:p-10 bg-white/90 rounded-sm">
+    <!-- Left Section: Transaction Details -->
+    <div class="bg-white border border-gray-300 p-5 rounded-sm shadow-md">
+      <h2 class="text-lg font-bold mb-4">Transaction Details</h2>
+      <div class="form-group mb-3">
+        <label for="accountNumber" class="control-label">Account Number</label>
+        <input type="text" id="accountnumber"  class="form-control w-full" placeholder="Enter Account Number" />
+      </div>
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 mb-3">
+        <div class="form-group">
+          <label for="transactionDate" class="control-label">Transaction Date</label>
+          <input type="date" id="transactionDate"  readonly class="form-control w-full" />
+        </div>
+        <div class="form-group">
+          <label for="valueDate" class="control-label">Value Date</label>
+          <input type="date" id="valueDate"  readonly class="form-control w-full" />
+        </div>
+      </div>
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 mb-3">
+        <div class="form-group">
+          <label for="cashdepositor" class="control-label">cash depositor</label>
+          <select id="cashdepositor"  class="form-controls w-full" >
+            <option value="" disabled selected>Select cash depositor Name</option>
+            <!-- Add options here -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="amountPaid" class="control-label">Amount Paid</label>
+          <input type="number" id="amountPaid"  class="form-control comma w-full" placeholder="Enter Amount" />
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="depositCode" class="control-label">Deposit Code <span class="text-red-500">(Please insert the deposit code if it's a marketer making the deposit on behalf of members)</span></label>
+        <input type="text" id="depositCode" class="form-control w-full" placeholder="Enter Deposit Code" />
+      </div>
+
+      <div class="mt-5 flex justify-end">
+        <button id="submit" type="button" class="btn">
+          <div class="btnloader" style="display: none"></div>
+          <span>Submit</span>
+        </button>
+      </div>
+
+    </div>
+  
+    <!-- Right Section: Customer Profile -->
+    <div id="customerprofile" class="bg-blue-100 text-blue-900 p-5 rounded-sm shadow-md">
+      <h2 class="text-lg font-bold mb-4">Customer Profile</h2>
+      <div class="form-group mb-4">
+        <label for="profilePic" class="control-label">Profile Picture</label>
+        <div class="w-32 h-32 bg-blue-200 rounded-full overflow-hidden mx-auto">
+          <img id="detail_profilepic" alt="" class="w-full h-full object-cover" />
+        </div>
+      </div>
+      <div class="grid grid-cols-1 gap-2">
+        <div class="form-group">
+          <label for="accountnumber" class="control-label">Account Number</label>
+          <input type="text" id="detail_accountnumber"  class="form-control w-full bg-blue-200 text-blue-900 border-none" readonly />
+        </div>
+        <div class="form-group">
+          <label for="accountname" class="control-label">Account Name</label>
+          <input type="text" id="detail_accountname"  class="form-control w-full bg-blue-200 text-blue-900 border-none" readonly />
+        </div>
+        <div class="form-group">
+          <label for="accounttype" class="control-label">Account Type</label>
+          <input type="text" id="detail_accounttype"  class="form-control w-full bg-blue-200 text-blue-900 border-none" readonly />
+        </div>
+        <div class="form-group">
+          <label for="paymentmethod" class="control-label">Payment Method</label>
+          <input type="text" id="detail_paymentmethod"  class="form-control w-full bg-blue-200 text-blue-900 border-none" readonly value="CASH" />
+        </div>
+        <div class="form-group">
+          <label for="mobilenumber" class="control-label">Mobile Number</label>
+          <input type="text" id="detail_mobilenumber"  class="form-control w-full bg-blue-200 text-blue-900 border-none" readonly />
+        </div>
+        <div class="form-group">
+          <label for="domiciledbranch" class="control-label">Domiciled Branch</label>
+          <input type="text" id="detail_domiciledbranch"  class="form-control w-full bg-blue-200 text-blue-900 border-none" readonly />
+        </div>
+        <div class="form-group">
+          <label for="age" class="control-label">Age</label>
+          <input type="text" id="detail_age"  class="form-control w-full bg-blue-200 text-blue-900 border-none" readonly />
+        </div>
+        <div class="form-group">
+          <label for="gender" class="control-label">Gender</label>
+          <input type="text" id="detail_gender"  class="form-control w-full bg-blue-200 text-blue-900 border-none" readonly />
+        </div>
+        <div class="form-group">
+          <label for="role" class="control-label">Role</label>
+          <input type="text" id="detail_role"  class="form-control w-full bg-blue-200 text-blue-900 border-none" readonly />
+        </div>
+        <div class="form-group">
+          <label for="dateopened" class="control-label">Date Opened</label>
+          <input type="text" id="detail_dateopened"  class="form-control w-full bg-blue-200 text-blue-900 border-none" readonly />
+        </div>
+      </div>
+    </div>
+  </form>
+  
+</section>

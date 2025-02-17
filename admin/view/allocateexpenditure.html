@@ -1,0 +1,202 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+    <span>allocate expenditure</span>
+  </p>
+
+
+  <!-- here is the tab navigation -->
+  <ul
+    class="cark:border-gray-700 cark:text-gray-400 flex flex-wrap border-b border-gray-200 text-center text-sm font-medium text-gray-500"
+  >
+    <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+    <li
+      class="cp viewer optioner active me-2 !text-blue-600"
+      name="viewallocateexpenditure"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        view allocate expenditure
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="allocateexpenditureform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        Manage allocate expenditure
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="viewallocateexpendituredraft"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        View allocate expenditure draft
+      </p>
+    </li>
+  </ul>
+
+  <form id="allocateexpenditureform" class="hidden">
+    <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 rounded-sm">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 lg:grid-cols-1 gap-6">
+          <div class="form-group">
+              <label for="logoname" class="control-label required">Staff to Allocate to:</label>
+              <select name="userid" id="userid" class="form-controls comp bg-white">
+                  <option value="">--SELECT USER--</option>
+                  <!-- Options will be populated dynamically -->
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="logoname" class="control-label required">amount paid</label>
+              <input type="number" name="amount" id="amount" class="form-control comma comp" placeholder="amount paid">
+          </div>
+      </div>
+            <div class="px-7 lg:px-14 py-4 lg:py-8 bg-blue-400 text-white flex flex items-center">
+              <div class="form-group ">
+                  <label for="logoname" class="control-label">Expense Balance (₦)</label>
+                  <div class="flex items-center">
+                      <label id="expensebalance" class="control-label text-bold text-xl blur-smy">Loading...</label>
+                      <button type="button" title="Toggle visibility" onclick="toggleBalance(event, 'expensebalance')" class="material-symbols-outlined rounded-full bg-white-600 h-8 w-8 text-blue drop-shadow-md text-xs ml-2" style="font-size: 18px;">visibility</button>
+                  </div>
+                  <script>
+                      
+                  </script>
+              </div>
+            </div>
+
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="form-group">
+        <label for="logoname" class="control-label">Description</label>
+        <textarea name="description" id="description" class="form-control" placeholder="Enter Description"></textarea>
+    </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    
+        <div></div>
+        <div></div>
+        
+        <div class="flex justify-end mt-5">
+             <button id="submit" type="button" class="btn">
+                <div class="btnloader" style="display: none;"></div>
+                <span>Submit</span>
+            </button>
+        </div>
+        
+    </div> 
+    <div>
+</div>  
+     
+
+  </div>
+  </form>
+
+  <div class="" id="viewallocateexpenditure">
+    <form id="viewallocateexpenditureForm" class="">
+      <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="form-group">
+                  <label for="queryUser" class="control-label">Staff</label>
+                  <select id="userid1" name="userid" class="form-controls comp bg-white">
+                      <option value="">--SELECT STAFF--</option>
+                      <!-- Options will be populated dynamically -->
+                  </select>
+              </div>
+              <div class="form-group col-span-1">
+                  <label for="queryBranch" class="control-label">Branch</label>
+                  <select id="branch" name="branch" class="form-controls bg-white">
+                      <option value="">--SELECT BRANCH--</option>
+                      <!-- Options will be populated dynamically -->
+                  </select>
+              </div>
+            </div>
+            <div class="flex justify-end mt-5">
+                <button id="querySubmit" type="button" class="btn">
+                    <div class="btnloader" style="display: none;"></div>
+                    <span>Search</span>
+                </button>
+            </div>
+      </div>
+  </form>
+    <div class="table-content">
+      <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>full name</th>
+            <th>balance</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+
+  <div class="hidden" id="viewallocateexpendituredraft">
+    <form id="viewallocateexpenditureFormdraft" class="">
+      <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+              <div class="form-group col-span-3">
+                  <label for="queryUser" class="control-label">Staff</label>
+                  <select name="userid" id="userid2" class="form-controls comp bg-white">
+                      <option value="">--SELECT STAFF--</option>
+                      <!-- Options will be populated dynamically -->
+                  </select>
+              </div>
+              <div class="flex justify-end mt-5">
+                  <button id="querySubmit2" type="button" class="btn">
+                      <div class="btnloader" style="display: none;"></div>
+                      <span>Search</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </form>
+    <div class="table-content">
+      <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>request date</th>
+            <th>Staff</th>
+            <th>initiated by</th>
+            <th>purpose</th>
+            <th>amount</th>
+            <th>status</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata2">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+
+</section>

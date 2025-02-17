@@ -1,0 +1,239 @@
+<section class="relative animate__animated animate__fadeIn">
+  <p class="page-title">
+    <span>rotary product</span>
+  </p>
+
+  <!-- here is the tab navigation -->
+  <ul
+    class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 cark:border-gray-700 cark:text-gray-400"
+  >
+    <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+    <li
+      class="cp viewer optioner active me-2 !text-blue-600"
+      name="viewrotaryproduct"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block p-4 capitalize rounded-t-lg hover:bg-gray-50 hover:text-gray-600"
+      >
+        view rotary product
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="rotaryproductform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block p-4 capitalize rounded-t-lg hover:bg-gray-50 hover:text-gray-600"
+      >
+        Manage rotary product
+      </p>
+    </li>
+  </ul>
+
+  <form id="rotaryproductform" class="hidden">
+    <div class="flex flex-col p-5 space-y-3 rounded-sm bg-white/90 xl:p-10">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <!-- Product Name -->
+          <div class="form-group">
+            <label for="product" class="control-label">Product Name</label>
+            <input
+              type="text"
+              name="product"
+              id="product"
+              class="form-control comp"
+              placeholder="Enter Product Name"
+            />
+          </div>
+
+          <!-- Description -->
+          <div class="form-group">
+            <label for="description" class="control-label">Description</label>
+            <textarea
+              name="description"
+              id="description"
+              class="form-control comp"
+              placeholder="Enter Description"
+            >
+            </textarea>
+          </div>
+
+          <!-- Registration Charge -->
+          <div class="form-group">
+            <label for="registrationcharge" class="control-label"
+              >Registration Charge</label
+            >
+            <input
+              type="number"
+              name="registrationcharge"
+              id="registrationcharge"
+              class="form-control comp"
+              placeholder="Enter Registration Charge"
+            />
+          </div>
+
+          <!-- Membership -->
+          <div class="form-group">
+            <label for="membership" class="control-label">Membership</label>
+            <select
+              name="membership"
+              id="membership"
+              multiple
+              class="form-controls comp"
+            >
+              <option value="">Loading...</option>
+              <!-- Add more membership options as needed -->
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              <!-- Currency -->
+              <div class="form-group">
+                <label for="currency" class="control-label">Currency</label>
+                <select name="currency" id="currency" class="form-control comp">
+                  <option value="NGN">NGN</option>
+                  <option value="USD">USD</option>
+                  <!-- Add more currencies as needed -->
+                </select>
+              </div>
+              <!-- Currency -->
+              <div class="form-group">
+                <label for="rotaryschedule" class="control-label">rotary schedule</label>
+                <select name="rotaryschedule" id="rotaryschedule" class="form-control comp">
+                  <option>ACCOUNT</option>
+                  <option>PRODUCT</option>
+                  <!-- Add more currencies as needed -->
+                </select>
+              </div>
+            </div>
+
+          <!-- Product Officer -->
+          <div class="form-group">
+            <label for="productofficer" class="control-label"
+              >Product Officer</label
+            >
+            <select
+              name="productofficer"
+              id="productofficer"
+              class="form-controls comp"
+            >
+              <option value="">Select Product Officer</option>
+              <!-- Add more product officer options as needed -->
+            </select>
+          </div>
+
+          <div id="scheduler" class="hidden col-span-2 flex gap-4">
+            <div class="form-group relative">
+              <label for="frequency" class="control-label"
+                >Repayment Frequency</label
+              >
+              <input
+                type="text"
+                readonly
+                name="frequency"
+                id="frequency"
+                onclick="handledateai('frequency', 'Please describe how you would want the interval to be in your language and trust us we will get it right!!')"
+                class="form-control  cursor-pointer"
+                placeholder="Enter Frequency"
+              />
+              <span
+                class="material-symbols-outlined absolute right-2 top-2 -translate-y-1/2 transform cursor-pointer text-gray-500"
+                onclick="codemeaning('frequency')"
+                style="font-size: 18px"
+              >
+                visibility
+              </span>
+            </div>
+
+            <div class="form-group">
+             <label for="frequencynumber" class="control-label">Frequency Number</label>
+             <input
+               type="number"
+               name="frequencynumber"
+               id="frequencynumber"
+               class="form-control "
+               placeholder="Enter User Account"
+             />
+           </div>
+          </div>
+
+           <!-- User Account -->
+           <div class="form-group">
+            <label for="useraccount" class="control-label">User Account</label>
+            <input
+              type="number"
+              name="useraccount"
+              id="useraccount"
+              class="form-control comp"
+              placeholder="Enter User Account"
+            />
+          </div>
+          <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <!-- Status -->
+            <div class="form-group">
+              <label for="status" class="control-label">Status</label>
+              <select name="status" id="status" class="form-control comp">
+                <option value="ACTIVE">ACTIVE</option>
+                <option value="INACTIVE">INACTIVE</option>
+                <!-- Add more statuses if needed -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="poolnumber" class="control-label">Pool Selection</label>
+              <select name="poolnumber" id="poolnumber" class="form-control comp">
+                <option value="">--SELECT POOL--</option>
+                <option>SEQUENCE</option>
+                <option>RANDOM</option>
+                <!-- Add more statuses if needed -->
+              </select>
+            </div>
+         </div>
+        </div>
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div></div>
+        <div></div>
+        <div class="flex justify-end mt-5">
+          <button id="submit" type="button" class="btn">
+            <div class="btnloader" style="display: none"></div>
+            <span>Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        
+      });
+    </script>
+  </form>
+
+  <div class="" id="viewrotaryproduct">
+    <div class="table-content">
+      <!--<p class="font-semibold text-md">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>product</th>
+            <th>description</th>
+            <th>member</th>
+            <th>status</th>
+            <th>date added</th>
+            <th>product officer name</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+</section>

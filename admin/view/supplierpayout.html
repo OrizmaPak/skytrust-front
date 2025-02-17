@@ -1,0 +1,90 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+    <span>supplier payout</span>
+  </p>
+
+  <form id="supplierpayoutform" class="">
+    <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 rounded-sm">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="flex flex-col gap-4">
+              <div class="form-group">
+                  <label for="logoname" class="control-label required">Supplier:</label>
+                  <select name="supplier" id="supplier" class="form-controls comp bg-white">
+                      <option value="">--SELECT USER--</option>
+                      <!-- Options will be populated dynamically -->
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="logoname" class="control-label required">amount paid</label>
+                  <input type="number" name="amount" id="amount" class="form-control comma comp" placeholder="amount paid">
+              </div>
+              <div class="form-group">
+                <label for="paymentmethod" class="control-label required">Payment Method</label>
+                <select name="tfrom" id="paymentmethod" class="form-control comp bg-white">
+                  <option value="">Select Payment Method</option>
+                  <option value="CASH">CASH</option>
+                  <option value="BANK">BANK</option>
+                </select>
+              </div>
+              <div class="form-group">
+                  <label for="logoname" class="control-label">Description</label>
+                  <textarea name="description" id="description" class="form-control comp" placeholder="Enter Description"></textarea>
+              </div>
+          </div>
+
+          <div class="px-7 lg:px-14 py-4 lg:py-8 bg-blue-400 text-white flex flex-col items-center">
+            <div class="form-group mb-4"> 
+                <label for="logoname" class="control-label">Supplier Balance (₦)</label>
+                <div class="flex items-center">
+                    <label id="supplierbalance" class="control-label text-bold text-xl blur-sm">Awaiting Supplier</label>
+                    <button type="button" title="Toggle visibility" onclick="toggleBalance(event, 'supplierbalance', '', false)" class="material-symbols-outlined rounded-full bg-white-600 h-8 w-8 text-blue drop-shadow-md text-xs ml-2" style="font-size: 18px;">visibility</button>
+                </div>
+            </div>
+            <div class="form-group mb-4"> 
+              <label for="logoname" class="control-label">Cash at Hand (₦)</label>
+              <div class="flex items-center">
+                <label id="cashathand" class="control-label text-bold text-lg blur-sm">Loading...</label>
+                <button type="button" title="Toggle visibility" onclick="toggleBalance(event, 'cashathand', '', false)" class="material-symbols-outlined rounded-full bg-white-600 h-6 w-6 text-blue drop-shadow-md text-xs ml-2" style="font-size: 16px;">visibility</button>
+              </div>
+            </div>
+            <div class="form-group mb-4"> 
+              <label for="logoname" class="control-label">Cash at Bank (₦)</label>
+              <div class="flex items-center">
+                <label id="cashatbank" class="control-label text-bold text-lg blur-sm">Loading...</label>
+                <button type="button" title="Toggle visibility" onclick="toggleBalance(event, 'cashatbank', '', false)" class="material-symbols-outlined rounded-full bg-white-600 h-6 w-6 text-blue drop-shadow-md text-xs ml-2" style="font-size: 16px;">visibility</button>
+              </div>
+            </div>
+            <div class="form-group mb-4"> 
+                <label for="logoname" class="control-label">Your Total Expense Balance (₦)</label>
+                <div class="flex items-center">
+                    <label id="allocatedbalance" class="control-label text-bold text-xl blur-sm">Loading...</label>
+                    <button type="button" title="Toggle visibility" onclick="toggleBalance(event, 'allocatedbalance', '', false)" class="material-symbols-outlined rounded-full bg-white-600 h-8 w-8 text-blue drop-shadow-md text-xs ml-2" style="font-size: 18px;">visibility</button>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    
+        <div></div>
+        <div></div>
+        
+        <div class="flex justify-end mt-5">
+             <button id="submit" type="button" class="btn">
+                <div class="btnloader" style="display: none;"></div>
+                <span>Submit</span>
+            </button>
+        </div>
+        
+    </div> 
+    <div>
+</div>  
+     
+
+  </div>
+  </form>
+
+</section>

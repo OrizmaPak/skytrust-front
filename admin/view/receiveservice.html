@@ -1,0 +1,113 @@
+<section class="animate__animated animate__fadeIn">
+    <p class="page-title">
+      <span>RECEIVESERVICE</span>
+    </p>
+  
+    <!-- Tab Navigation -->
+    <ul  class="cark:border-gray-700 cark:text-gray-400 flex flex-wrap border-b border-gray-200 text-center text-sm font-medium text-gray-500">
+        <li class="cp viewer optioner active me-2 !text-blue-600" name="viewreceiveservice" onclick="runoptioner(this)">
+        <p class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600">View Receive Service</p>
+      </li>
+      <li class="cp updater optioner me-2" name="managereceiveservice" onclick="runoptioner(this)">
+        <p class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600">Manage Receive Service</p>
+      </li>
+    </ul>
+  
+    <!-- View Receive Service Tab -->
+    <div id="viewreceiveservice" class="">
+      <div class="table-content">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:10px">s/n</th>
+              <th>Reference</th>
+              <th>Service Type [Amount][Service Desc]</th>
+              <th>Supplier</th>
+              <th>Branch</th>
+              <th>Date Added</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="tabledata">
+            <tr>
+              <td colspan="6" class="text-center opacity-70">No Data Available</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <!-- Manage Receive Service Tab -->
+    <div id="managereceiveservice" class="hidden">
+      <form id="receivepurchasesform" onsubmit="event.preventDefault(); submitReceiveService();">
+        <div class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+          <div class="grid grid-cols-1 items-end gap-6 lg:grid-cols-6">
+            <div class="form-group col-span-4">
+              <label for="reference" class="control-label">Reference</label>
+              <input type="text" id="reference" class="form-control" placeholder="Enter Reference.">
+            </div>
+            <div class="form-group col-span-2">
+              <!-- <button id="fetchServiceBtn" type="button" class="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700" onclick="fetchreceiveservice(document.getElementById('reference').value)"> -->
+              <button id="pullitemsbtn" type="button" class="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700">
+                New Received Services
+              </button>
+            </div>
+          </div>
+  
+          <div id="serviceformrs" class="flex flex-col">
+            <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                <div class="form-group">
+                  <label for="suppliername" class="control-label">Supplier</label>
+                  <input id="suppliername" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="branchname" class="control-label">Branch</label>
+                  <input id="branchname" class="form-control" readonly>
+                </div>
+              </div>
+      
+              <div class="table-content mt-5">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>S/N</th>
+                      <th>Service Type</th>
+                      <th>Description</th>
+                      <th>Amount from</th>
+                      <th>Amount to</th>
+                      <th>Amount</th>
+                      <th>Other Details</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabledata1">
+                    <tr>
+                      <td colspan="4" class="text-center opacity-70">No Data</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="mt-5 grid grid-cols-2 gap-4">
+                <div>
+                  <label for="paymentMethod" class="block text-sm font-medium text-gray-700">Payment Method</label>
+                  <select id="paymentMethod" name="tfrom" class="form-control bg-white">
+                    <option value="">Select Payment Method</option>
+                    <option value="CASH">CASH</option>
+                    <option value="BANK">TRANSFER</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="voucher" class="block text-sm font-medium text-gray-700">Voucher</label>
+                  <input type="file" id="voucher" name="voucher" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:rounded-md file:border-0 file:bg-indigo-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-indigo-700 hover:file:bg-indigo-100">
+                </div>
+              </div>
+              <div class="mt-5 flex justify-end">
+                <button id="submit" type="button" class="btn">
+                    <div class="btnloader" style="display: none;"></div>
+                    <span>Submit</span>
+                </button>
+              </div>
+            </div>
+        </div>
+      </form>
+    </div>
+  </section>

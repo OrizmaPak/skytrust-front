@@ -1,0 +1,322 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+    <span>collectionview</span>
+  </p>
+  
+
+  <!-- here is the tab navigation -->
+  <ul
+    class="cark:border-gray-700 cark:text-gray-400 flex flex-wrap border-b border-gray-200 text-center text-sm font-medium text-gray-500"
+  >
+    <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+   
+    <li
+    class="cp viewer optioner me-2 active  !text-blue-600"
+    name="viewcollectionview"
+    onclick="runoptioner(this)"
+  >
+    <p
+      class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+    >
+      collectionviews (per day)
+    </p>
+  </li>
+  <li
+  class="cp viewer optioner me-2"
+  name="viewmonthlycollectionview"
+  onclick="runoptioner(this)"
+  >
+  <p
+    class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+  >
+    collectionviews (per month)
+  </p>
+  </li>
+  <li
+  class="cp viewer optioner me-2"
+  name="viewyearlycollectionview"
+  onclick="runoptioner(this)"
+  >
+  <p
+    class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+  >
+    collectionviews (per year)
+  </p>
+  </li>
+</ul>
+
+  <div class="" id="viewcollectionview">
+    <form id="viewcollectionviewform" class="">
+      <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="form-group">
+                  <label for="queryUser" class="control-label">Date</label>
+                  <input type="date" name="date" id="transactiondate" class="form-control comp bg-white" placeholder="Search by anything">
+              </div>
+              <div class="form-group">
+                  <label for="branch" class="control-label">Branch</label>
+                  <select name="branch" id="branch" class="form-controls bg-white">
+                      <option value="">Select Branch</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="registrationpoint" class="control-label">Registration Point</label>
+                  <select name="registrationpoint" id="registrationpointid" class="form-control bg-white">
+                      <option value="">Select Registration Point</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="userid" class="control-label">User ID</label>
+                  <select name="userid" id="useridday" class="form-controls bg-white">
+                      <option value="">Select User ID</option>
+                  </select>
+              </div>
+              <div class="flex justify-end mt-5 col-span-2">
+                  <button id="querySubmit" type="button" class="btn">
+                      <div class="btnloader" style="display: none;"></div>
+                      <span>Load Collectionviews</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </form>
+
+  <div class="table-content">
+    <table class="table-auto">
+      <thead>
+        <tr>
+          <th style="width: 10px">s/n</th>
+          <th>Marketer</th>
+          <th>deposit code</th>
+          <th>Branch</th>
+          <th>reg-point</th>
+          <th>collected</th>
+          <th>Remitted</th>
+          <th>penalty</th>
+          <th>excess</th>
+          <th> to balance</th>
+          <th>action</th>
+        </tr>
+      </thead>
+      <tbody id="tabledataday">
+        <tr>
+          <td colspan="100%" class="text-center opacity-70">
+            Table is empty
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  
+    
+    <div class="table-status"></div>
+  </div>
+  
+  <div class="hidden" id="viewmonthlycollectionview">
+    <form id="viewmonthlycollectionviewform" class="">
+      <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="form-group col-span-1">
+                  <label for="transactionYearMonth" class="control-label">Year and Month</label>
+                  <input type="month" name="date" id="transactionYearMonth" class="form-control comp bg-white">
+              </div>
+              <div class="form-group col-span-1">
+                  <label for="branchFilter" class="control-label">Branch</label>
+                  <select name="branch" id="branchmonth" class="form-controls bg-white">
+                      <option value="">Select Branch</option>
+                      <!-- Options to be populated dynamically -->
+                  </select>
+              </div>
+              <div class="form-group col-span-1">
+                <label for="registrationPointFilter" class="control-label">Registration Point</label>
+                <select name="registrationpoint" id="registrationpointmonth" class="form-control bg-white">
+                  <option value="">Select Registration Point</option>
+                  <!-- Options to be populated dynamically -->
+                </select>
+              </div>
+              <div class="form-group col-span-1">
+                  <label for="userIdFilter" class="control-label">User ID</label>
+                  <select name="userid" id="useridmonth" class="form-controls bg-white">
+                      <option value="">Select User</option>
+                      <!-- Options to be populated dynamically -->
+                  </select>
+              </div>
+              <div class="flex justify-end mt-5 col-span-2">
+                  <button id="querySubmit2" type="button" class="btn">
+                      <div class="btnloader" style="display: none;"></div>
+                      <span>Load Collectionviews</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </form>
+
+  <div class="summary-card bg-white shadow-md rounded-lg p-6 mb-6">
+    <div class="summary-header mb-3">
+        <h2 class="text-xl font-semibold text-gray-800 flex gap-6">Summary</h2>
+        <p class="text-xs text-purple-500 italic">If you have excess, please inform your manager to resolve the issue.</p>
+        <p class="text-xs text-red-500 italic">Note: Penalty is charged for incomplete remittance every 2 days.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="summary-item bg-gray-50 p-3 rounded-md shadow-sm">
+            <h3 class="text-sm font-medium text-gray-600 mb-1">Total Collected</h3>
+            <p class="text-sm"><span class="text-green-500 italic" id="numbercollectionsmonth">0</span> Collected</p>
+            <p class="text-green-500 text-2xl font-semibold" id="totalCollectedmonth">0.00</p>
+        </div>
+        <div class="summary-item bg-gray-50 p-3 rounded-md shadow-sm">
+            <h3 class="text-sm font-medium text-gray-600 mb-1">Total Remitted</h3>
+            <p class="text-blue-500 text-2xl font-semibold" id="totalPaidmonth">0.00</p>
+        </div>
+        <div class="summary-item bg-gray-50 p-3 rounded-md shadow-sm">
+            <h3 class="text-sm font-medium text-gray-600 mb-1">Total Penalty</h3>
+            <p class="text-red-500 text-2xl font-semibold" id="totalPenaltymonth">0.00</p>
+        </div>
+        <div class="summary-item bg-gray-50 p-3 rounded-md shadow-sm">
+            <h3 class="text-sm font-medium text-gray-600 mb-1">Total Remaining to be Remitted</h3>
+            <p class="text-yellow-500 text-2xl font-semibold" id="totalRemainingmonth">0.00</p>
+        </div>
+        <div class="summary-item bg-gray-50 p-3 rounded-md shadow-sm">
+            <h3 class="text-sm font-medium text-gray-600 mb-1">Excess</h3>
+            <p class="text-purple-500 text-2xl font-semibold" id="excessmonth">0.00</p>
+        </div>
+    </div>
+  </div>
+
+  <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+    <div class="table-content">
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th>day</th>
+            <th>No of collectionviews</th>
+            <th>amount collected</th>
+            <th>Remitted</th>
+            <th>penalty</th>
+            <th>Excess</th>
+            <th>to balance</th>
+            <!-- <th>action</th> -->
+          </tr>
+        </thead>
+        <tbody id="tabledatamonth">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+
+  <div class="hidden" id="viewyearlycollectionview">
+    <form id="viewyearlycollectionviewform" class="">
+      <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="form-group ">
+                  <label for="transactionYearyear" class="control-label">Year</label>
+                  <select name="date" id="transactionYear" class="form-control comp bg-white">
+                      <option value="">Select Year</option>
+                      <option value="2022">2022</option>
+                      <option value="2023">2023</option>
+                      <option value="2024">2024</option>
+                      <option value="2025">2025</option>
+                      <option value="2026">2026</option>
+                      <option value="2027">2027</option>
+                      <option value="2028">2028</option>
+                      <option value="2029">2029</option>
+                      <option value="2030">2030</option>
+                      <option value="2031">2031</option>
+                      <option value="2032">2032</option>
+                      <option value="2033">2033</option>
+                      <option value="2034">2034</option>
+                      <option value="2035">2035</option>
+                  </select>
+              </div>
+              <div class="form-group ">
+                  <label for="branch" class="control-label">Branch</label>
+                  <select name="branch" id="branchyear" class="form-controls  bg-white">
+                      <option value="">Select Branch</option>
+                  </select>
+              </div>
+              <div class="form-group ">
+                  <label for="registrationpoint" class="control-label">Registration Point</label>
+                  <select name="registrationpoint" id="registrationpointyear" class="form-control  bg-white">
+                      <option value="">Select Registration Point</option>
+                  </select>
+              </div>
+              <div class="form-group ">
+                  <label for="userid" class="control-label">User ID</label>
+                  <select name="userid" id="useridyear" class="form-controls  bg-white">
+                      <option value="">Select Marketer</option>
+                      <!-- Add options here -->
+                  </select>
+              </div>
+              <div class="flex justify-end mt-5 col-span-2">
+                  <button id="querySubmit3" type="button" class="btn">
+                      <div class="btnloader" style="display: none;"></div>
+                      <span>Load Collectionviews</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+    </form>
+
+    <div class="summary-card bg-white shadow-md rounded-lg p-6 mb-6">
+      <div class="summary-header mb-3">
+          <h2 class="text-xl font-semibold text-gray-800 flex gap-6">Summary</h2>
+          <p class="text-xs text-purple-500 italic">If you have excess, please inform your manager to resolve the issue.</p>
+          <p class="text-xs text-red-500 italic">Note: Penalty is charged for incomplete remittance every 2 days.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="summary-item bg-gray-50 p-3 rounded-md shadow-sm">
+              <h3 class="text-sm font-medium text-gray-600 mb-1">Total Collected</h3>
+              <p class="text-sm"><span class="text-green-500 italic" id="numbercollectionsyear">0</span> Collected</p>
+              <p class="text-green-500 text-2xl font-semibold" id="totalCollectedyear">0.00</p>
+          </div>
+          <div class="summary-item bg-gray-50 p-3 rounded-md shadow-sm">
+              <h3 class="text-sm font-medium text-gray-600 mb-1">Total Remitted</h3>
+              <p class="text-blue-500 text-2xl font-semibold" id="totalPaidyear">0.00</p>
+          </div>
+          <div class="summary-item bg-gray-50 p-3 rounded-md shadow-sm">
+              <h3 class="text-sm font-medium text-gray-600 mb-1">Total Penalty</h3>
+              <p class="text-red-500 text-2xl font-semibold" id="totalPenaltyyear">0.00</p>
+          </div>
+          <div class="summary-item bg-gray-50 p-3 rounded-md shadow-sm">
+              <h3 class="text-sm font-medium text-gray-600 mb-1">Total Remaining to be Remitted</h3>
+              <p class="text-yellow-500 text-2xl font-semibold" id="totalRemainingyear">0.00</p>
+          </div>
+          <div class="summary-item bg-gray-50 p-3 rounded-md shadow-sm">
+              <h3 class="text-sm font-medium text-gray-600 mb-1">Excess</h3>
+              <p class="text-purple-500 text-2xl font-semibold" id="excessyear">0.00</p>
+          </div>
+      </div>
+    </div>
+
+    <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+    <div class="table-content">
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th>month</th>
+            <th>No of collectionviews</th>
+            <th>amount collected</th>
+            <th>Remitted</th>
+            <th>penalty</th>
+            <th>Excess</th>
+            <th>to balance</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata4">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+</section>

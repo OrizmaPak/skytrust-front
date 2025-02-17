@@ -1,0 +1,84 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>cashierlimit</span>
+    </p>
+    <!-- here is the tab navigation -->
+    <ul class="flex text-sm font-medium text-center text-gray-500 border-b border-gray-200 cark:border-gray-700 cark:text-gray-400">
+        <!--<li id="rccview" class="me-2 cp viewer" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+        <li  class="me-2 cp viewer optioner !text-blue-600 active" name="viewcashierlimit" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize">View cashier limits</p>
+        </li> 
+        <li id="" class="me-2 cp updater  optioner" name="cashierlimitform" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize ">Manage cashier limits</p>
+        </li>
+    </ul>
+
+    <form id="cashierlimitform" class="hidden">
+        <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 rounded-sm">
+            <div class="form-group">
+                <label for="cashier" class="control-label">Cashier</label>
+                <select name="cashier" id="cashier" class="form-controls comp" placeholder="Enter Cashier Name"></select>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="form-group">
+                    <label for="depositlimit" class="control-label">Deposit Limit</label>
+                    <input type="number" name="depositlimit" id="depositlimit" class="form-control comma comp" placeholder="Enter Deposit Limit">
+                </div>
+                <div class="form-group">
+                    <label for="withdrawallimit" class="control-label">Withdrawal Limit</label>
+                    <input type="number" name="withdrawallimit" id="withdrawallimit" class="form-control comma comp" placeholder="Enter Withdrawal Limit">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div></div>
+                <div></div>
+                <div class="flex justify-end mt-5">
+                    <button id="submit" type="button" class="btn">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>   
+    
+     <div class="" id="viewcashierlimit">
+        <form id="queryUserForm" class="">
+            <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                    <div class="form-group col-span-3">
+                        <label for="queryUser" class="control-label">Query by Cashier</label>
+                        <select name="queryUser" id="queryUser" class="form-controsl comp" placeholder="Enter Cashier"></select>
+                    </div>
+                    <div class="flex justify-end mt-5">
+                        <button id="querySubmit" type="button" class="btn">
+                            <div class="btnloader" style="display: none;"></div>
+                            <span>Search</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:10px">s/n</th>
+                        <th>cashier</th>
+                        <th>cashier deposit limit</th>
+                        <th>cashier withdrawal limit</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    
+   </section> 

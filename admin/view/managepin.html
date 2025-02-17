@@ -1,0 +1,117 @@
+<section id="passwordsection" class="atm-interface max-w-md mx-auto bg-gradient-to-br from-gray-200 to-gray-400 rounded-lg shadow-2xl overflow-hidden">
+    <div class="atm-screen bg-gradient-to-br from-gray-900 to-gray-700 text-white py-8 px-6 text-center rounded-t-lg">
+        <h2 class="text-3xl font-bold">Secure Access</h2>
+        <p class="text-sm text-gray-400 mt-2">Please Enter Your Password</p>
+        <div class="relative flex justify-center w-full mt-6">
+            <input 
+                type="password" 
+                id="passwordInput" 
+                class="w-3/4 p-3 text-center text-xl border border-gray-600 rounded-lg bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-yellow-500 pr-10" 
+                placeholder="Enter Password" 
+                onkeypress="if(event.key === 'Enter') validatePassword()"
+            >
+            <span 
+                class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 cursor-pointer"
+                onclick="togglePasswordVisibility()"
+            >
+                visibility
+            </span>
+        </div>
+        <div class="flex justify-center">
+            <button 
+                id="confirmButton"
+                type="button"
+                class="mt-4 w-full md:w-max rounded-md text-white text-sm capitalize bg-gradient-to-tr from-green-700 to-green-500 px-8 py-3 lg:py-2 shadow-md font-medium hover:opacity-75 transition duration-300 ease-in-out flex items-center justify-center gap-3" 
+                onclick="validatePassword()">
+                <div class="btnloader" style="display: none;"></div>
+                <span>Confirm</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<!-- PIN PAD -->
+<section id="pinSection" class="atm-interface hidden max-w-md mx-auto bg-gradient-to-br from-gray-200 to-gray-400 rounded-lg shadow-2xl overflow-hidden">
+    <div class="atm-screen bg-gradient-to-br from-gray-900 to-gray-700 text-white py-8 px-6 text-center rounded-t-lg">
+        <h2 id="pinheader" class="text-3xl font-bold">Enter Current PIN</h2>
+        <p id="redwarning" class="text-sm text-red-400 mt-2">Enter Current PIN to change your pin</p>
+        <p id="lostpin" class="text-sm text-gray-400 mt-2">If you have lost your PIN, <a href="#" class="text-blue-500 underline">Click here</a></p>
+        <input 
+            type="password" 
+            id="pinInput" 
+            class="w-3/4 mt-6 p-3 text-center text-xl border border-gray-600 rounded-lg bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-yellow-500" 
+            maxlength="4" 
+            placeholder="****" 
+            readonly
+        >
+    </div>
+    <div class="atm-keypad bg-white p-6 grid grid-cols-3 gap-4">
+        <!-- Keypad Buttons -->
+        <button 
+            class="keypad-button bg-gradient-to-t from-gray-300 to-gray-100 text-gray-500 font-bold py-4 rounded-lg shadow-lg hover:shadow-xl active:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-400" 
+            onclick="enterDigit(1)">
+            1<br><span class="text-xs">.</span>
+        </button>
+        <button class="keypad-button bg-gradient-to-t from-gray-300 to-gray-100 text-gray-500 font-bold py-4 rounded-lg shadow-lg hover:shadow-xl active:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-400" onclick="enterDigit(2)">
+            2<br><span class="text-xs">ABC</span>
+        </button>
+        <button class="keypad-button bg-gradient-to-t from-gray-300 to-gray-100 text-gray-500 font-bold py-4 rounded-lg shadow-lg hover:shadow-xl active:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-400" onclick="enterDigit(3)">
+            3<br><span class="text-xs">DEF</span>
+        </button>
+        <button class="keypad-button bg-gradient-to-t from-gray-300 to-gray-100 text-gray-500 font-bold py-4 rounded-lg shadow-lg hover:shadow-xl active:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-400" onclick="enterDigit(4)">
+            4<br><span class="text-xs">GHI</span>
+        </button>
+        <button class="keypad-button bg-gradient-to-t from-gray-300 to-gray-100 text-gray-500 font-bold py-4 rounded-lg shadow-lg hover:shadow-xl active:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-400" onclick="enterDigit(5)">
+            5<br><span class="text-xs">JKL</span>
+        </button>
+        <button class="keypad-button bg-gradient-to-t from-gray-300 to-gray-100 text-gray-500 font-bold py-4 rounded-lg shadow-lg hover:shadow-xl active:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-400" onclick="enterDigit(6)">
+            6<br><span class="text-xs">MNO</span>
+        </button>
+        <button class="keypad-button bg-gradient-to-t from-gray-300 to-gray-100 text-gray-500 font-bold py-4 rounded-lg shadow-lg hover:shadow-xl active:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-400" onclick="enterDigit(7)">
+            7<br><span class="text-xs">PQRS</span>
+        </button>
+        <button class="keypad-button bg-gradient-to-t from-gray-300 to-gray-100 text-gray-500 font-bold py-4 rounded-lg shadow-lg hover:shadow-xl active:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-400" onclick="enterDigit(8)">
+            8<br><span class="text-xs">TUV</span>
+        </button>
+        <button class="keypad-button bg-gradient-to-t from-gray-300 to-gray-100 text-gray-500 font-bold py-4 rounded-lg shadow-lg hover:shadow-xl active:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-400" onclick="enterDigit(9)">
+            9<br><span class="text-xs">WXYZ</span>
+        </button>
+        <button class="keypad-button bg-gradient-to-t from-red-600 to-red-400 text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl active:shadow-md focus:outline-none focus:ring-4 focus:ring-red-400" onclick="clearPin()">C</button>
+        <button class="keypad-button bg-gradient-to-t from-gray-300 to-gray-100 text-gray-500 font-bold py-4 rounded-lg shadow-lg hover:shadow-xl active:shadow-md focus:outline-none focus:ring-4 focus:ring-gray-400" onclick="enterDigit(0)">
+            0<br><span class="text-xs"> </span>
+        </button>
+        <button class="keypad-button bg-gradient-to-t from-green-600 to-green-400 text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl active:shadow-md focus:outline-none focus:ring-4 focus:ring-green-400" onclick="submitPin()">OK</button>
+    </div>
+</section>
+
+<style>
+  .atm-interface {
+    border: 1px solid #cbd5e1;
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .keypad-button {
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .keypad-button:hover {
+    transform: scale(1.05);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+

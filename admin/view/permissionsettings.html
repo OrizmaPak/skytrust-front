@@ -1,0 +1,149 @@
+<section class="animate__animated animate__fadeIn">
+    <p class="page-title">
+        <span>Access Control</span>
+    </p>
+
+    <ul class="flex text-sm font-medium text-center text-gray-500 border-b border-gray-200 cark:border-gray-700 cark:text-gray-400">
+        <!--<li id="rccview" class="me-2 cp viewer" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+        <li  class="me-2 cp viewer optioner !text-blue-600 active" name="manageroles" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize">Mange roles</p>
+        </li> 
+        <li id="" class="me-2 cp updater  optioner" name="manageaccesscontrol" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize ">Manage Access Control</p>
+        </li>
+    </ul>
+
+    <div id="manageaccesscontrol" class="hidden">
+        <form id="accesscontrolsform" class="">
+            <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 rounded-sm">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                    <div class="form-group">
+                        <label for="logoname" class="control-label">Personel</label>
+                        <select name="email" id="email" class="form-controls" onchange="accessboard(this)">
+                            <option value="">-- Select User --</option>
+                        </select>
+                    </div>
+                    <div class="form-group others hidden">
+                        <label for="logoname" class="control-label">Role</label>
+                        <select name="role" id="roleers" class="form-controls">
+                            <option value=''>-- Select Role --</option>
+                        </select>
+                    </div>
+                    <div class="form-group others hidden">
+                        <label for="logoname" class="control-label">Department</label> 
+                        <input type="text" name="department" id="department" class="form-control" list="departmentlist" onchange="checkdatalist(this)">
+                    </div>
+                    
+                    <div class="flex justify-end mt-5">
+                         <button id="submit" type="button" class="btn thesubmit">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Submit</span>
+                    </button>
+                    <!--     <button id="submit" type="button" class="w-full md:w-max rounded-md text-white text-sm capitalize bg-gradient-to-tr from-blue-400 via-blue-500 to-primary-g px-8 py-3 lg:py-2 shadow-md font-medium hover:opacity-75 transition duration-300 ease-in-out flex items-center justify-center gap-3">-->
+                    <!--    <div class="btnloader" style="display: none;"></div>-->
+                    <!--    <span>Submit</span>-->
+                    <!--</button>-->
+                </div> 
+                </div>
+                </div>
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div></div>
+        <div></div>
+        <div></div>
+                <div class="flex justify-end mt-5 others hidden">
+                     <button id="accesssave" type="button" class="btn">   
+                    <div class="btnloader" style="display: none;"></div>
+                    <span>Save</span>
+                </button>
+                <!--     <button id="accesssave" type="button" class="w-full hidden md:w-max rounded-md text-white text-sm capitalize bg-gradient-to-tr from-green-400 via-green-500 to-primary-g px-8 py-3 lg:py-2 shadow-md font-medium hover:opacity-75 transition duration-300 ease-in-out flex items-center justify-center gap-3">-->
+                <!--    <div class="btnloader" style="display: none;"></div>-->
+                <!--    <span>Save</span>-->
+                <!--</button>-->
+            </div>
+            </div>
+        </form>
+        <hr class="mt-6 mb-2">
+        
+         <div class="">
+            <div class="table-content bg-white p-4 flex flex-wrap justify-center" id="accessctrl_container">
+                
+                <!--<div id="accessctrl_inventory" class="flex flex-col gap-3">-->
+                <!--    <p class="font-bold mb-4 text-lg">INVENTORY</p>-->
+                    <!--<label class="pl-5 relative inline-flex items-center cursor-pointer">-->
+                    <!--  <input type="checkbox" value="" class="sr-only peer">-->
+                    <!--  <div class="scale-[0.9] w-11 h-6 bg-gray-400 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>-->
+                    <!--  <span class="ms-2 text-sm font-medium text-blue-900">DELETE OPTION</span>-->
+                    <!--</label>-->
+                <!--    <label class="pl-5 relative inline-flex items-center cursor-pointer">-->
+                <!--      <input type="checkbox" value="" class="sr-only peer">-->
+                <!--      <div class="scale-[0.9] w-11 h-6 bg-gray-400 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>-->
+                <!--      <span class="ms-2 text-sm font-medium text-blue-900">APPROVE INVENTORY</span>-->
+                <!--    </label>-->
+                <!--</div>-->
+                
+                <!--<div id="accessctrl_requisition"></div>-->
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="manageroles">
+        <form id="roleform" class="">
+            <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 rounded-sm">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="form-group">
+                        <label for="role" class="control-label">Define Role</label>
+                        <input type="text" name="role" id="role" class="form-control comp" placeholder="Enter Role Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="control-label">Description</label>
+                    <textarea name="description" id="description" class="form-control" placeholder="Enter Description"></textarea>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div></div>
+                    <div></div>
+                    <div class="flex justify-end mt-5">
+                        <button id="role_submit" type="button" class="btn">
+                            <div class="btnloader" style="display: none;"></div>
+                            <span>Create</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+         <div class="" id="viewregistrationpoint">
+            <div class="table-content">
+                <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+                <table class="table-auto">
+                    <thead>
+                        <tr>
+                            <th style="width:10px">S/N</th>
+                            <th>Roles</th>
+                            <th>Permission</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                            <!-- <th><button title="Add Role" class="material-symbols-outlined rounded-full bg-green-500 border-white h-8 w-8 text-white drop-shadow-md text-xs" style="font-size: 18px;">add</button></th> -->
+                        </tr>
+                    </thead>
+                    <tbody id="tabledata">
+                        <tr>
+                            <td class="s/n"></td>
+                            <td><input type="text" class="text-center form-control opacity-70" placeholder="Roles"></td>
+                            <td><input type="text" class="text-center form-control opacity-70" placeholder="Permission"></td>
+                            <td><input type="text" class="text-center form-control opacity-70" placeholder="Description"></td>
+                            <td><input type="text" class="text-center form-control opacity-70" placeholder="Action"></td>
+                            <td><button title="Add Role" class="material-symbols-outlined rounded-full bg-red-500 border-white h-8 w-8 text-white drop-shadow-md text-xs" style="font-size: 18px;">delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-status"></div>
+        </div>
+    </div>
+    
+    <datalist id='departmentlist'></datalist>
+    <datalist id='userslist'></datalist>
+
+</section>  

@@ -1,0 +1,127 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>Manage and view members</span>
+    </p>
+
+    <ul class="flex text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+        <li class="me-2 cp viewer optioner !text-blue-600 active" name="viewmembership" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize">View Membership</p>
+        </li> 
+        <li class="me-2 cp updater optioner" name="managememberships" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize">Manage Membership</p>
+        </li>
+    </ul>
+
+
+    <div id="viewmembership">
+
+        <form id="managemembershipform">
+            <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="form-group">
+                        <label for="logoname" class="control-label">Branch</label>
+                        <select name="branch" id="branch" class="form-controls !text-black !bg-white">
+                            <option>Loading...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="logoname" class="control-label">Member / Staff</label>
+                        <select name="userid" id="userid" class="form-controls !text-black !bg-white">
+                                <option>Loading...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                        <label for="logoname" class="control-label">Membership</label>
+                        <select name="member" id="member" class="form-controls !text-black !bg-white">
+                            <option>Loading...</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="form-group">
+                        <label for="logoname" class="control-label">Start Date</label>
+                        <input type="date" name="startdate" id="startdate" class="form-control bg-white" placeholder="Search by Item Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="logoname" class="control-label">End Date</label>
+                        <input type="date" name="enddate" id="enddate" class="form-control bg-white" placeholder="Search by Item Name">
+                    </div>
+                    <div class="flex justify-end mt-5">
+                         <button id="submit" type="button" class="btn">
+                            <div class="btnloader" style="display: none;"></div>
+                            <span>Submit</span>
+                        </button>
+                    </div>
+                </div>
+    
+            </div>
+        </form>
+        
+         <div class="" id="managemembership">
+            <div class="table-content">
+                <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+                <table class="table-auto">
+                    <thead>
+                        <tr>
+                            <th style="width:10px">s/n</th>
+                            <th>date Joined</th>
+                            <th>full names</th>
+                            <th>Membership</th>
+                            <th>position</th>
+                            <th>position branch</th>
+                            <th>user branch</th>
+                            <th>Membership status</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabledata">
+                       <tr>
+                            <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-status"></div>
+        </div>
+
+    </div>
+
+    <div id="managememberships" class="hidden">
+        <form id="managemembershipformmanage">
+            <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 rounded-sm">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="form-group">
+                        <label for="logoname" class="control-label">Member / Staff</label>
+                        <select name="userid" id="useridm" class="form-controls comp !text-black !bg-white">
+                                <option>Loading...</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="logoname" class="control-label">Membership</label>
+                        <select name="member" id="memberm" class="form-controls comp !text-black !bg-white">
+                                <option>Loading...</option>
+                            </select>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="logoname" class="control-label">Start Date</label>
+                        <input type="date" name="startdate" id="startdate" class="form-control" placeholder="Search by Item Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="logoname" class="control-label">End Date</label>
+                        <input type="date" name="enddate" id="enddate" class="form-control" placeholder="Search by Item Name">
+                    </div> -->
+                    <div class="flex justify-end mt-5">
+                         <button id="submit" type="button" class="btn">
+                            <div class="btnloader" style="display: none;"></div>
+                            <span>Submit</span>
+                        </button>
+                    </div>
+                </div>
+    
+            </div>
+        </form>
+    </div>
+
+
+    
+   </section> 

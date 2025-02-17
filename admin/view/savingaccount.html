@@ -1,0 +1,302 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>Savings Account</span>
+    </p>
+    <!-- here is the tab navigation -->
+    <ul class="flex text-sm font-medium text-center text-gray-500 border-b border-gray-200 cark:border-gray-700 cark:text-gray-400">
+        <!--<li id="rccview" class="me-2 cp viewer" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+        <li  class="me-2 cp viewer optioner !text-blue-600 active" name="viewsavingaccount" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize">view saving account</p>
+        </li> 
+        <li id="" class="me-2 cp updater  optioner" name="savingaccountform" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize ">Manage saving account</p>
+        </li>
+    </ul>
+
+    <form id="savingaccountform" class="hidden">
+        <div class="max-w-5xl mx-auto p-8 bg-white shadow-xl rounded-lg space-y-8">
+            
+            <!-- Personal Information Section -->
+            <div>
+                <h2 class="text-lg font-semibold text-blue-800 mb-6 border-b pb-2">Personal Information</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="form-group">
+                        <label for="accountnumber" class="block text-sm font-medium text-gray-700">Account Number</label>
+                        <input 
+                            type="number" 
+                            readonly 
+                            name="accountnumber" 
+                            id="accountnumber" 
+                            class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-gray-100 cursor-not-allowed"
+                            placeholder="Enter Account Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="userid" class="block text-sm font-medium text-gray-700">Personnel</label>
+                        <select 
+                            name="userid" 
+                            id="userid" 
+                            class="form-controls disa mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 comp">
+                            <option value="">Select Personnel</option>
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="branch" class="block text-sm font-medium text-gray-700">Branch</label>
+                        <select 
+                            name="branch" 
+                            id="branch" 
+                            class="form-controls disa mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 comp">
+                            <option value="">Select a Branch</option>
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Details Section -->
+            <div id="memberdetails" class="hidden">
+                <h2 class="text-lg font-semibold text-blue-800 mb-6 border-b pb-2">Membership Details</h2>
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+                    <div class="form-group">
+                        <label for="savingsproductid" class="block text-sm font-medium text-gray-700">Membership</label>
+                        <select 
+                            name="member" 
+                            id="member" 
+                            class="form-control mt-1 disa block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 comp">
+                            <option value="">--Select a Membership--</option>
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- Account Details Section -->
+            <div id="accountdetails" class="hidden">
+                <h2 class="text-lg font-semibold text-blue-800 mb-6 border-b pb-2">Account Details</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="form-group">
+                        <label for="savingsproductid" class="block text-sm font-medium text-gray-700">Savings Product</label>
+                        <select 
+                            name="savingsproductid" 
+                            id="savingsproductid" 
+                            class="form-controls mt-1 disa block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 comp">
+                            <option value="">Select a Savings Product</option>
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="registrationdate" class="block text-sm font-medium text-gray-700">Registration Date</label>
+                        <input 
+                            type="date" 
+                            name="registrationdate" 
+                            id="registrationdate" 
+                            class="form-control mt-1 disa block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 comp">
+                    </div>
+                    <div class="form-group">
+                        <label for="registrationcharge" class="block text-sm font-medium text-gray-700">Registration Charge</label>
+                        <input 
+                            type="number" 
+                            step="0.01" 
+                            name="registrationcharge" 
+                            id="registrationcharge" 
+                            class="form-control mt-1 block disa w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            placeholder="Enter Registration Charge">
+                    </div>
+                    <div class="form-group md:col-span-3">
+                        <label for="registrationdesc" class="block text-sm font-medium text-gray-700">Registration Description</label>
+                        <input 
+                            type="text" 
+                            name="registrationdesc" 
+                            id="registrationdesc" 
+                            class="form-control mt-1 block disa w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            placeholder="Enter Registration Description">
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Bank Information Section -->
+            <div>
+                <h2 class="text-lg font-semibold text-blue-800 mb-6 border-b pb-2">Bank Information</h2>
+                <div class="space-y-8">
+                    
+                    <!-- Primary Bank Account -->
+                    <div>
+                        <h3 class="text-md font-medium text-gray-700 mb-4">Primary Bank Account</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="form-group">
+                                <label for="bankname1" class="block text-sm font-medium text-gray-700">Bank Name</label>
+                                <input 
+                                    type="text" 
+                                    name="bankname1" 
+                                    id="bankname1" 
+                                    class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="Enter Bank Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="bankaccountname1" class="block text-sm font-medium text-gray-700">Account Name</label>
+                                <input 
+                                    type="text" 
+                                    name="bankaccountname1" 
+                                    id="bankaccountname1" 
+                                    class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="Enter Account Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="bankaccountnumber1" class="block text-sm font-medium text-gray-700">Account Number</label>
+                                <input 
+                                    type="number" 
+                                    name="bankaccountnumber1" 
+                                    id="bankaccountnumber1" 
+                                    class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="Enter Account Number">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Secondary Bank Account (Optional) -->
+                    <div>
+                        <h3 class="text-md font-medium text-gray-700 mb-4">Secondary Bank Account (Optional)</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="form-group">
+                                <label for="bankname2" class="block text-sm font-medium text-gray-700">Bank Name</label>
+                                <input 
+                                    type="text" 
+                                    name="bankname2" 
+                                    id="bankname2" 
+                                    class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="Enter Bank Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="bankaccountname2" class="block text-sm font-medium text-gray-700">Account Name</label>
+                                <input 
+                                    type="text" 
+                                    name="bankaccountname2" 
+                                    id="bankaccountname2" 
+                                    class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="Enter Account Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="bankaccountnumber2" class="block text-sm font-medium text-gray-700">Account Number</label>
+                                <input 
+                                    type="number" 
+                                    name="bankaccountnumber2" 
+                                    id="bankaccountnumber2" 
+                                    class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="Enter Account Number">
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+    
+            <!-- Contact Preferences Section -->
+            <div>
+                <h2 class="text-lg font-semibold text-blue-800 mb-6 border-b pb-2">Contact Preferences</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    
+                    <!-- SMS Toggle -->
+                    <div class="flex items-center">
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" name="sms" id="sms" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-400 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                            <span class="ml-3 font-semibold text-yellow-700">SMS Notification</span>
+                        </label>
+                    </div>
+    
+                    <!-- WhatsApp Toggle -->
+                    <div class="flex items-center">
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" name="whatsapp" id="whatsapp" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-400 peer-focus:ring-green-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500"></div>
+                            <span class="ml-3 font-semibold text-green-700">WhatsApp Notification</span>
+                        </label>
+                    </div>
+    
+                    <!-- Email Toggle -->
+                    <div class="flex items-center">
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" name="email" id="email" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-400 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                            <span class="ml-3 font-semibold text-blue-700">Email Notification</span>
+                        </label>
+                    </div>
+
+                    <!-- Account Officer -->
+                    <div class="form-group">
+                        <label for="accountofficer" class="block text-sm font-medium text-gray-700">Account Officer</label>
+                        <select 
+                            name="accountofficer" 
+                            id="accountofficer" 
+                            class="form-controls mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            <option value="">Select Account Officer</option>
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+    
+                    <div class="flex justify-end col-span-2">
+                        <button 
+                            id="submit" 
+                            type="button" 
+                            class="inline-flex h-[39px] mt-4 items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300">
+                            <div class="btnloader mr-3" style="display: none;">
+                                <!-- Spinner SVG -->
+                                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle 
+                                        class="opacity-25" 
+                                        cx="12" 
+                                        cy="12" 
+                                        r="10" 
+                                        stroke="currentColor" 
+                                        stroke-width="4">
+                                    </circle>
+                                    <path 
+                                        class="opacity-75" 
+                                        fill="currentColor" 
+                                        d="M4 12a8 8 0 018-8v8H4z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span>Submit</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Submit Button -->
+    
+        </div>
+    </form>
+
+    
+    
+     <div class="" id="viewsavingaccount">
+        <div class="table-content ">
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th style="width:10px">s/n</th>
+                        <th>Registration Date</th>
+                        <th>Account Number</th>
+                        <th>Full name</th>
+                        <th>savings product</th>
+                        <th>membership</th>
+                        <th>Branch</th>
+                        <th>Registration Point</th>
+                        <th>Registration Charge</th>
+                        <th>Account Officer</th>
+                        <th>Notification</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    
+   </section> 

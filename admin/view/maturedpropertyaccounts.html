@@ -1,0 +1,58 @@
+<section class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-6">
+        <!-- Header -->
+        <h1 class="mb-6 text-2xl font-bold text-gray-800">Matured Property Accounts</h1>
+
+        <!-- Filter Form -->
+        <!-- <div class="mb-6 rounded bg-white p-6 shadow">
+            <div class="mb-4 grid grid-cols-3 gap-4">
+                <div>
+                    <label for="account" class="mb-2 block text-sm font-medium text-gray-600">Account:</label>
+                    <select id="account" class="w-full rounded border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">--Select Account--</option>
+                        
+                    </select>
+                </div>
+                <div>
+                    <label for="startDate" class="mb-2 block text-sm font-medium text-gray-600">Start Date:</label>
+                    <input id="startDate" type="date" class="w-full rounded border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="endDate" class="mb-2 block text-sm font-medium text-gray-600">End Date:</label>
+                    <input id="endDate" type="date" class="w-full rounded border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <button id="submitFilter" class="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none">Submit</button>
+                <button id="print" class="rounded bg-gray-500 px-4 py-2 text-white hover:bg-gray-600 focus:outline-none">Print</button>
+                <button id="exportExcel" class="rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600 focus:outline-none">Export Excel</button>
+            </div>
+        </div> -->
+
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table class="table-auto">
+              <thead>
+                <tr>
+                  <th style="width: 10px">s/n</th>
+                  <th>Item ID</th>
+                  <th>Account No</th>
+                  <th>Name</th>
+                  <th>Reg. Date</th>
+                  <th>Total Amount</th>
+                  <th>Maturity Status</th>
+                  <th>action</th>
+                </tr>
+              </thead>
+              <tbody id="tabledata">
+                <tr>
+                  <td colspan="100%" class="text-center opacity-70">
+                    Table is empty
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-status"></div>
+    </div>
+</section>

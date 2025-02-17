@@ -1,0 +1,100 @@
+<section class="animate__animated animate__fadeIn">
+    <p class="page-title">
+        <span>OPEN STOCK</span>
+    </p>
+    <form id="updateinventoryform">
+        <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+            <!-- <div class="form-group">
+                <label for="itemname1" class="control-label">Item Name</label>
+                <select type="text" name="itemid" id="itemidsearch" class="form-controls bg-white " placeholder="Search by Item Name">
+                    <option value="">-- Select Item --</option>
+                </select>
+            </div> -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="form-group">
+                    <label for="branch" class="control-label">Branch</label>
+                    <select name="branch" id="branchsearch" class="form-controls bg-white s comp">
+                        <option value="">-- Select Branch --</option>
+                        <!-- Options will be dynamically populated -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="department" class="control-label">Department</label>
+                    <select name="department" id="departmentsearch" class="form-control bg-white s comp">
+                        <option value="">-- Select Department --</option>
+                        <!-- Options will be dynamically populated -->
+                    </select>
+                </div>
+                <div class="flex justify-end mt-5">
+                    <button id="submit" type="button" class="btn h-[40px]">
+                       <div class="btnloader" style="display: none;"></div>
+                       <span>Get Inventories</span>
+                   </button>
+                </div>
+            </div>
+            <div class="flex justify-end mt-5">
+                <!-- <button id="submit" type="button" class="w-full md:w-max rounded-md text-white text-sm capitalize bg-gradient-to-tr from-blue-400 via-blue-500 to-primary-g px-8 py-3 lg:py-2 shadow-md font-medium hover:opacity-75 transition duration-300 ease-in-out flex items-center justify-center gap-3">-->
+                <!--    <div class="btnloader" style="display: none;"></div>-->
+                <!--    <span>Submit</span>-->
+                <!--</button>-->
+            </div>
+        </div>
+    </form>
+        
+</form>  
+    </div>
+    
+     <div >
+        <div class="table-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>s/n</th>
+                        <th>select</th>
+                        <th>Item Name</th>
+                        <th>price</th>
+                        <th>price two</th>
+                        <th>min balance</th>
+                        <th>Qty in stock</th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                                        
+                                        
+                <div class="flex justify-end mt-5">
+                     <button id="selectall" type="button" class="w-full md:w-max text-black text-sm capitalize px-8 py-3 lg:py-2 shadow-md font-medium hover:opacity-75 transition duration-300 ease-in-out flex items-center justify-center gap-3 bg-white">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Select All</span>
+                    </button>
+                </div>
+                <div class="flex justify-end mt-5">
+                     <button id="deselectall" type="button" class="w-full md:w-max text-black text-sm capitalize px-8 py-3 lg:py-2 shadow-md font-medium hover:opacity-75 transition duration-300 ease-in-out flex items-center justify-center gap-3 bg-white">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>De-Select All</span>
+                    </button>
+                </div>
+                <div class="flex justify-end mt-5">
+                     <button id="delete" type="button" class="w-full opacity-[0.5] md:w-max text-white text-sm capitalize px-8 py-3 lg:py-2 from-[red] via-[red] shadow-md font-medium hover:opacity-75 transition duration-300 ease-in-out flex items-center justify-center gap-3 bg-[red]">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Delete Selected</span>
+                    </button>
+                </div>
+                <div class="flex justify-end mt-5">
+                     <button id="save" type="button" class="w-full md:w-max text-white text-sm capitalize from-blue-400 via-blue-500 to-primary-g px-8 py-3 lg:py-2 shadow-md font-medium hover:opacity-75 transition duration-300 ease-in-out flex items-center justify-center gap-3 bg-blue-400">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Save All</span>
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="table-status"></div>
+    </div>
+
+        </section> 

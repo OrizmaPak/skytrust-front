@@ -1,0 +1,263 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+    <span>parent/guardians  Information</span>
+  </p>
+
+  <!-- here is the tab navigation -->
+  <ul
+    class="cark:border-gray-700 cark:text-gray-400 flex flex-wrap border-b border-gray-200 text-center text-sm font-medium text-gray-500"
+  >
+    <li
+      class="cp viewer optioner active me-2 !text-blue-600"
+      name="viewparentguardians"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        View parent/guardians 
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="parentguardiansform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        Manage parent/guardians 
+      </p>
+    </li>
+  </ul>
+
+  <form id="parentguardiansform" class="hidden">
+    <div class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+      <div class="form-group">
+          <label for="userid" class="control-label">User</label>
+          <select name="userid" id="userid" class="form-controls">
+              <option value="">Select User</option>
+              <!-- Options will be dynamically generated -->
+          </select>
+          <datalist id="useridlist"></datalist>
+      </div>
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div class="form-group">
+          <label for="parentonename" class="control-label">Parent One Name</label>
+          <input
+            type="text"
+            name="parentonename"
+            id="parentonename"
+            class="form-control comp"
+            placeholder="Enter Parent One Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="parentoneoccupation" class="control-label">Parent One Occupation</label>
+          <input
+            type="text"
+            name="parentoneoccupation"
+            id="parentoneoccupation"
+            class="form-control comp"
+            placeholder="Enter Parent One Occupation"
+          />
+        </div>
+        <div class="form-group">
+          <label for="parentonestate" class="control-label">Parent One State</label>
+          <input
+            type="text"
+            name="parentonestate"
+            id="parentonestate"
+            class="form-control comp"
+            placeholder="Enter Parent One State"
+          />
+        </div>
+        <div class="form-group">
+          <label for="parentoneofficeaddress" class="control-label">Parent One Office Address</label>
+          <input
+            type="text"
+            name="parentoneofficeaddress"
+            id="parentoneofficeaddress"
+            class="form-control comp"
+            placeholder="Enter Parent One Office Address"
+          />
+        </div>
+        <div class="form-group">
+          <label for="parentonephone" class="control-label">Parent One Phone</label>
+          <input
+            type="text"
+            name="parentonephone"
+            id="parentonephone"
+            class="form-control comp"
+            placeholder="Enter Parent One Phone"
+          />
+        </div>
+        <div class="form-group">
+          <label for="parenttwoname" class="control-label">Parent Two Name</label>
+          <input
+            type="text"
+            name="parenttwoname"
+            id="parenttwoname"
+            class="form-control comp"
+            placeholder="Enter Parent Two Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="parenttwooccupation" class="control-label">Parent Two Occupation</label>
+          <input
+            type="text"
+            name="parenttwooccupation"
+            id="parenttwooccupation"
+            class="form-control comp"
+            placeholder="Enter Parent Two Occupation"
+          />
+        </div>
+        <div class="form-group">
+          <label for="parenttwostate" class="control-label">Parent Two State</label>
+          <input
+            type="text"
+            name="parenttwostate"
+            id="parenttwostate"
+            class="form-control comp"
+            placeholder="Enter Parent Two State"
+          />
+        </div>
+        <div class="form-group">
+          <label for="parenttwoofficeaddress" class="control-label">Parent Two Office Address</label>
+          <input
+            type="text"
+            name="parenttwoofficeaddress"
+            id="parenttwoofficeaddress"
+            class="form-control comp"
+            placeholder="Enter Parent Two Office Address"
+          />
+        </div>
+        <div class="form-group">
+          <label for="parenttwophone" class="control-label">Parent Two Phone</label>
+          <input
+            type="text"
+            name="parenttwophone"
+            id="parenttwophone"
+            class="form-control comp"
+            placeholder="Enter Parent Two Phone"
+          />
+        </div>
+        <div class="form-group">
+          <label for="parentoneimage" class="control-label">Parent One Image</label>
+          <div title="Click to update Parent One Image" class="cp relative">
+            <img
+              id="parentOneImagePreview"
+              alt="Parent One Image Preview"
+              class="h-[200px] w-[200px] rounded-full border-none shadow-xl shadow-[#CCE6FF]"
+              onclick="document.getElementById('parentoneimage').click()"
+              src="./images/defaultcompany.png"
+            />
+            <span
+              class="absolute bottom-0 right-[50px] cursor-pointer rounded-full bg-white p-1 shadow-xl"
+              onclick="document.getElementById('parentoneimage').click()"
+            >
+              <span class="material-symbols-outlined h-6 w-6 text-gray-500">edit</span>
+            </span>
+          </div>
+          <input
+            type="file"
+            name="parentoneimage"
+            id="parentoneimage"
+            class="form-control hidden"
+            accept="image/*"
+            onchange="updateImage(event, 'parentOneImagePreview')"
+          />
+        </div>
+        <div class="form-group">
+          <label for="parenttwoimage" class="control-label">Parent Two Image</label>
+          <div title="Click to update Parent Two Image" class="cp relative">
+            <img
+              id="parentTwoImagePreview"
+              alt="Parent Two Image Preview"
+              class="h-[200px] w-[200px] rounded-full border-none shadow-xl shadow-[#CCE6FF]"
+              onclick="document.getElementById('parenttwoimage').click()"
+              src="./images/defaultcompany.png"
+            />
+            <span
+              class="absolute bottom-0 right-[50px] cursor-pointer rounded-full bg-white p-1 shadow-xl"
+              onclick="document.getElementById('parenttwoimage').click()"
+            >
+              <span class="material-symbols-outlined h-6 w-6 text-gray-500">edit</span>
+            </span>
+          </div>
+          <input
+            type="file"
+            name="parenttwoimage"
+            id="parenttwoimage"
+            class="form-control hidden"
+            accept="image/*"
+            onchange="updateImage(event, 'parentTwoImagePreview')"
+          />
+        </div>
+        <div class="form-group">
+          <label for="homeaddress" class="control-label">Home Address</label>
+          <input
+            type="text"
+            name="homeaddress"
+            id="homeaddress"
+            class="form-control comp"
+            placeholder="Enter Home Address"
+          />
+        </div>
+      </div>
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div></div>
+        <div></div>
+        <div class="mt-5 flex justify-end">
+          <button id="submit" type="button" class="btn">
+            <div class="btnloader" style="display: none"></div>
+            <span>Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="" id="viewparentguardians">
+    <form id="viewparentguardiansForm" class="">
+      <div class="flex flex-col space-y-3 rounded-sm bg-blue-100 p-5 xl:p-10">
+          <div class="grid grid-cols-1 gap-6 lg:grid-cols-4">
+              <div class="form-group col-span-3">
+                  <label for="queryparentguardians" class="control-label">Search</label>
+                  <input type="text" name="q" id="q" class="form-control comp bg-white" placeholder="Search by anything">
+              </div>
+              <div class="mt-5 flex justify-end">
+                  <button id="querySubmit" type="button" class="btn">
+                      <div class="btnloader" style="display: none;"></div>
+                      <span>Search</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </form>
+    <div class="table-content">
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>Parent Name</th>
+            <th>Parent Phone</th>
+            <th>Parent Occupation</th>
+            <th>Parent State</th>
+            <th>Personnel Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+</section>

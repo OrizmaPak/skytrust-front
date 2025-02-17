@@ -1,0 +1,93 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+    <span>payment</span>
+  </p>
+
+  <!-- here is the tab navigation -->
+  <ul
+    class="cark:border-gray-700 cark:text-gray-400 flex flex-wrap border-b border-gray-200 text-center text-sm font-medium text-gray-500"
+  >
+    <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="paymentform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        Manage payment
+      </p>
+    </li>
+  </ul>
+
+  <form id="paymentform">
+    <div class="grid grid-cols-1 gap-4 rounded-sm bg-white/90 p-6 lg:grid-cols-2 xl:p-10">
+      <!-- Account Number (Full Row) -->
+      <div class="form-group lg:col-span-2">
+        <label for="accountnumber" class="control-label">Account Number</label>
+        <input
+          type="text"
+          name="accountnumber"
+          id="accountnumber"
+          class="form-control comp w-full rounded border border-gray-300 px-3 py-2"
+          placeholder="Enter Account Number"
+          required
+        />
+      </div>
+  
+      <!-- Transaction Type -->
+      <div class="form-group">
+        <label for="ttype" class="control-label">Transaction Type</label>
+        <select
+          name="ttype"
+          id="ttype"
+          class="form-control comp w-full rounded border border-gray-300 px-3 py-2"
+        >
+          <option value="">Select Transaction Type</option>
+          <option value="CREDIT">CREDIT</option>
+          <option value="DEBIT">DEBIT</option>
+        </select>
+      </div>
+  
+      <!-- Amount (Side by Side with Transaction Description) -->
+      <div id="credit-field" class="form-group">
+        <label for="amount" class="control-label">Amount</label>
+        <input
+          type="number"
+          name="amount"
+          id="amount"
+          class="form-control comp w-full rounded border border-gray-300 px-3 py-2"
+          placeholder="Enter Amount"
+        />
+      </div>
+  
+      <!-- Transaction Description -->
+      <div class="form-group">
+        <label for="transactiondesc" class="control-label">Transaction Description</label>
+        <textarea
+          name="transactiondesc"
+          id="transactiondesc"
+          class="form-control w-full rounded border border-gray-300 px-3 py-2"
+          placeholder="Enter Transaction Description"
+        ></textarea>
+      </div>
+  
+      <!-- Hidden Fields -->
+      <input type="hidden" name="currency" id="currency" value="NGN" />
+      <input type="hidden" name="tfrom" id="tfrom" value="BANK" />
+      <input type="hidden" name="tax" id="tax" value="false" />
+  
+      <!-- Submit Button -->
+      <div class="mt-6 flex justify-end lg:col-span-2">
+        <button id="submit" type="button" class="btn rounded bg-blue-500 px-6 py-2 text-white hover:bg-blue-600">
+          <div class="btnloader hidden"></div>
+          <span>Submit</span>
+        </button>
+      </div>
+    </div>
+  </form>
+  
+</section>

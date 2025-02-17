@@ -1,0 +1,92 @@
+<section class="bg-gray-100 font-sans" id="viewpropertyaccountform">
+    <div class="container mx-auto p-6">
+        <!-- Header -->
+        <h1 class="mb-6 text-2xl font-bold text-gray-800">View Property Account</h1>
+
+        <!-- Filter Form -->
+        <form id="filterForm" class="rounded-sm bg-blue-100 p-5 xl:p-10">
+            <div class="flex flex-col space-y-5">
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Customer -->
+                    <div class="form-group">
+                        <label for="customer" class="control-label">Customer</label>
+                        <select id="customer" class="form-controls comp bg-white">
+                            <option value="">--Select Customer--</option>
+                            <!-- Add customer options dynamically -->
+                        </select>
+                    </div>
+
+                    <!-- Account Number -->
+                    <div class="form-group">
+                        <label for="accountNumber" class="control-label">Account Number</label>
+                        <input id="accountNumber" type="text" class="form-controls comp bg-white" />
+                    </div>
+
+                    <!-- Account Officer -->
+                    <div class="form-group">
+                        <label for="accountOfficer" class="control-label">Account Officer</label>
+                        <input id="accountOfficer" type="text" class="form-controls comp bg-white" />
+                    </div>
+
+                    <!-- Registration Point -->
+                    <div class="form-group">
+                        <label for="registrationPoint" class="control-label">Registration Point</label>
+                        <select id="registrationPoint" class="form-controls comp bg-white">
+                            <option value="">--Select Registration Point--</option>
+                            <!-- Add registration point options dynamically -->
+                        </select>
+                    </div>
+
+                    <!-- Start Date -->
+                    <div class="form-group">
+                        <label for="startDate" class="control-label">Start Date</label>
+                        <input id="startDate" type="date" class="form-controls comp bg-white" />
+                    </div>
+
+                    <!-- End Date -->
+                    <div class="form-group">
+                        <label for="endDate" class="control-label">End Date</label>
+                        <input id="endDate" type="date" class="form-controls comp bg-white" />
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-end">
+                    <button id="submitFilter" type="button" class="btn">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- View Table -->
+        <div class="table-content">
+            <table class="w-full table-auto border-collapse border border-gray-300">
+              <thead>
+                <tr class="bg-gray-200 text-left">
+                  <th style="width: 5%">S/N</th>
+                  <th>Account Number</th>
+                  <th>Full Name</th>
+                  <th>Product</th>
+                  <th>Total Owed (₦)</th>
+                  <th>No. of Repayments</th>
+                  <th>Repayment Frequency</th>
+                  <th>Registration Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="tabledata">
+                <tr>
+                  <td colspan="100%" class="text-center opacity-70">
+                    Table is empty
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-status"></div> 
+    </div>
+</section>
+  

@@ -1,0 +1,419 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>organization settings</span>
+    </p>
+    <!-- here is the tab navigation -->
+    <ul class="cark:border-gray-700 cark:text-gray-400 flex border-b border-gray-200 text-center text-sm font-medium text-gray-500">
+        <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+        <li  class="cp optioner active me-2 !text-blue-600" name="basicsettings" onclick="runoptioner(this)">
+            <p class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600">Basic Settings</p>
+        </li> 
+        <li id="" class="cp optioner me-2" name="accountprefix" onclick="runoptioner(this)">
+            <p class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600">Account Prefix</p>
+        </li>
+        <li id="" class="cp optioner me-2" name="defaultaccounts" onclick="runoptioner(this)">
+            <p class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600">Default Accounts</p>
+        </li>
+    </ul>
+
+    <form id="organizationsettingsform" class="">
+        <div id="basicsettings" class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+            <div class="grid grid-cols-1 gap-6 lg:grid-cols-4" >
+                <input type="hidden" name="id" id="id" value="1" class="form-control comp">
+                <div class="form-group">
+                    <div class="mt-3">
+                    </div>
+                    <label for="logo" class="control-label hidden">Logo</label>
+                    <div title="Click to update company logo" class="cp relative">
+                        <img id="logoFrame" alt="Logo Preview" class="h-[200px] w-[200px] rounded-full border-none shadow-xl shadow-[#CCE6FF]" onclick="document.getElementById('logo').click()" src="./images/defaultcompany.png">
+                        <span class="absolute bottom-0 right-[50px] cursor-pointer rounded-full bg-white p-1 shadow-xl" onclick="document.getElementById('logo').click()">
+                            <span class="material-symbols-outlined h-6 w-6 text-gray-500">edit</span>
+                        </span>
+                    </div>
+                    <input type="file" name="logo" id="logo" class="form-control hidden" accept="image/*" onchange="updateImage(event)">
+                </div>
+                <div class="form-group justify-end">
+                    <label for="company_name" class="control-label">Company Name</label>
+                    <input type="text" name="company_name" id="company_name" class="form-control comp" placeholder="Enter Company Name">
+                </div>
+                <div class="form-group justify-end">
+                    <label for="sms_sender_id" class="control-label">SMS Sender ID</label>
+                    <input type="text" name="sms_sender_id" id="sms_sender_id" class="form-control comp" placeholder="Enter SMS Sender ID">
+                </div>
+                <div class="form-group justify-end">
+                    <label for="phone" class="control-label">Phone</label>
+                    <input type="text" name="phone" id="phone" class="form-control comp" placeholder="Enter Phone">
+                </div>
+                <div class="form-group">
+                    <label for="mobile" class="control-label">Mobile</label>
+                    <input type="text" name="mobile" id="mobile" class="form-control comp" placeholder="Enter Mobile">
+                </div>
+                <div class="form-group">
+                    <label for="email" class="control-label">Email</label>
+                    <input type="email" name="email" id="email" class="form-control comp" placeholder="Enter Email">
+                </div>
+                <div class="form-group">
+                    <label for="address" class="control-label">Address</label>
+                    <input type="text" name="address" id="address" class="form-control comp" placeholder="Enter Address">
+                </div>
+                <div class="form-group">
+                    <label for="sms_charge" class="control-label">SMS Charge</label>
+                    <input type="number" name="sms_charge" id="sms_charge" class="form-control comp" placeholder="Enter SMS Charge">
+                </div>
+                <div class="form-group">
+                    <label for="maintenace_charge" class="control-label">Maintenance Charge</label>
+                    <input type="number" name="maintenace_charge" id="maintenace_charge" class="form-control comp" placeholder="Enter Maintenance Charge">
+                </div>
+                <div class="form-group">
+                    <label for="vat_rate_percent" class="control-label">VAT Rate (%)</label>
+                    <input type="number" name="vat_rate_percent" id="vat_rate_percent" class="form-control comp" placeholder="Enter VAT Rate" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="addition_savings_registration_charge" class="control-label">Additional Savings Registration Charge</label>
+                    <input type="number" name="addition_savings_registration_charge" id="addition_savings_registration_charge" class="form-control comp" placeholder="Enter Additional Savings Registration Charge">
+                </div>
+                <div class="form-group">
+                    <label for="addition_loan_registration_charge" class="control-label">Additional Loan Registration Charge</label>
+                    <input type="number" name="addition_loan_registration_charge" id="addition_loan_registration_charge" class="form-control comp" placeholder="Enter Additional Savings Registration Charge">
+                </div>
+                <div class="form-group">
+                    <label for="allow_back_dated_transaction" class="control-label">Allow Back Dated Transaction</label>
+                    <select name="allow_back_dated_transaction" id="allow_back_dated_transaction" class="form-control comp">
+                        <option value="NO">NO</option>
+                        <option value="YES">YES</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="allow_future_transaction" class="control-label">Allow Future Transaction</label>
+                    <select name="allow_future_transaction" id="allow_future_transaction" class="form-control comp">
+                        <option value="NO">NO</option>
+                        <option value="YES">YES</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="personal_account_overdrawn" class="control-label">Personal Account Overdrawn</label>
+                    <select name="personal_account_overdrawn" id="personal_account_overdrawn" class="form-control comp">
+                        <option value="true">YES</option>
+                        <option value="false">NO</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="set_accounting_year_end" class="control-label">Set Accounting Year End</label>
+                    <input type="date" name="set_accounting_year_end" id="set_accounting_year_end" class="form-control comp">
+                </div>
+                <div class="form-group">
+                    <label for="schedule_maintenace_charge" class="control-label">Schedule Maintenance Charge</label>
+                    <select name="schedule_maintenace_charge" id="schedule_maintenace_charge" class="form-control comp">
+                        <option value="NO">NO</option>
+                        <option value="YES">YES</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sms_charge_members" class="control-label">SMS Charge Members</label>
+                    <select name="sms_charge_members" id="sms_charge_members" class="form-control comp">
+                        <option value="YES">YES</option>
+                        <option value="NO">NO</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="minimum_credit_amount" class="control-label">Minimum Credit Amount</label>
+                    <input type="number" name="minimum_credit_amount" id="minimum_credit_amount" class="form-control comp" value="2000">
+                </div>
+                <div class="form-group">
+                    <label for="minimum_credit_amount_penalty" class="control-label">Minimum Credit Amount Penalty</label>
+                    <input type="number" name="minimum_credit_amount_penalty" id="minimum_credit_amount_penalty" class="form-control comp" value="200">
+                </div>
+            </div>
+        </div>
+        <div id="accountprefix" class="flex hidden flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+            <div class="grid grid-cols-1 gap-6 lg:grid-cols-4" >
+                <div class="form-group">
+                    <label for="personal_transaction_prefix" class="control-label">Personal Transaction Prefix</label>
+                    <input type="text" name="personal_transaction_prefix" id="personal_transaction_prefix" class="form-control comp" placeholder="Enter Personal Transaction Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="loan_transaction_prefix" class="control-label">Loan Transaction Prefix</label>
+                    <input type="text" name="loan_transaction_prefix" id="loan_transaction_prefix" class="form-control comp" placeholder="Enter Loan Transaction Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="savings_transaction_prefix" class="control-label">Savings Transaction Prefix</label>
+                    <input type="text" name="savings_transaction_prefix" id="savings_transaction_prefix" class="form-control comp" placeholder="Enter Savings Transaction Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="property_transaction_prefix" class="control-label">Property Transaction Prefix</label>
+                    <input type="text" name="property_transaction_prefix" id="property_transaction_prefix" class="form-control comp" placeholder="Enter Property Transaction Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="rotary_transaction_prefix" class="control-label">rotary Transaction Prefix</label>
+                    <input type="text" name="rotary_transaction_prefix" id="rotary_transaction_prefix" class="form-control comp" placeholder="Enter Rotary Transaction Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="gl_transaction_prefix" class="control-label">GL Transaction Prefix</label>
+                    <input type="text" name="gl_transaction_prefix" id="gl_transaction_prefix" class="form-control comp" placeholder="Enter GL Transaction Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="savings_account_prefix" class="control-label">Savings Account Prefix</label>
+                    <input type="text" name="savings_account_prefix" id="savings_account_prefix" class="form-control comp" placeholder="Enter Savings Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="personal_account_prefix" class="control-label">Personal Account Prefix</label>
+                    <input type="text" name="personal_account_prefix" id="personal_account_prefix" class="form-control comp" value="Sky Trust">
+                </div>
+                <div class="form-group">
+                    <label for="loan_account_prefix" class="control-label">Loan Account Prefix</label>
+                    <input type="text" name="loan_account_prefix" id="loan_account_prefix" class="form-control comp" placeholder="Enter Loan Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="property_account_prefix" class="control-label">Property Account Prefix</label>
+                    <input type="text" name="property_account_prefix" id="property_account_prefix" class="form-control comp" placeholder="Enter Property Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="rotary_account_prefix" class="control-label">rotary Account Prefix</label>
+                    <input type="text" name="rotary_account_prefix" id="rotary_account_prefix" class="form-control comp" placeholder="Enter Rotary Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="asset_account_prefix" class="control-label">Asset Account Prefix</label>
+                    <input type="text" name="asset_account_prefix" id="asset_account_prefix" class="form-control comp" placeholder="Enter Asset Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="cash_account_prefix" class="control-label">Cash Account Prefix</label>
+                    <input type="text" name="cash_account_prefix" id="cash_account_prefix" class="form-control comp" placeholder="Enter Cash Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="current_assets_account_prefix" class="control-label">Current Assets Account Prefix</label>
+                    <input type="text" name="current_assets_account_prefix" id="current_assets_account_prefix" class="form-control comp" placeholder="Enter Current Assets Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="expense_account_prefix" class="control-label">Expense Account Prefix</label>
+                    <input type="text" name="expense_account_prefix" id="expense_account_prefix" class="form-control comp" placeholder="Enter Expense Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="income_account_prefix" class="control-label">Income Account Prefix</label>
+                    <input type="text" name="income_account_prefix" id="income_account_prefix" class="form-control comp" placeholder="Enter Income Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="equity_retained_earnings_account_prefix" class="control-label">Equity Retained Earnings Account Prefix</label>
+                    <input type="text" name="equity_retained_earnings_account_prefix" id="equity_retained_earnings_account_prefix" class="form-control comp" placeholder="Enter Equity Retained Earnings Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="equity_does_not_close_prefix" class="control-label">Equity Does Not Close Prefix</label>
+                    <input type="text" name="equity_does_not_close_prefix" id="equity_does_not_close_prefix" class="form-control comp" placeholder="Enter Equity Does Not Close Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="inventory_account_prefix" class="control-label">Inventory Account Prefix</label>
+                    <input type="text" name="inventory_account_prefix" id="inventory_account_prefix" class="form-control comp" placeholder="Enter Inventory Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="other_asset_account_prefix" class="control-label">Other Asset Account Prefix</label>
+                    <input type="text" name="other_asset_account_prefix" id="other_asset_account_prefix" class="form-control comp" placeholder="Enter Other Asset Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="cost_of_sales_account_prefix" class="control-label">Cost of Sales Account Prefix</label>
+                    <input type="text" name="cost_of_sales_account_prefix" id="cost_of_sales_account_prefix" class="form-control comp" placeholder="Enter Cost of Sales Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="fixed_asset_account_prefix" class="control-label">Fixed Asset Account Prefix</label>
+                    <input type="text" name="fixed_asset_account_prefix" id="fixed_asset_account_prefix" class="form-control comp" placeholder="Enter Fixed Asset Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="other_current_asset_account_prefix" class="control-label">Other Current Asset Account Prefix</label>
+                    <input type="text" name="other_current_asset_account_prefix" id="other_current_asset_account_prefix" class="form-control comp" placeholder="Enter Other Current Asset Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="accounts_payable_account_prefix" class="control-label">Accounts Payable Account Prefix</label>
+                    <input type="text" name="accounts_payable_account_prefix" id="accounts_payable_account_prefix" class="form-control comp" placeholder="Enter Accounts Payable Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="accounts_receivable_account_prefix" class="control-label">Accounts Receivable Account Prefix</label>
+                    <input type="text" name="accounts_receivable_account_prefix" id="accounts_receivable_account_prefix" class="form-control comp" placeholder="Enter Accounts Receivable Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="accumulated_depreciation_account_prefix" class="control-label">Accumulated Depreciation Account Prefix</label>
+                    <input type="text" name="accumulated_depreciation_account_prefix" id="accumulated_depreciation_account_prefix" class="form-control comp" placeholder="Enter Accumulated Depreciation Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="liabilities_account_prefix" class="control-label">Liabilities Account Prefix</label>
+                    <input type="text" name="liabilities_account_prefix" id="liabilities_account_prefix" class="form-control comp" placeholder="Enter Liabilities Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="other_current_liabilities_account_prefix" class="control-label">Other Current Liabilities Account Prefix</label>
+                    <input type="text" name="other_current_liabilities_account_prefix" id="other_current_liabilities_account_prefix" class="form-control comp" placeholder="Enter Other Current Liabilities Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="long_term_liabilities_account_prefix" class="control-label">Long Term Liabilities Account Prefix</label>
+                    <input type="text" name="long_term_liabilities_account_prefix" id="long_term_liabilities_account_prefix" class="form-control comp" placeholder="Enter Long Term Liabilities Account Prefix">
+                </div>
+                <div class="form-group">
+                    <label for="equity_account_prefix" class="control-label">Equity Account Prefix</label>
+                    <input type="text" name="equity_account_prefix" id="equity_account_prefix" class="form-control comp" placeholder="Enter Equity Account Prefix">
+                </div>
+            </div>
+        </div>
+        <div id="defaultaccounts" class="flex hidden flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+            <div class="grid grid-cols-1 gap-6 lg:grid-cols-4" >
+                <div class="form-group">
+                    <label for="default_sms_charge_account" class="control-label">Default SMS Charge Account</label>
+                    <select name="default_sms_charge_account" id="default_sms_charge_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default SMS Charge Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_asset_account" class="control-label">Default Asset Account</label>
+                    <select name="default_asset_account" id="default_asset_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Asset Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_cash_account" class="control-label">Default Cash Account</label>
+                    <select name="default_cash_account" id="default_cash_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Cash Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_property_account" class="control-label">Default Property Account</label>
+                    <select name="default_property_account" id="default_property_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Property Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_rotary_account" class="control-label">Default rotary Account</label>
+                    <select name="default_rotary_account" id="default_rotary_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Rotary Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_current_assets_account" class="control-label">Default Current Assets Account</label>
+                    <select name="default_current_assets_account" id="default_current_assets_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Current Assets Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_expense_account" class="control-label">Default Expense Account</label>
+                    <select name="default_expense_account" id="default_expense_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Expense Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_income_account" class="control-label">Default Income Account</label>
+                    <select name="default_income_account" id="default_income_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Income Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_equity_retained_earnings_account" class="control-label">Default Equity Retained Earnings Account</label>
+                    <select name="default_equity_retained_earnings_account" id="default_equity_retained_earnings_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Equity Retained Earnings Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_equity_does_not_close_account" class="control-label">Default Equity Does Not Close Account</label>
+                    <select name="default_equity_does_not_close_account" id="default_equity_does_not_close_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Equity Does Not Close Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_inventory_account" class="control-label">Default Inventory Account</label>
+                    <select name="default_inventory_account" id="default_inventory_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Inventory Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_other_asset_account" class="control-label">Default Other Asset Account</label>
+                    <select name="default_other_asset_account" id="default_other_asset_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Other Asset Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_cost_of_sales_account" class="control-label">Default Cost of Sales Account</label>
+                    <select name="default_cost_of_sales_account" id="default_cost_of_sales_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Cost of Sales Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_fixed_asset_account" class="control-label">Default Fixed Asset Account</label>
+                    <select name="default_fixed_asset_account" id="default_fixed_asset_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Fixed Asset Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_other_current_asset_account" class="control-label">Default Other Current Asset Account</label>
+                    <select name="default_other_current_asset_account" id="default_other_current_asset_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Other Current Asset Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_accounts_payable_account" class="control-label">Default Accounts Payable Account</label>
+                    <select name="default_accounts_payable_account" id="default_accounts_payable_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Accounts Payable Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_accounts_receivable_account" class="control-label">Default Accounts Receivable Account</label>
+                    <select name="default_accounts_receivable_account" id="default_accounts_receivable_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Accounts Receivable Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_accumulated_depreciation_account" class="control-label">Default Accumulated Depreciation Account</label>
+                    <select name="default_accumulated_depreciation_account" id="default_accumulated_depreciation_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Accumulated Depreciation Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_liabilities_account" class="control-label">Default Liabilities Account</label>
+                    <select name="default_liabilities_account" id="default_liabilities_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Liabilities Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_other_current_liabilities_account" class="control-label">Default Other Current Liabilities Account</label>
+                    <select name="default_other_current_liabilities_account" id="default_other_current_liabilities_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Other Current Liabilities Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_long_term_liabilities_account" class="control-label">Default Long Term Liabilities Account</label>
+                    <select name="default_long_term_liabilities_account" id="default_long_term_liabilities_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Long Term Liabilities Account --</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="default_equity_account" class="control-label">Default Equity Account</label>
+                    <select name="default_equity_account" id="default_equity_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Equity Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_tax_account" class="control-label">Default Tax Account</label>
+                    <select name="default_tax_account" id="default_tax_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Tax Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_excess_account" class="control-label">Default Excess Account</label>
+                    <select name="default_excess_account" id="default_excess_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Excess Account --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="default_allocation_account" class="control-label">Default Allocation Account</label>
+                    <select name="default_allocation_account" id="default_allocation_account" class="form-control comp defaultacc">
+                        <option value="">-- Select Default Allocation Account --</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <div></div>
+            <div></div>
+            <div class="mt-5 flex justify-end">
+                <button id="submit" type="button" class="btn">
+                    <div class="btnloader" style="display: none;"></div>
+                    <span>Submit</span>
+                </button>
+            </div>
+        </div>
+    </form>
+    
+   </section> 

@@ -1,0 +1,61 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>reject transaction date</span>
+    </p>
+    <!-- here is the tab navigation -->
+    <ul class="flex text-sm font-medium text-center text-gray-500 border-b border-gray-200 cark:border-gray-700 cark:text-gray-400">
+        <!--<li id="rccview" class="me-2 cp viewer" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+        <li  class="me-2 cp viewer optioner !text-blue-600 active" name="viewrejecttransactiondate" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize">View reject transaction date</p>
+        </li> 
+        <li id="" class="me-2 cp updater  optioner" name="rejecttransactiondateform" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize ">Manage rejecttransaction date</p>
+        </li>
+    </ul>
+
+    <form id="rejecttransactiondateform" class="hidden">
+        <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 rounded-sm">
+            <div class="form-group">
+                <label for="rejectiondate" class="control-label">Rejection Date</label>
+                <input type="date" name="rejectiondate" id="rejectiondate" class="form-control comp" placeholder="Enter Rejection Date">
+            </div>
+            <div class="form-group">
+                <label for="reason" class="control-label">Reason</label>
+                <textarea name="reason" id="reason" class="form-control comp" placeholder="Enter Reason"></textarea>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div></div>
+                <div></div>
+                <div class="flex justify-end mt-5">
+                    <button id="submit" type="button" class="btn">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>   
+    
+     <div class="" id="viewrejecttransactiondate">
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th style="width:10px">s/n</th>
+                        <th>rejecttransaction date</th>
+                        <th>reason</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    
+   </section> 

@@ -1,0 +1,377 @@
+<section class="relative animate__animated animate__fadeIn">
+  <p class="page-title">
+    <span>loan collateral</span>
+  </p>
+  <!-- here is the tab navigation -->
+  <ul
+    class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 cark:border-gray-700 cark:text-gray-400"
+  >
+    <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+    <li
+      class="cp viewer optioner active me-2 !text-blue-600"
+      name="viewloancollateral"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block p-4 capitalize rounded-t-lg hover:bg-gray-50 hover:text-gray-600"
+      >
+        view loan collateral
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="loancollateralform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block p-4 capitalize rounded-t-lg hover:bg-gray-50 hover:text-gray-600"
+      >
+        Manage loan collateral
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="viewloancollateraldraft"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block p-4 capitalize rounded-t-lg hover:bg-gray-50 hover:text-gray-600"
+      >
+        loan collateral Drafts
+      </p>
+    </li>
+  </ul>
+
+  <form id="loancollateralform" class="hidden">
+    <div
+      class="flex flex-col p-6 space-y-8 rounded-lg shadow-lg bg-white/90 xl:p-12"
+    >
+      <!-- Account Details Segment -->
+      <div class="space-y-4">
+        <h3 class="pb-2 text-xl font-semibold text-gray-800 border-b">
+          Account Details
+        </h3>
+        <div class="form-group">
+          <label
+            for="accountnumber"
+            class="text-sm font-medium text-gray-700 control-label"
+            >Account Number</label
+          >
+          <select
+            name="accountnumber"
+            id="accountnumber"
+            class="border-gray-300 rounded-md form-control comp defaultacc focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="">-- Select Account Number --</option>
+            <!-- Options will be populated dynamically -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Document Information Segment -->
+      <div class="space-y-4">
+        <h3 class="pb-2 text-xl font-semibold text-gray-800 border-b">
+          Document Information
+        </h3>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div class="form-group">
+            <label
+              for="documenttitle"
+              class="text-sm font-medium text-gray-700 control-label"
+              >Document Title</label
+            >
+            <input
+              type="text"
+              name="documenttitle"
+              id="documenttitle"
+              class="border-gray-300 rounded-md form-control comp focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter Document Title"
+            />
+          </div>
+          <div class="form-group">
+            <label
+              for="documentnumber"
+              class="text-sm font-medium text-gray-700 control-label"
+              >Document Number</label
+            >
+            <input
+              type="number"
+              name="documentnumber"
+              id="documentnumber"
+              class="border-gray-300 rounded-md form-control comp focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter Document Number"
+            />
+          </div>
+          <div class="form-group">
+            <label
+              for="description"
+              class="text-sm font-medium text-gray-700 control-label"
+              >Description</label
+            >
+            <input
+              type="text"
+              name="description"
+              id="description"
+              class="border-gray-300 rounded-md form-control comp focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter Description"
+            />
+          </div>
+          <div class="form-group">
+            <label
+              for="docposition"
+              class="text-sm font-medium text-gray-700 control-label"
+              >Doc Position</label
+            >
+            <select
+              name="docposition"
+              id="docposition"
+              class="border-gray-300 rounded-md form-control comp focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="ISSUED">-- Select Document Position --</option>
+              <option value="ISSUED">ISSUED</option>
+              <option value="WITHHELD">WITHHELD</option>
+              <option value="INVALID">INVALID</option>
+              <option value="RETURNED">RETURNED</option>
+              <option value="DESTROYED">DESTROYED</option>
+              <option value="LOST">LOST</option>
+              <option value="DAMAGED">DAMAGED</option>
+              <option value="RECOVERED">RECOVERED</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label
+              for="documentexpiration"
+              class="text-sm font-medium text-gray-700 control-label"
+              >Document Expiration</label
+            >
+            <input
+              type="datetime-local"
+              name="documentexpiration"
+              id="documentexpiration"
+              class="border-gray-300 rounded-md form-control focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Document Expiration"
+            />
+          </div>
+          <div class="form-group">
+            <label
+              for="worth"
+              class="text-sm font-medium text-gray-700 control-label"
+              >Worth</label
+            >
+            <input
+              type="number"
+              name="worth"
+              id="worth"
+              class="border-gray-300 rounded-md form-control comp focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Worth"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- File Uploads Segment -->
+      <div class="space-y-4">
+        <h3 class="pb-2 text-xl font-semibold text-gray-800 border-b">
+          File Uploads
+        </h3>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <input type="hidden" name="itemid" id="itemid" class="form-control" />
+          <div class="form-group">
+            <label
+              for="file1"
+              class="text-sm font-medium text-gray-700 control-label"
+              >File 1</label
+            >
+            <div id="imagePreview"></div>
+            <input
+              type="file"
+              name="file1"
+              id="file1"
+              class="border-gray-300 rounded-md form-control focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onchange="previewImage('file1')"
+            />
+          </div>
+          <div class="form-group">
+            <label
+              for="file2"
+              class="text-sm font-medium text-gray-700 control-label"
+              >File 2</label
+            >
+            <div id="imagePreviewtwo"></div>
+            <input
+              type="file"
+              name="file2"
+              id="file2"
+              class="border-gray-300 rounded-md form-control focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onchange="previewImage('file2', 'imagePreviewtwo')"
+            />
+          </div>
+          <div class="form-group">
+            <label
+              for="file3"
+              class="text-sm font-medium text-gray-700 control-label"
+              >File 3</label
+            >
+            <div id="imagePreviewthree"></div>
+            <input
+              type="file"
+              name="file3"
+              id="file3"
+              class="border-gray-300 rounded-md form-control focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onchange="previewImage('file3', 'imagePreviewthree')"
+            />
+          </div>
+          <div class="form-group">
+            <label
+              for="file4"
+              class="text-sm font-medium text-gray-700 control-label"
+              >File 4</label
+            >
+            <div id="imagePreviewfour"></div>
+            <input
+              type="file"
+              name="file4"
+              id="file4"
+              class="border-gray-300 rounded-md form-control focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onchange="previewImage('file4', 'imagePreviewfour')"
+            />
+          </div>
+          <div class="form-group">
+            <label
+              for="file5"
+              class="text-sm font-medium text-gray-700 control-label"
+              >File 5</label
+            >
+            <div id="imagePreviewfive"></div>
+            <input
+              type="file"
+              name="file5"
+              id="file5"
+              class="border-gray-300 rounded-md form-control focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onchange="previewImage('file5', 'imagePreviewfive')"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="flex justify-end form-group">
+        <button
+          id="submit"
+          type="button"
+          class="px-6 py-2 text-white bg-blue-500 rounded-md shadow-sm btn hover:bg-blue-600"
+        >
+          <div class="hidden btnloader"></div>
+          <span>Submit</span>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="" id="viewloancollateral">
+    <form id="loancollateralfilterform" class="">
+      <div class="flex flex-col p-5 space-y-3 bg-blue-100 rounded-sm xl:p-10">
+        
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-5">
+          <div class="col-span-4 form-group">
+            <label for="q" class="control-label">Enter any data in mind</label>
+            <input
+              type="text"
+              name="q"
+              id="q"
+              class="bg-white form-control comp"
+              placeholder="Enter Query"
+            />
+          </div>
+          <div class="flex justify-end mt-5">
+            <button id="filter" type="button" class="btn">
+              <div class="btnloader" style="display: none"></div>
+              <span>Search</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="table-content">
+      <!--<p class="font-semibold text-md">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>account number</th>
+            <th>document title</th>
+            <th>document number</th>
+            <th>description</th>
+            <th>doc position</th>
+            <th>worth</th>
+            <th>status</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+
+  <div class="hidden" id="viewloancollateraldraft">
+    <form id="loancollateralfilterform" class="">
+      <div class="flex flex-col p-5 space-y-3 bg-blue-100 rounded-sm xl:p-10">
+        
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-5">
+          <div class="col-span-4 form-group">
+            <label for="q" class="control-label">Enter any data in mind</label>
+            <input
+              type="text"
+              name="q"
+              id="q"
+              class="bg-white form-control comp"
+              placeholder="Enter Query"
+            />
+          </div>
+          <div class="flex justify-end mt-5">
+            <button id="filter2" type="button" class="btn">
+              <div class="btnloader" style="display: none"></div>
+              <span>Search</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="table-content">
+      <!--<p class="font-semibold text-md">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>account number</th>
+            <th>document title</th>
+            <th>document number</th>
+            <th>description</th>
+            <th>doc position</th>
+            <th>worth</th>
+            <th>status</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata2">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+
+</section>

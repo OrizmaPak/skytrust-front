@@ -1,0 +1,152 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+    <span>termination/resignation Information</span>
+  </p>
+
+  <!-- here is the tab navigation -->
+  <ul
+    class="cark:border-gray-700 cark:text-gray-400 flex flex-wrap border-b border-gray-200 text-center text-sm font-medium text-gray-500"
+  >
+    <li
+      class="cp viewer optioner active me-2 !text-blue-600"
+      name="viewterminationresignation"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        View termination/resignation
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="terminationresignationform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        Manage promotion/demotion
+      </p>
+    </li>
+  </ul>
+
+  <form id="terminationresignationform" class="hidden">
+    <div class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+      <div class="form-group">
+          <label for="userid" class="control-label">User</label>
+          <select name="userid" id="userid" class="form-controls">
+              <option value="">Select User</option>
+              <!-- Options will be dynamically generated -->
+          </select>
+          <datalist id="useridlist"></datalist>
+      </div>
+
+      <div class="form-group">
+        <label for="title" class="control-label">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          class="form-control comp"
+          placeholder="Enter Title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="type" class="control-label">Type</label>
+        <select
+          name="type"
+          id="type"
+          class="form-control comp"
+        >
+          <option value="">-- Select Type --</option>
+          <option value="TERMINATION">Termination</option>
+          <option value="RESIGNATION">Resignation</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div class="mt-3"></div>
+        <label for="image" class="control-label hidden">Image</label>
+        <div title="Click to update company image" class="cp relative">
+          <img
+            id="imageFrame"
+            alt="image Preview"
+            class="h-[200px] w-[200px] rounded-full border-none shadow-xl shadow-[#CCE6FF]"
+            onclick="document.getElementById('image').click()"
+            src="./images/defaultcompany.png"
+          />
+          <span
+            class="absolute bottom-0 right-[50px] cursor-pointer rounded-full bg-white p-1 shadow-xl"
+            onclick="document.getElementById('image').click()"
+          >
+            <span class="material-symbols-outlined h-6 w-6 text-gray-500"
+              >edit</span
+            >
+          </span>
+        </div>
+        <input
+          type="file"
+          name="image"
+          id="image"
+          class="form-control hidden"
+          accept="image/*"
+          onchange="updateImage(event)"
+        />
+      </div>
+    
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div></div>
+        <div></div>
+        <div class="mt-5 flex justify-end">
+          <button id="submit" type="button" class="btn">
+            <div class="btnloader" style="display: none"></div>
+            <span>Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="" id="viewterminationresignation">
+    <form id="viewterminationresignationForm" class="">
+      <div class="flex flex-col space-y-3 rounded-sm bg-blue-100 p-5 xl:p-10">
+          <div class="grid grid-cols-1 gap-6 lg:grid-cols-4">
+              <div class="form-group col-span-3">
+                  <label for="queryterminationresignation" class="control-label">Search</label>
+                  <input type="text" name="q" id="q" class="form-control comp bg-white" placeholder="Search by anything">
+              </div>
+              <div class="mt-5 flex justify-end">
+                  <button id="querySubmit" type="button" class="btn">
+                      <div class="btnloader" style="display: none;"></div>
+                      <span>Search</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </form>
+    <div class="table-content">
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>Personnel Name</th>
+            <th>Title</th>
+            <th>Image</th>
+            <th>Type</th>
+            <th>Date Added</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+</section>

@@ -1,0 +1,587 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>savingsproduct</span>
+    </p>
+    <!-- here is the tab navigation -->
+    <ul class="flex text-sm font-medium text-center text-gray-500 border-b border-gray-200 cark:border-gray-700 cark:text-gray-400">
+        <!--<li id="rccview" class="me-2 cp viewer" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+        <li  class="me-2 cp viewer optioner !text-blue-600 active" name="viewsavingsproduct" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize">view savingsproduct</p>
+        </li> 
+        <li id="" class="me-2 cp updater  optioner" name="savingsproductform" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize ">Manage savingsproduct</p>
+        </li>
+    </ul>
+
+        
+    <form id="savingsproductform" class="hidden">
+        <div class="flex flex-col space-y-6 bg-white/90 p-5 xl:p-10 rounded-sm">
+    
+            <!-- General Information Section -->
+            <section class="section">
+                <h2 class="text-lg font-semibold mb-4">General Information</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Product Name -->
+                    <div class="form-group">
+                        <label for="productname" class="control-label">Product Name</label>
+                        <input type="text" name="productname" id="productname" class="form-control comps" placeholder="Enter Product Name" >
+                    </div>
+                    <!-- Currency -->
+                    <div class="form-group">
+                        <label for="currency" class="control-label">Currency</label>        
+                        <select name="currency" id="currency" class="form-control comps" >
+                            <option value="">-- Select Currency --</option>
+                            <option value="NGN">NGN</option>
+                            <option value="USD">USD</option>
+                            <!-- Add more currencies as needed -->
+                        </select>
+                    </div>
+                    <!-- Status -->
+                    <div class="form-group">
+                        <label for="status" class="control-label">Status</label>
+                        <select name="status" id="status" class="form-control comps">
+                            <option value="ACTIVE">Active</option>
+                            <option value="INACTIVE">Inactive</option>
+                            <!-- Add more statuses if applicable -->
+                        </select>
+                    </div>
+                    <!-- Membership -->
+                    <div class="form-group">
+                        <label for="membership" class="control-label">Membership</label>
+                        <select name="membership" id="membership" multiple class="form-controls comps">
+                            <option value="">Loading...</option>
+                            <!-- Add more membership options as needed -->
+                        </select>
+                    </div>
+                    <!-- Minimum Account Balance -->
+                    <div class="form-group">
+                        <label for="minimumaccountbalance" class="control-label">Minimum Account Balance</label>
+                        <input type="number" name="minimumaccountbalance" id="minimumaccountbalance" class="form-control comps" placeholder="Enter Minimum Balance">
+                    </div>
+                    <!-- Activation Fee -->
+                    <div class="form-group">
+                        <label for="activationfee" class="control-label">Activation Fee</label>
+                        <input type="number" name="activationfee" id="activationfee" class="form-control comps" placeholder="Enter Activation Fee">
+                    </div>
+                    <!-- Maximum Balance -->
+                    <div class="form-group">
+                        <label for="maxbalance" class="control-label">Maximum Balance</label>
+                        <input type="number" name="maxbalance" id="maxbalance" class="form-control comps" placeholder="Enter Maximum Balance">
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label class="control-label">Charge Here</label>
+                            <label class="bg-[#1d68e305] p-2 pl-1 mb-[1px] relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" name="chargehere" id="chargehere" class="sr-only peer accesscontroller">
+                                <div class="scale-[0.8] w-11 h-6 bg-gray-400 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                <span class="ms-2 text-xs font-medium text-blue-900">Charge Here</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-[orange]">Add Member upon Registration</label>
+                            <select name="addmember" id="addmember" class="form-control comps">
+                                <option value="YES">Yes</option>
+                                <option value="NO">No</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <!-- Charge Here Toggle -->
+                </div>
+            </section>
+    
+            <!-- Deposit Settings Section -->
+            <section class="section">
+                <h2 class="text-lg font-semibold mb-4">Deposit Settings</h2>
+                <div class="form-group">
+                    <label class="control-label">Allow Deposit</label>
+                    <label class="bg-[#1d68e305] p-2 pl-1 mb-[1px] relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" name="allowdeposit" id="allowdeposit" class="sr-only peer accesscontroller" >
+                        <div class="scale-[0.8] w-11 h-6 bg-gray-400 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                        <span class="ms-2 text-xs font-medium text-blue-900">Allow Deposit</span>
+                    </label>
+                </div>
+    
+                    <!-- Deposit Settings Container -->
+                    <div id="deposit-settings-container" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Deposit Charge -->
+                        <div class="form-group">
+                            <label for="depositcharge" class="control-label">Deposit Charge</label>
+                            <input type="number" name="depositcharge" id="depositcharge" class="form-control comps" placeholder="Enter Deposit Charge">
+                        </div>
+        
+                        <!-- Deposit Charge Type -->
+                        <div class="form-group">
+                            <label for="depositechargetype" class="control-label">Deposit Charge Type</label>
+                            <select name="depositechargetype" id="depositechargetype" class="form-control comps">
+                                <option value="PERCENTAGE">Percentage</option>
+                                <option value="AMOUNT">Amount</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Compulsory Deposit Settings Subsection -->
+                        <div class="col-span-1 lg:col-span-2">
+                            <div class="mt-4 p-4 bg-gray-50 rounded-md">
+                                <h3 class="text-md font-semibold mb-3">Compulsory Deposit Settings</h3>
+                                <div class="form-group">
+                                    <label class="control-label">Compulsory Deposit</label>
+                                    <label class="bg-[#1d68e305] p-2 pl-1 mb-[1px] relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" name="compulsorydeposit" id="compulsorydeposit" class="sr-only peer accesscontroller" >
+                                        <div class="scale-[0.8] w-11 h-6 bg-gray-400 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                        <span class="ms-2 text-xs font-medium text-blue-900">Compulsory Deposit</span>
+                                    </label>
+                                </div>
+                                    <!-- Compulsory Deposit Settings -->
+                                    <div id="compulsory-deposit-settings" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                        <!-- Frequency Amount -->
+                                        <div class="form-group">
+                                            <label for="compulsorydepositfrequencyamount" class="control-label">Frequency Amount</label>
+                                            <input type="number" name="compulsorydepositfrequencyamount" id="compulsorydepositfrequencyamount" class="form-control comps" placeholder="Enter Frequency Amount">
+                                        </div>
+            
+                                        <!-- Deposit Type -->
+                                        <div class="form-group">
+                                            <label for="compulsorydeposittype" class="control-label">Deposit Type</label>
+                                            <select name="compulsorydeposittype" id="compulsorydeposittype" class="form-control comps">
+                                                <option value="FIXED">Fixed</option>
+                                                <option value="MINIMUM">Minimum</option>
+                                            </select>
+                                        </div>
+            
+                                        <!-- Deposit Spillover Toggle -->
+                                        <div class="form-group">
+                                            <label class="control-label">Deposit Spillover</label>
+                                            <label class="bg-[#1d68e305] p-2 pl-1 mb-[1px] relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox" name="compulsorydepositspillover" id="compulsorydepositspillover" class="sr-only peer accesscontroller" >
+                                                <div class="scale-[0.8] w-11 h-6 bg-gray-400 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                                <span class="ms-2 text-xs font-medium text-blue-900">Deposit Spillover</span>
+                                            </label>
+                                        </div>
+            
+                                        <!-- Deposit Deficit Toggle -->
+                                        <div class="form-group">
+                                            <label class="control-label">Deposit Deficit</label>
+                                            <label class="bg-[#1d68e305] p-2 pl-1 mb-[1px] relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox" name="compulsorydepositdeficit" id="compulsorydepositdeficit" class="sr-only peer accesscontroller" >
+                                                <div class="scale-[0.8] w-11 h-6 bg-gray-400 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                                <span class="ms-2 text-xs font-medium text-blue-900">Deposit Deficit</span>
+                                            </label>
+                                        </div>
+            
+                                        <!-- Deposit Frequency -->
+                                        <div class="form-group relative">
+                                            <label for="compulsorydepositfrequency" class="control-label">Deposit Frequency</label>
+                                            <input type="text" readonly name="compulsorydepositfrequency" id="compulsorydepositfrequency" onclick="handledateai('compulsorydepositfrequency', 'Please describe how you would want the interval to be in your language and trust us we will get it right!!')" class="form-control comps cursor-pointer" placeholder="Enter Frequency">
+                                            <span class="material-symbols-outlined absolute right-2 top-2 transform -translate-y-1/2 cursor-pointer text-gray-500" onclick="codemeaning('compulsorydepositfrequency')" style="font-size: 18px;">
+                                                visibility
+                                            </span>
+                                        </div>
+                                            
+                                        <!-- Frequency Skip -->
+                                        <!-- <div class="form-group">
+                                            <label for="compulsorydepositfrequencyskip" class="control-label">Frequency Skip</label>
+                                            <input type="number" name="compulsorydepositfrequencyskip" id="compulsorydepositfrequencyskip" class="form-control comps" placeholder="Enter Frequency Skip">
+                                        </div> -->
+            
+                                        <!-- Deposit Penalty -->
+                                        <div class="form-group">
+                                            <label for="compulsorydepositpenalty" class="control-label">Deposit Penalty</label>
+                                            <input type="number" name="compulsorydepositpenalty" id="compulsorydepositpenalty" class="form-control comps" placeholder="Enter Deposit Penalty">
+                                        </div>
+            
+                                        <!-- Penalty Type -->
+                                        <div class="form-group">
+                                            <label for="compulsorydepositpenaltytype" class="control-label">Penalty Type</label>
+                                            <select name="compulsorydepositpenaltytype" id="compulsorydepositpenaltytype" class="form-control comps">
+                                                <option value="AMOUNT">Amount</option>
+                                                <option value="PERCENTAGE">Percentage</option>
+                                            </select>
+                                        </div>
+            
+                                        <!-- Penalty From -->
+                                        <div class="form-group">
+                                            <label for="compulsorydepositpenaltyfrom" class="control-label">Penalty From</label>
+                                            <select name="compulsorydepositpenaltyfrom" id="compulsorydepositpenaltyfrom" class="form-control productlist  comps">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="Savings Product 2">Savings Product 2</option>
+                                                <!-- Add more options as needed -->
+                                            </select>
+                                        </div>
+            
+                                        <!-- Penalty Fallback From -->
+                                        <div class="form-group">
+                                            <label for="compulsorydepositpenaltyfallbackfrom" class="control-label">Penalty Fallback From</label>
+                                            <select name="compulsorydepositpenaltyfallbackfrom" id="compulsorydepositpenaltyfallbackfrom" class="form-control productlist  comps">
+                                                <option value="">-- Select Fallback Product --</option>
+                                                <option value="Savings Product 3">Savings Product 3</option>
+                                                <!-- Add more options as needed -->
+                                            </select>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+            </section>
+    
+            <!-- Withdrawal Settings Section -->
+            <section class="section">
+                <h2 class="text-lg font-semibold mb-4">Withdrawal Settings</h2>
+                <div class="form-group">
+                    <label class="control-label">Allow Withdrawal</label>
+                    <label class="bg-[#1d68e305] p-2 pl-1 mb-[1px] relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" name="allowwithdrawal" id="allowwithdrawal" class="sr-only peer accesscontroller" >
+                        <div class="scale-[0.8] w-11 h-6 bg-gray-400 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                        <span class="ms-2 text-xs font-medium text-blue-900">Allow Withdrawal</span>
+                    </label>
+                </div>
+                    <div id="withdrawal-settings-container" class="grid grid-cols-1 lg:grid-cols-2 gap-6 hidden">
+        
+                        <!-- Withdrawal Limit -->
+                    <div class="form-group">
+                        <label for="withdrawallimit" class="control-label">Withdrawal Limit</label>
+                        <input type="number" name="withdrawallimit" id="withdrawallimit" class="form-control comps" placeholder="Enter Withdrawal Limit">
+                    </div>
+    
+                    <!-- Withdrawal Limit Type -->
+                    <div class="form-group">
+                        <label for="withdrawallimittype" class="control-label">Withdrawal Limit Type</label>
+                        <select name="withdrawallimittype" id="withdrawallimittype" class="form-control comps">
+                            <option value="PERCENTAGE">Percentage</option>
+                            <option value="AMOUNT">Amount</option>
+                        </select>
+                    </div>
+    
+                    <!-- Withdrawal Charges -->
+                    <div class="form-group">
+                        <label for="withdrawalcharges" class="control-label">Withdrawal Charges</label>
+                        <input type="number" name="withdrawalcharges" id="withdrawalcharges" class="form-control comps" placeholder="Enter Withdrawal Charges">
+                    </div>
+    
+                    <!-- Withdrawal Charge Type -->
+                    <div class="form-group">
+                        <label for="withdrawalchargetype" class="control-label">Withdrawal Charge Type</label>
+                        <select name="withdrawalchargetype" id="withdrawalchargetype" class="form-control comps">
+                            <option value="PERCENTAGE">Percentage</option>
+                            <option value="AMOUNT">Amount</option>
+                        </select>
+                    </div>
+    
+                    <!-- Withdrawal Charge Interval -->
+                    <div class="form-group relative">
+                        <label for="withdrawalchargeinterval" class="control-label">Withdrawal Charge Interval</label>
+                        <input type="text" readonly name="withdrawalchargeinterval" id="withdrawalchargeinterval" onclick="handledateai('withdrawalchargeinterval', 'Please describe how you would want the interval to be in your language and trust us we will get it right!!')" class="form-control comps cursor-pointer" placeholder="Enter Interval (e.g., D1 for Daily)">
+                        <span class="material-symbols-outlined absolute right-2 top-2 transform -translate-y-1/2 cursor-pointer text-gray-500" onclick="codemeaning('withdrawalchargeinterval')" style="font-size: 18px;">
+                            visibility
+                        </span>
+                    </div>
+    
+                    <!-- Allow Overdrawn Toggle -->
+                    <div class="form-group">
+                        <label class="control-label">Allow Overdrawn</label>
+                        <label class="bg-[#1d68e305] p-2 pl-1 mb-[1px] relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" name="allowoverdrawn" id="allowoverdrawn" class="sr-only peer accesscontroller" >
+                            <div class="scale-[0.8] w-11 h-6 bg-gray-400 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                            <span class="ms-2 text-xs font-medium text-blue-900">Allow Overdrawn</span>
+                        </label>
+                    </div>
+    
+                    <!-- Withdrawal Control Toggle -->
+                    <div class="form-group">
+                        <label class="control-label">Withdrawal Control</label>
+                        <label class="bg-[#1d68e305] p-2 pl-1 mb-[1px] relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" name="withdrawalcontrol" id="withdrawalcontrol" class="sr-only peer accesscontroller" onchange="toggleWithdrawalControlSettings()">
+                            <div class="scale-[0.8] w-11 h-6 bg-gray-400 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                            <span class="ms-2 text-xs font-medium text-blue-900">Withdrawal Control</span>
+                        </label>
+                    </div>
+
+                    <div id="withdrawal-control-settings" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-6 col-span-2">
+                        <!-- Control Window -->
+                        <div class="form-group relative">
+                            <label for="withdrawalcontrolwindow" class="control-label">Control Window</label>
+                            <input type="text" readonly name="withdrawalcontrolwindow" id="withdrawalcontrolwindow" onclick="handledateai('withdrawalcontrolwindow', 'Please describe how you would want the control window to be in your language and trust us we will get it right!!')" class="form-control comps cursor-pointer" placeholder="Enter Control Window (e.g., D1 for Daily)">
+                            <span class="material-symbols-outlined absolute right-2 top-2 transform -translate-y-1/2 cursor-pointer text-gray-500" onclick="codemeaning('withdrawalcontrolwindow')" style="font-size: 18px;">
+                                visibility
+                            </span>
+                        </div>
+
+                        <!-- Control Amount -->
+                        <div class="form-group">
+                            <label for="withdrawalcontrolamount" class="control-label">Control Amount</label>
+                            <input type="number" name="withdrawalcontrolamount" id="withdrawalcontrolamount" class="form-control comps" placeholder="Enter Control Amount" value="0">
+                        </div>
+
+                        <!-- Control Type -->
+                        <div class="form-group">
+                            <label for="withdrawalcontroltype" class="control-label">Control Type</label>
+                            <select name="withdrawalcontroltype" id="withdrawalcontroltype" class="form-control comps">
+                                <option value="PERCENTAGE">Percentage</option>
+                                <option value="AMOUNT">Amount</option>
+                            </select>
+                        </div>
+
+                        <!-- Control Size -->
+                        <div class="form-group">
+                            <label for="withdrawalcontrolsize" class="control-label">Control Size</label>
+                            <select name="withdrawalcontrolsize" id="withdrawalcontrolsize" class="form-control comps">
+                                <option value="FIXED">Fixed</option>
+                                <option value="MINIMUM">Minimum</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+    
+            <!-- Eligibility Criteria Section -->
+            <section class="section">
+                <h2 class="text-lg font-semibold mb-4">Eligibility Criteria</h2>
+                <div class="form-group">
+                    <label for="eligibilityproductcategory" class="control-label">Product Category</label>
+                    <select name="eligibilityproductcategory" id="eligibilityproductcategory" class="form-control comps" onchange="toggleEligibilityFields(this.value)">
+                        <option value="">-- Select Category --</option>
+                        <option value="LOAN">Loan</option>
+                        <option value="SAVINGS">Savings</option>
+                        <!-- Add more categories if applicable -->
+                    </select>
+                </div>
+                    <!-- Product Category -->
+                    <div id="eligibility-fields" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-6 mt-3">
+                        <!-- Eligibility Product -->
+                        <div class="form-group">
+                            <label for="eligibilityproduct" class="control-label">Eligibility Product</label>
+                            <select name="eligibilityproduct" id="eligibilityproduct" class="form-control comps">
+                                <option value="0">-- Select Eligibility Product --</option>
+                                <!-- Dynamically populate based on categories -->
+                            </select>
+                        </div>
+                        <!-- Account Age -->
+                        <div class="form-group">
+                            <label for="eligibilityaccountage" class="control-label">Account Age (Months)</label>
+                            <input type="number" name="eligibilityaccountage" id="eligibilityaccountage" class="form-control comps" placeholder="Enter Account Age in Months">
+                        </div>
+                        <!-- Minimum Balance -->
+                        <div class="form-group">
+                            <label for="eligibilityminbalance" class="control-label">Minimum Balance</label>
+                            <input type="number" name="eligibilityminbalance" id="eligibilityminbalance" class="form-control comps" placeholder="Enter Minimum Balance">
+                        </div>
+                        <!-- Minimum Credit -->
+                        <div class="form-group">
+                            <label for="eligibilitymincredit" class="control-label">Minimum Credit</label>
+                            <input type="number" name="eligibilitymincredit" id="eligibilitymincredit" class="form-control comps" placeholder="Enter Minimum Credit">
+                        </div>
+                        <!-- Minimum Debit -->
+                        <div class="form-group">
+                            <label for="eligibilitymindebit" class="control-label">Minimum Debit</label>
+                            <input type="number" name="eligibilitymindebit" id="eligibilitymindebit" class="form-control comps" placeholder="Enter Minimum Debit">
+                        </div>
+                        <!-- Minimum Loan -->
+                        <div class="form-group">
+                            <label for="eligibilityminimumloan" class="control-label">Minimum Loan</label>
+                            <input type="number" name="eligibilityminimumloan" id="eligibilityminimumloan" class="form-control comps" placeholder="Enter Minimum Loan">
+                        </div>
+                        <!-- Minimum Closed Accounts -->
+                        <div class="form-group">
+                            <label for="eligibilityminimumclosedaccounts" class="control-label">Minimum Closed Accounts</label>
+                            <input type="number" name="eligibilityminimumclosedaccounts" id="eligibilityminimumclosedaccounts" class="form-control comps" placeholder="Enter Minimum Closed Accounts">
+                        </div>
+                    </div>
+            </section>
+            <script>
+                
+            </script>
+    
+            <!-- Additional Settings Section -->
+            <section class="section">
+                <h2 class="text-lg font-semibold mb-4">Additional Settings</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Maximum User Accounts -->
+                    <div class="form-group">
+                        <label for="useraccount" class="control-label">Maximum User Accounts</label>
+                        <input type="number" name="useraccount" id="useraccount" class="form-control comps" placeholder="Enter Maximum Accounts" value="1">
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!-- Additional Settings Section -->
+            <section class="section">
+                <h2 class="text-lg font-semibold mb-4">Interest Settings</h2>
+                <div class="grid grid-cols-1 gap-6">
+                    <!-- Maximum User Accounts -->
+                    <div class="flex justify-start mb-4">
+                        <button title="Add Interest" onclick="addInterest(event)" class="material-symbols-outlined rounded-full bg-green-500 h-8 w-8 text-white drop-shadow-md text-xs" style="font-size: 18px;">add</button>
+                    </div>
+
+                    <div id="interestcontainer">
+                        <!-- <div class="table-content mb-3 shadow-md">
+                            <div class="flex flex-col space-y-3 bg-green-50 p-5 xl:p-10 rounded-sm">
+                                <div class="flex justify-between">
+                                    <h3 class="text-md text-[green] font-semibold mb-3">INTEREST</h3>
+                                    <button title="Delete" onclick="this.parentElement.parentElement.remove()" class="material-symbols-outlined rounded-full bg-red-500 h-8 w-8 text-white drop-shadow-md text-xs" style="font-size: 18px;">delete</button>
+                                </div>
+                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                    <div class="form-group">
+                                        <label for="interestName" class="control-label">Interest Name</label>
+                                        <input type="text" id="interestName" class="form-control bg-white comps" placeholder="Enter Interest Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="interestMethod" class="control-label">Interest Method</label>
+                                        <input type="text" id="interestMethod" class="form-control bg-white comps" placeholder="Enter Interest Method">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="eligibilityAccountAge" class="control-label">Eligibility Account Age (months)</label>
+                                        <input type="number" id="eligibilityAccountAge" class="form-control bg-white comps" placeholder="Enter Account Age">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="eligibilityBalance" class="control-label">Eligibility Balance</label>
+                                        <input type="number" id="eligibilityBalance" class="form-control bg-white comps" placeholder="Enter Eligibility Balance">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="interestAmount" class="control-label">Interest Amount</label>
+                                        <input type="number" id="interestAmount" class="form-control bg-white comps" placeholder="Enter Interest Amount">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="interestType" class="control-label">Interest Type</label>
+                                        <input type="text" id="interestType" class="form-control bg-white comps" placeholder="Enter Interest Type">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="interestFrequency" class="control-label">Interest Frequency</label>
+                                        <input type="text" id="interestFrequency" class="form-control bg-white comps" placeholder="Enter Interest Frequency">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Go for Approval</label>
+                                        <label class="bg-[#1d68e305] p-2 pl-1 mb-[1px] relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" id="goForApproval" class="sr-only peer accesscontroller">
+                                            <div class="scale-[0.8] w-11 h-6 bg-gray-400 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                            <span class="ms-2 text-xs font-medium text-blue-900">Toggle Go for Approval</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="status" class="control-label">Status</label>
+                                        <select id="status" class="form-control bg-white comps">
+                                            <option value="active">Active</option>
+                                            <option value="inactive">Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="text-lg font-semibold mb-4">Deduction Settings</h2>
+                <div class="grid grid-cols-1 gap-6">
+                    <!-- Activate Deduction -->
+                    <div class="flex justify-start mb-4">
+                        <button title="Add Deduction" onclick="addDeduction(event)" class="material-symbols-outlined rounded-full bg-green-500 h-8 w-8 text-white drop-shadow-md text-xs" style="font-size: 18px;">add</button>
+                    </div>  
+
+                    <div id="deductioncontainer">
+                        
+                        <!-- <div class="table-content mb-3 shadow-md">
+                            <div class="flex flex-col space-y-3 bg-red-50 p-5 xl:p-10 rounded-sm">
+                                <div class="flex justify-between">
+                                    <h3 class="text-md text-[red] font-semibold mb-3">DEDUCTION</h3>
+                                    <button title="Delete" onclick="this.parentElement.parentElement.remove()" class="material-symbols-outlined rounded-full bg-red-500 h-8 w-8 text-white drop-shadow-md text-xs" style="font-size: 18px;">delete</button>
+                                </div>
+                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                    <div class="form-group">
+                                        <label for="deductionName" class="control-label">Deduction Name</label>
+                                        <input type="text" id="deductionName" class="form-control bg-white comps" placeholder="Enter Deduction Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deductionMethod" class="control-label">Deduction Method</label>
+                                        <input type="text" id="deductionMethod" class="form-control bg-white comps" placeholder="Enter Deduction Method">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="eligibilityAccountAgeDeduction" class="control-label">Eligibility Account Age (months)</label>
+                                        <input type="number" id="eligibilityAccountAgeDeduction" class="form-control bg-white comps" placeholder="Enter Account Age">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="eligibilityBalanceDeduction" class="control-label">Eligibility Balance</label>
+                                        <input type="number" id="eligibilityBalanceDeduction" class="form-control bg-white comps" placeholder="Enter Eligibility Balance">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deductionAmount" class="control-label">Deduction Amount</label>
+                                        <input type="number" id="deductionAmount" class="form-control bg-white comps" placeholder="Enter Deduction Amount">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deductionType" class="control-label">Deduction Type</label>
+                                        <input type="text" id="deductionType" class="form-control bg-white comps" placeholder="Enter Deduction Type">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deductionFrequency" class="control-label">Deduction Frequency</label>
+                                        <input type="text" id="deductionFrequency" class="form-control bg-white comps" placeholder="Enter Deduction Frequency">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Go for Approval</label>
+                                        <label class="bg-[#1d68e305] p-2 pl-1 mb-[1px] relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" id="goForApprovalDeduction" class="sr-only peer accesscontroller">
+                                            <div class="scale-[0.8] w-11 h-6 bg-gray-400 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                            <span class="ms-2 text-xs font-medium text-blue-900">Toggle Go for Approval</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="statusDeduction" class="control-label">Status</label>
+                                        <select id="statusDeduction" class="form-control bg-white comps">
+                                            <option value="active">Active</option>
+                                            <option value="inactive">Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Submit Button -->
+            <div class="flex justify-end mt-5">
+                <button id="submit" type="button" class="btn">
+                    <div class="btnloader" style="display: none;"></div>
+                    <span>Submit</span>
+                </button>
+            </div>
+        </div>
+    </form>
+    
+    
+    
+    
+    
+    
+     <div class="" id="viewsavingsproduct">
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th style="width:10px">s/n</th>
+                        <th>product name</th>
+                        <th>memberships</th>
+                        <th>currency</th>
+                        <th>allow deposit</th>
+                        <th>allow withdrawal</th>
+                        <th>min acct balance</th>
+                        <th>number of interest</th>
+                        <th>number of interest</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    
+   </section> 

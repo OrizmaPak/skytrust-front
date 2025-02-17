@@ -1,0 +1,194 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+    <span>branch</span>
+  </p>
+
+  <!-- Include Material Icons -->
+  
+
+  <div class="flex justify-end w-full gap-4">
+    <button
+      onclick="printContent('Branch Management', null, 'viewbranch', true)"
+      type="button"
+      class="w-10 h-10 rounded-full border-2 border-gray-300 text-gray-600 hover:bg-gray-100 hover:border-gray-400 transition duration-300 ease-in-out flex items-center justify-center"
+    >
+      <div class="btnloader" style="display: none"></div>
+      <span class="material-icons">print</span>
+    </button>
+
+    <button
+      onclick="exportToPDF('viewbranch')"
+      type="button"
+      class="w-10 h-10 rounded-full border-2 border-gray-300 text-gray-600 hover:bg-gray-100 hover:border-gray-400 transition duration-300 ease-in-out flex items-center justify-center"
+    >
+      <div class="btnloader" style="display: none"></div>
+      <span class="material-icons">picture_as_pdf</span>
+    </button>
+
+    <button
+      onclick="exportToExcel('viewbranch', 'branch_list')"
+      type="button"
+      class="w-10 h-10 rounded-full border-2 border-gray-300 text-gray-600 hover:bg-gray-100 hover:border-gray-400 transition duration-300 ease-in-out flex items-center justify-center"
+    >
+      <div class="btnloader" style="display: none"></div>
+      <span class="material-icons">file_download</span>
+    </button>
+  </div>
+
+  <!-- here is the tab navigation -->
+  <ul
+    class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 cark:border-gray-700 cark:text-gray-400"
+  >
+    <!--<li id="rccview" class="me-2 cp viewer" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+    <li
+      class="me-2 cp viewer optioner !text-blue-600 active"
+      name="viewbranch"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50"
+      >
+        View Branches
+      </p>
+    </li>
+    <li
+      id=""
+      class="me-2 cp updater optioner"
+      name="branchform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50"
+      >
+        Manage Branches
+      </p>
+    </li>
+  </ul>
+
+  <form id="branchform" class="hidden">
+    <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 rounded-sm">
+      <div class="form-group">
+        <label for="branch" class="control-label">Branch Name</label>
+        <input
+          type="text"
+          name="branch"
+          id="branch"
+          class="form-control comp"
+          placeholder="Enter Branch Name"
+        />
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="form-group">
+          <label for="country" class="control-label">Country</label>
+          <input
+            type="text"
+            name="country"
+            id="country"
+            class="form-control comp1"
+            placeholder="Enter Country"
+          />
+        </div>
+        <div class="form-group">
+          <label for="state" class="control-label">State</label>
+          <input
+            type="text"
+            name="state"
+            id="state"
+            class="form-control comp1"
+            placeholder="Enter State"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address" class="control-label">Address</label>
+        <input
+          type="text"
+          name="address"
+          id="address"
+          class="form-control comp"
+          placeholder="Enter Address"
+        />
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="form-group">
+          <label for="lga" class="control-label">LGA</label>
+          <input
+            type="text"
+            name="lga"
+            id="lga"
+            class="form-control comp"
+            placeholder="Enter LGA"
+          />
+        </div>
+        <div class="form-group">
+          <label for="userid" class="control-label">Supervisor</label>
+          <select
+            name="userid"
+            id="userid"
+            class="form-controls"
+            placeholder="Enter User ID"
+          ></select>
+          <datalist id="useridlist"></datalist>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div></div>
+        <div></div>
+        <div class="flex justify-end mt-5">
+          <button id="submit" type="button" class="btn">
+            <div class="btnloader" style="display: none"></div>
+            <span>Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="" id="viewbranch">
+
+    <form id="branchfilterform" class="">
+        <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+            <div class="form-group">
+                <label for="q" class="control-label">Enter any data in mind</label>
+                <input type="text" name="q" id="q" class="form-control comp bg-white" placeholder="Enter Query">
+            </div>
+           
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div></div>
+                <div></div>
+                <div class="flex justify-end mt-5">
+                    <button id="filter" type="button" class="btn">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Search</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form> 
+    <div class="table-content">
+      <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>branch</th>
+            <th>supervisor</th>
+            <th>country</th>
+            <th>state</th>
+            <th>lga</th>
+            <th>address</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+</section>

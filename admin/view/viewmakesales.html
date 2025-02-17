@@ -1,0 +1,304 @@
+<section class="animate__animated animate__fadeIn">
+    <p class="page-title"> 
+        <span>view sales</span>
+    </p>
+
+    <ul
+    class="cark:border-gray-700 cark:text-gray-400 flex flex-wrap border-b border-gray-200 text-center text-sm font-medium text-gray-500"
+  >
+    <li
+      id=""
+      class="cp updater optioner active me-2 !text-blue-600"
+      name="viewmakesalesday"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        View sales (per day)
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="viewmakesalesmonth"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        View sales (per month)
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="viewmakesalesyear"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        View sales (per year)
+      </p>
+    </li> <!-- -->
+  </ul>
+    
+    <div id="viewmakesalesday" class="">
+        <form id="viewmakesalesdayform">
+              <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      <div class="form-group">
+                          <label for="viewmakesalesdaydate" class="control-label">Enter Date</label>
+                          <input type="date" name="date" id="viewmakesalesdaydate" class="form-control comp bg-white" placeholder="Select Date">
+                      </div>
+                      <div class="form-group">
+                          <label for="userFilter" class="control-label">Sales Person</label>
+                          <select name="userid" id="userfilterday" class="form-controls bg-white">
+                              <option value="">-- Select User --</option>
+                              <!-- User options will be populated dynamically -->
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="branchFilter" class="control-label">Filter by Branch</label>
+                          <select name="branch" id="branchfilterday" class="form-controls bg-white">
+                              <option value="">-- Select Branch --</option>
+                              <!-- Branch options will be populated dynamically -->
+                          </select>
+                      </div>
+                      <div class="flex justify-end mt-5">
+                          <button id="viewmakesalesdaySubmit" type="button" class="btn">
+                              <div class="btnloader" style="display: none;"></div>
+                              <span>Search</span>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+      </form>
+        <div class="table-content">
+              <div class="flex flex-wrap justify-between items-center p-4 bg-white ">
+                  <div class="flex items-center space-x-4">
+                      <div class="p-3 bg-blue-500 text-white rounded-full">
+                          <span class="material-symbols-outlined">shopping_cart</span>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-500">Total Sales Count</p>
+                          <p class="text-xl font-semibold" id="totalsalescount">0</p>
+                      </div>
+                  </div>
+                  <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                      <div class="p-3 bg-green-500 text-white rounded-full">
+                          <span class="material-symbols-outlined">attach_money</span>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-500">Total Sales</p>
+                          <p class="text-xl font-semibold" id="totalsalesamount">0.00</p>
+                      </div>
+                  </div>
+              </div>
+          <table class="table-auto">
+            <thead>
+                <tr>
+                    <th class="w-12">S/N</th>
+                    <th>Reference</th>
+                    <th>Date</th>
+                    <th>description</th>
+                    <th>Branch</th>
+                    <th>Total Amount</th>
+                    <th>Sales Person</th>
+                    <th>Actions</th>
+                  </tr>
+            </thead>
+            <tbody id="tabledataday">
+              <tr>
+                <td colspan="100%" class="text-center opacity-70">
+                  Table is empty
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+   
+    <div id="viewmakesalesmonth" class="hidden">
+        <form id="viewmakesalesmonthform">
+          <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="form-group">
+                    <label for="viewmakesalesmonthdate" class="control-label">Enter Date</label>
+                    <input type="month" name="date" id="viewmakesalesmonthdate" class="form-control comp bg-white" placeholder="Select Date">
+                </div>
+                <div class="form-group">
+                    <label for="userFilter" class="control-label">Sales Person</label>
+                    <select name="userid" id="userfiltermonth" class="form-controls bg-white">
+                        <option value="">-- Select User --</option>
+                        <!-- User options will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="branchFilter" class="control-label">Filter by Branch</label>
+                    <select name="branch" id="branchfiltermonth" class="form-controls bg-white">
+                        <option value="">-- Select Branch --</option>
+                        <!-- Branch options will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="flex justify-end mt-5">
+                    <button id="viewmakesalesmonthSubmit" type="button" class="btn">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Search</span>
+                    </button>
+                </div>
+            </div>
+          </div>
+      </form>
+        <div class="table-content">
+              <div class="flex flex-wrap justify-between items-center p-4 bg-white ">
+                  <div class="flex items-center space-x-4">
+                      <div class="p-3 bg-blue-500 text-white rounded-full">
+                          <span class="material-symbols-outlined">shopping_cart</span>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-500">Total Sales Count</p>
+                          <p class="text-xl font-semibold" id="totalsalescountmonth">0</p>
+                      </div>
+                  </div>
+                  <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                      <div class="p-3 bg-green-500 text-white rounded-full">
+                          <span class="material-symbols-outlined">attach_money</span>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-500">Total Sales</p>
+                          <p class="text-xl font-semibold" id="totalsalesamountmonth">0.00</p>
+                      </div>
+                  </div>
+              </div>
+          <table class="table-auto">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Number of sales</th>
+                    <th>Total Amount</th>
+                    <!-- <th>Actions</th> -->
+                  </tr>
+            </thead>
+            <tbody id="tabledatamonth">
+              <tr>
+                <td colspan="100%" class="text-center opacity-70">
+                  Table is empty
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+   
+    <div id="viewmakesalesyear" class="hidden">
+        <form id="viewmakesalesyearform">
+          <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div class="form-group">
+                      <label for="queryUser" class="control-label">Enter Date</label>
+                          <select name="year" id="viewmakesalesyeardate" class="form-control comp bg-white">
+                              <option value="" disabled selected>Select Year</option>
+                              <!-- Generate options for years from 2020 to 2050 -->
+                              <option value="2020">2020</option>
+                              <option value="2021">2021</option>
+                              <option value="2022">2022</option>
+                              <option value="2023">2023</option>
+                              <option value="2024">2024</option>
+                              <option value="2025">2025</option>
+                              <option value="2026">2026</option>
+                              <option value="2027">2027</option>
+                              <option value="2028">2028</option>
+                              <option value="2029">2029</option>
+                              <option value="2030">2030</option>
+                              <option value="2031">2031</option>
+                              <option value="2032">2032</option>
+                              <option value="2033">2033</option>
+                              <option value="2034">2034</option>
+                              <option value="2035">2035</option>
+                              <option value="2036">2036</option>
+                              <option value="2037">2037</option>
+                              <option value="2038">2038</option>
+                              <option value="2039">2039</option>
+                              <option value="2040">2040</option>
+                              <option value="2041">2041</option>
+                              <option value="2042">2042</option>
+                              <option value="2043">2043</option>
+                              <option value="2044">2044</option>
+                              <option value="2045">2045</option>
+                              <option value="2046">2046</option>
+                              <option value="2047">2047</option>
+                              <option value="2048">2048</option>
+                              <option value="2049">2049</option>
+                              <option value="2050">2050</option>
+                          </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="userFilter" class="control-label">Sales Person</label>
+                    <select name="userid" id="userfilteryear" class="form-controls bg-white">
+                        <option value="">-- Select User --</option>
+                        <!-- User options will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="branchFilter" class="control-label">Filter by Branch</label>
+                    <select name="branch" id="branchfilteryear" class="form-controls bg-white">
+                        <option value="">-- Select Branch --</option>
+                        <!-- Branch options will be populated dynamically -->
+                    </select>
+                </div>
+                  <div class="flex justify-end mt-5">
+                      <button id="viewmakesalesyearSubmit" type="button" class="btn">
+                          <div class="btnloader" style="display: none;"></div>
+                          <span>Search</span>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </form>
+        <div class="table-content">
+              <div class="flex flex-wrap justify-between items-center p-4 bg-white ">
+                  <div class="flex items-center space-x-4">
+                      <div class="p-3 bg-blue-500 text-white rounded-full">
+                          <span class="material-symbols-outlined">shopping_cart</span>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-500">Total Sales Count</p>
+                          <p class="text-xl font-semibold" id="totalsalescountyear">0</p>
+                      </div>
+                  </div>
+                  <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                      <div class="p-3 bg-green-500 text-white rounded-full">
+                          <span class="material-symbols-outlined">attach_money</span>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-500">Total Sales</p>
+                          <p class="text-xl font-semibold" id="totalsalesamountyear">0.00</p>
+                      </div>
+                  </div>
+              </div>
+          <table class="table-auto">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Number of sales</th>
+                    <th>Total Amount</th>
+                    <!-- <th>Actions</th> -->
+                  </tr>
+            </thead>
+            <tbody id="tabledatayear">
+              <tr>
+                <td colspan="100%" class="text-center opacity-70">
+                  Table is empty
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+
+</section>  

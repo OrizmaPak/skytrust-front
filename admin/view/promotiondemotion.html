@@ -1,0 +1,133 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+    <span>promotion/demotion Information</span>
+  </p>
+
+  <!-- here is the tab navigation -->
+  <ul
+    class="cark:border-gray-700 cark:text-gray-400 flex flex-wrap border-b border-gray-200 text-center text-sm font-medium text-gray-500"
+  >
+    <li
+      class="cp viewer optioner active me-2 !text-blue-600"
+      name="viewpromotiondemotion"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        View promotion/demotion
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="promotiondemotionform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        Manage promotion/demotion
+      </p>
+    </li>
+  </ul>
+
+  <form id="promotiondemotionform" class="hidden">
+    <div class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+      <div class="form-group">
+          <label for="userid" class="control-label">User</label>
+          <select name="userid" id="userid" class="form-controls">
+              <option value="">Select User</option>
+              <!-- Options will be dynamically generated -->
+          </select>
+          <datalist id="useridlist"></datalist>
+      </div>
+
+      <div class="form-group">
+        <label for="title" class="control-label">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          class="form-control comp"
+          placeholder="Enter Title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="type" class="control-label">Type</label>
+        <select
+          name="type"
+          id="type"
+          class="form-control comp"
+        >
+          <option value="">-- Select Type --</option>
+          <option value="PROMOTION">Promotion</option>
+          <option value="DEMOTION">Demotion</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="level" class="control-label">Level</label>
+        <input
+          type="number"
+          name="level"
+          id="level"
+          class="form-control comp"
+          placeholder="Enter Level"
+        />
+      </div>
+    
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div></div>
+        <div></div>
+        <div class="mt-5 flex justify-end">
+          <button id="submit" type="button" class="btn">
+            <div class="btnloader" style="display: none"></div>
+            <span>Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="" id="viewpromotiondemotion">
+    <form id="viewpromotiondemotionForm" class="">
+      <div class="flex flex-col space-y-3 rounded-sm bg-blue-100 p-5 xl:p-10">
+          <div class="grid grid-cols-1 gap-6 lg:grid-cols-4">
+              <div class="form-group col-span-3">
+                  <label for="querypromotiondemotion" class="control-label">Search</label>
+                  <input type="text" name="q" id="q" class="form-control comp bg-white" placeholder="Search by anything">
+              </div>
+              <div class="mt-5 flex justify-end">
+                  <button id="querySubmit" type="button" class="btn">
+                      <div class="btnloader" style="display: none;"></div>
+                      <span>Search</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </form>
+    <div class="table-content">
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>Personnel Name</th>
+            <th>Title</th>
+            <th>Level</th>
+            <th>Type</th>
+            <th>Date Added</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+</section>

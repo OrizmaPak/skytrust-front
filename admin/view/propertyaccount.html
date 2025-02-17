@@ -1,0 +1,202 @@
+<section class="container mx-auto p-6">
+    <!-- Header -->
+    <h1 class="mb-6 text-2xl font-bold text-gray-800">Property Account</h1>
+
+    <form id="propertyaccountform">
+        <!-- Account Information -->
+    <div class="mb-6 rounded bg-white p-6 shadow">
+        <h2 class="mb-4 text-lg font-semibold text-gray-700">Account Information</h2>
+        <p class="mb-4 text-gray-600">
+            <!-- To register a new property account, leave the account number blank, or provide one to edit for an existing account. -->
+        </p>
+
+        <div class="mb-4 grid grid-cols-2 gap-4">
+            <div class="form-group">
+                <label for="userid" class="control-label">User</label>
+                <select name="userid" id="userid" class="form-controls">
+                    <option value="">Select User</option>
+                    <!-- Options will be dynamically generated -->
+                </select>
+                <datalist id="useridlist"></datalist>
+            </div>
+
+             <!-- Membership -->
+            <div class="form-group hidden" id="membershipdropdown">
+              <label for="membership" class="control-label">Membership</label>
+              <select
+                name="membership"
+                id="membership"
+                multiple
+                class="form-controls comp"
+              >
+                <option value="">Loading...</option>
+                <!-- Add more membership options as needed -->
+              </select>
+            </div>
+
+            <div class="form-group hidden" id="propertyproddropdown">
+              <label for="productid" class="control-label">Property Product</label>
+              <select id="productid" name="productid" class="comp form-control">
+                  <option value="">--Select Property Product--</option>
+              </select>
+              <datalist id="useridlist"></datalist>
+          </div>
+          
+            <div class="form-group">
+                <label for="registrationcharge" class="control-label">Registration Charge (₦)</label>
+                <input id="registrationcharge" name="registrationcharge" type="number" class="comp form-control" placeholder="Enter Registration Charge (₦)">
+            </div>
+
+            <div class="form-group">
+                <label for="registrationdate" class="control-label">Registration Date</label>
+                <input
+                  type="date"
+                  name="registrationdate"
+                  id="registrationdate"
+                  disabled
+                  class="form-control comps disa"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="accountnumber" class="control-label">Account Number</label>
+                <input id="accountnumber" disabled name="accountnumber" type="text" class="form-control" placeholder="Account Number">
+            </div>
+            
+            <div class="form-group">
+                <label for="registrationpointsearch" class="control-label comp">Registration Point</label>
+                <select id="registrationpointsearch" name="registrationpoint" class="comp form-controls">
+                    <option value="">--Select Registration Point--</option>
+                </select>
+            </div>
+            <!-- Repayment Frequency -->
+            <div class="form-group relative">
+                <label for="repaymentfrequency" class="control-label">Repayment Frequency</label>
+                <input
+                type="text"
+                readonly
+                name="repaymentfrequency"
+                id="repaymentfrequency"
+                onclick="handledateai('repaymentfrequency', 'Please describe how you would want the interval to be in your language and trust us we will get it right!!')"
+                class="form-control comp cursor-pointer"
+                placeholder="Enter Frequency"
+                />
+                <span
+                class="material-symbols-outlined absolute right-2 top-2 -translate-y-1/2 transform cursor-pointer text-gray-500"
+                onclick="codemeaning('repaymentfrequency')"
+                style="font-size: 18px"
+                >
+                visibility
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="numberofrepayments" class="control-label">Number of Repayments</label>
+                <input
+                  type="number"
+                  name="numberofrepayments"
+                  id="numberofrepayments"
+                  class="form-control comps"
+                  placeholder="Enter Number of Repayments"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="percentagedelivery" class="control-label">Percentage Delivery</label>
+                <input
+                  type="number"
+                  name="percentagedelivery"
+                  id="percentagedelivery"
+                  class="form-control comps"
+                  placeholder="Enter Percentage Delivery"
+                />
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Other Information -->
+    <div class="mb-6 rounded bg-white p-6 shadow">
+        <h2 class="mb-4 text-lg font-semibold text-gray-700">Other Information</h2>
+        <div class="mb-4 grid grid-cols-3 gap-4">
+            <div class="form-group">
+                <label for="accountofficer" class="control-label">Account Officer</label>
+                <select
+                  name="accountofficer"
+                  id="accountofficer"
+                  class="form-controls comps"
+                >
+                  <option value="">Select Account Officer</option>
+                  <!-- Add account officer options here -->
+                </select>
+              </div>
+        </div>
+
+        <!-- Add Item -->
+        <div class="py-6">
+            <h2 class="mb-4 text-lg font-semibold text-gray-700">Add Item</h2>
+            <div class="flex flex-col items-center gap-4 md:flex-row md:items-end">
+            <div class="flex-grow">
+                <label for="addItem" class="mb-2 block text-sm font-medium text-gray-600">Item</label>
+                <select
+                id="addItem"
+                class="comp form-control w-full p-2"
+                >
+                <option value="">--select item to add --</option>
+                </select>
+            </div>
+            <div class="w-24">
+                <label for="quantity" class="mb-2 block text-sm font-medium text-gray-600">Quantity</label>
+                <input
+                id="quantity"
+                type="number"
+                class="comp form-control w-full p-2"
+                placeholder="Qty"
+                />
+            </div>
+            <button
+                id="additembtn"
+                type="button"
+                class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 focus:outline-none"
+            >
+                Add
+            </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transaction Details -->
+    <div class="rounded bg-white p-6 shadow">
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table class="table-auto">
+              <thead>
+                <tr>
+                  <th style="width: 10px">s/n</th>
+                  <th>Item ID</th>
+                  <th>Description</th>
+                  <th>Qty</th>
+                  <th>Price</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="tabledata">
+                <tr>
+                  <td colspan="100%" class="text-center opacity-70">
+                    Table is empty
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-status"></div>
+    </div>
+
+    <div class="mt-5 flex justify-end">
+        <button id="submit" type="button" class="btn">
+          <div class="btnloader" style="display: none"></div>
+          <span>Submit</span>
+        </button>
+      </div>
+    </form>
+</section>

@@ -1,0 +1,35 @@
+<section class="animate__animated animate__fadeIn">
+    <p class="page-title">
+      <span>REJECTED SERVICES</span>
+    </p>
+  
+    <!-- Tab Navigation -->
+    <ul  class="cark:border-gray-700 cark:text-gray-400 flex flex-wrap border-b border-gray-200 text-center text-sm font-medium text-gray-500">
+        <li class="cp viewer optioner active me-2 !text-blue-600" name="viewrejectedservice" onclick="runoptioner(this)">
+        <p class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600">View Rejected Service</p>
+      </li>
+    </ul>
+  
+    <!-- View Rejected Service Tab -->
+    <div id="viewrejectedservice" class="">
+      <div class="table-content">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:10px">s/n</th>
+              <th>Reference</th>
+              <th>Service Type [Amount][Service Desc]</th>
+              <th>Supplier</th>
+              <th>Branch</th>
+              <th>Date Added</th>
+            </tr>
+          </thead>
+          <tbody id="tabledata">
+            <tr>
+              <td colspan="6" class="text-center opacity-70">No Data Available</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,254 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+    <span>rotary savings</span>
+  </p>
+
+
+  <!-- here is the tab navigation -->
+  <ul
+    class="cark:border-gray-700 cark:text-gray-400 flex flex-wrap border-b border-gray-200 text-center text-sm font-medium text-gray-500"
+  >
+    <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+    <li
+      class="cp viewer optioner active me-2 !text-blue-600"
+      name="viewrotarysavings"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        view rotary savings
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="rotarysavingsform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        Manage rotary savings
+      </p>
+    </li>
+  </ul>
+
+<form id="rotarysavingsform" class="hidden">
+  <div class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <div class="form-group">
+        <label for="accountnumber" class="control-label">Account Number</label>
+        <input
+          type="text"
+          name="accountnumber"
+          id="accountnumber"
+          class="form-control"
+          placeholder="Enter Account Number"
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="userid" class="control-label">Personnel</label>
+        <select
+          name="userid"
+          id="userid"
+          class="form-controls comp"
+        >
+          <option value="0" selected>Select Personnel</option>
+          <!-- Add options here dynamically or statically as needed -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="branch" class="control-label">Branch</label>
+            <select
+              name="branch"
+              id="branch"
+              class="form-controls comp"
+            >
+              <option value="" selected>Select Branch</option>
+              <!-- Add options here dynamically or statically as needed -->
+            </select>
+      </div>
+        <div id="membership" class="form-group hidden">
+          <label for="member" class="control-label">Membership</label>
+              <select
+                name="member"
+                id="member"
+                class="form-control comp"
+              >
+                <option value="0" selected>Select Member</option>
+                <!-- Add options here dynamically or statically as needed -->
+              </select>
+        </div>
+      <div class="form-group hidden" id="rotarysavingsproductcontainer">
+        <label for="productid" class="control-label">Product</label>
+        <select
+          name="productid"
+          id="productid"
+          class="form-controlS comp"
+        >
+          <option value="" selected>Select Product ID</option>
+          <!-- Add options here dynamically or statically as needed -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="registrationcharge" class="control-label">Registration Charge</label>
+        <input
+          type="number"
+          step="0.01"
+          name="registrationcharge"
+          id="registrationcharge"
+          class="form-control comp"
+          placeholder="Enter Registration Charge"
+          value="0"
+        />
+      </div>
+      <div class="form-group">
+        <label for="registrationdate" class="control-label">Registration Date</label>
+        <input
+          type="date"
+          name="registrationdate"
+          id="registrationdate"
+          readonly
+          class="form-control comp"
+          placeholder="Enter Registration Date"
+        />
+      </div>
+      <div class="form-group">
+        <label for="registrationdesc" class="control-label">Registration Description</label>
+        <input
+          type="text"
+          name="registrationdesc"
+          id="registrationdesc"
+          class="form-control"
+          placeholder="Enter Registration Description"
+          value=""
+        />
+      </div>
+      <div class="form-group">
+        <label for="amount" class="control-label">Amount</label>
+        <input
+          type="number"
+          step="0.01"
+          name="amount"
+          id="amount"
+          class="form-control comp"
+          placeholder="Enter Amount"
+        />
+      </div>
+      <div class="form-group relative hidden" id="frequencycontainer">
+        <label for="frequency" class="control-label">Repayment Frequency</label>
+        <input
+          type="text"
+          readonly
+          name="frequency"
+          id="frequency"
+          onclick="handledateai('frequency', 'Please describe how you would want the interval to be in your language and trust us we will get it right!!')"
+          class="form-control cursor-pointer"
+          placeholder="Enter Frequency"
+        />
+        <span
+          class="material-symbols-outlined absolute right-2 top-2 -translate-y-1/2 transform cursor-pointer text-gray-500"
+          onclick="codemeaning('frequency')"
+          style="font-size: 18px"
+        >
+          visibility
+        </span>
+      </div>
+      <div class="form-group hidden" id="frequencynumbercontainer">
+        <label for="frequencynumber" class="control-label">Frequency Number</label>
+        <input
+          type="number"
+          name="frequencynumber"
+          id="frequencynumber"
+          class="form-control comp"
+          placeholder="Enter Frequency Number"
+        />
+      </div>
+      <div class="form-group">
+        <label for="autorunnew" class="control-label">Auto Run New</label>
+        <select name="autorunnew" id="autorunnew" class="form-control comp">
+          <option value="YES">Yes</option>
+          <option value="NO">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="status" class="control-label">Status</label>
+        <select name="status" id="status" class="form-control comp">
+          <option value="ACTIVE">Active</option>
+          <option value="INACTIVE">Inactive</option>
+        </select>
+      </div>
+      <div class="col-span-3">
+        <div></div>
+        <div></div>
+        <div class="mt-5 flex justify-end">
+          <button id="submit" type="button" class="btn">
+            <div class="btnloader" style="display: none"></div>
+            <span>Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+  <div class="" id="viewrotarysavings">
+    <form id="viewrotarysavingsForm" class="">
+      <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="form-group ">
+                  <label for="queryUser" class="control-label">Search</label>
+                  <input type="text" name="q" id="q" class="form-control  bg-white" placeholder="Search by anything">
+              </div>
+              <div class="form-group ">
+                  <label for="accountnumber" class="control-label">Account Number</label>
+                  <input type="text" name="accountnumber" id="accountnumber" class="form-control  bg-white" placeholder="Enter Account Number">
+              </div>
+              <div class="form-group ">
+                  <label for="startdate" class="control-label">Start Date</label>
+                  <input type="date" name="startdate" id="startdate" class="form-control  bg-white">
+              </div>
+              <div class="form-group ">
+                  <label for="enddate" class="control-label">End Date</label>
+                  <input type="date" name="enddate" id="enddate" class="form-control  bg-white">
+              </div>
+              <div class="flex justify-end mt-5 col-span-2">
+                  <button id="querySubmit" type="button" class="btn">
+                      <div class="btnloader" style="display: none;"></div>
+                      <span>Search</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </form>
+    <div class="table-content">
+      <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th>S/N</th>
+            <th>reg Date</th>
+            <th>Account Number</th>
+            <th>account name</th>
+            <th>Member</th>
+            <th>Product</th>
+            <th>Amount</th>
+            <th>Next Due Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+</section>

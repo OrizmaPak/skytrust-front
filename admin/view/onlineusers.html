@@ -1,0 +1,97 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>onlineusers</span>
+    </p>
+    <!-- here is the tab navigation -->
+    <ul class="flex text-sm font-medium text-center text-gray-500 border-b border-gray-200 cark:border-gray-700 cark:text-gray-400">
+        <!--<li id="rccview" class="me-2 cp viewer" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+        <li  class="me-2 cp viewer optioner !text-blue-600 active" name="viewonlineusers" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize">View online users</p>
+        </li> 
+    </ul>
+
+     
+    
+     <div class="" id="viewonlineusers">
+
+        <form id="onlineusersform" class="">
+            <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+                <div class="form-group">
+                    <label for="q" class="control-label">Enter any data in mind</label>
+                    <input type="text" name="q" id="q" class="form-control comp bg-white" placeholder="Enter Query">
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="form-group">
+                        <label for="userid" class="control-label">User</label>
+                        <select name="userid" id="userid" class="form-controls" placeholder="Enter User"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="branch" class="control-label">Branch</label>
+                        <select name="branch" id="branch" class="form-controls comp1">
+                            <option value="" disabled selected>-- Select Branch --</option>
+                            <!-- Add options here -->
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div></div>
+                    <div></div>
+                    <div class="flex justify-end mt-5">
+                        <button id="submit" type="button" class="btn">
+                            <div class="btnloader" style="display: none;"></div>
+                            <span>Search</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form> 
+
+        <div class="summary-card bg-white shadow-md rounded-lg p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">Online Users Summary</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- <div class="summary-item">
+                    <p class="text-gray-500">Total Users</p>
+                    <p class="text-2xl font-semibold" id="total-users">0</p>
+                </div> -->
+                <div class="summary-item">
+                    <p class="text-gray-500">Active Users</p>
+                    <p class="text-2xl font-semibold" id="active-users">0</p>
+                </div>
+                <!-- <div class="summary-item">
+                    <p class="text-gray-500">Inactive Users</p>
+                    <p class="text-2xl font-semibold" id="inactive-users">0</p>
+                </div> -->
+                <div class="summary-item">
+                    <p class="text-gray-500">Branches</p>
+                    <p class="text-2xl font-semibold" id="total-branches">0</p>
+                </div>
+            </div>
+        </div>
+         
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:10px">s/n</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Branch</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Online Status</th>
+                        <th>Time Ago</th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    
+   </section> 

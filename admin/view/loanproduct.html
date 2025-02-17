@@ -1,0 +1,649 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+    <span>loan product</span>
+  </p>
+  <!-- here is the tab navigation -->
+  <ul
+    class="cark:border-gray-700 cark:text-gray-400 flex border-b border-gray-200 text-center text-sm font-medium text-gray-500"
+  >
+    <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+    <li
+      class="cp viewer optioner active me-2 !text-blue-600"
+      name="viewloanproduct"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        view loanproduct
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="loanproductform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        Manage loanproduct
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="viewloanproductdraft"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        Loan product draft
+      </p>
+    </li>
+  </ul>
+
+  <form id="loanproductform" class="hidden">
+    <div class="flex flex-col space-y-6 rounded-sm bg-white/90 p-5 xl:p-10">
+      <!-- =======================
+               SECTION: General Information
+               ======================= -->
+      <section class="section">
+        <h2 class="mb-4 text-lg font-semibold">General Information</h2>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <!-- Product Name -->
+          <div class="form-group">
+            <label for="productname" class="control-label">Product Name</label>
+            <input
+              type="text"
+              name="productname"
+              id="productname"
+              class="form-control comp"
+              placeholder="Enter Product Name"
+            />
+          </div>
+
+          <!-- Description -->
+          <div class="form-group">
+            <label for="description" class="control-label">Description</label>
+            <textarea
+              name="description"
+              id="description"
+              class="form-control comp"
+              placeholder="Enter Description"
+            >
+            </textarea>
+          </div>
+
+          <!-- Registration Charge -->
+          <div class="form-group">
+            <label for="registrationcharge" class="control-label"
+              >Registration Charge</label
+            >
+            <input
+              type="number"
+              name="registrationcharge"
+              id="registrationcharge"
+              class="form-control comp"
+              placeholder="Enter Registration Charge"
+            />
+          </div>
+
+          <!-- Membership -->
+          <div class="form-group">
+            <label for="membership" class="control-label">Membership</label>
+            <select
+              name="membership"
+              id="membership"
+              multiple
+              class="form-controls comp"
+            >
+              <option value="">Loading...</option>
+              <!-- Add more membership options as needed -->
+            </select>
+          </div>
+
+          <!-- Currency -->
+          <div class="form-group">
+            <label for="currency" class="control-label">Currency</label>
+            <select name="currency" id="currency" class="form-control comp">
+              <option value="NGN">NGN</option>
+              <option value="USD">USD</option>
+              <!-- Add more currencies as needed -->
+            </select>
+          </div>
+
+          <!-- Exclude Branch -->
+          <div class="form-group">
+            <label for="excludebranch" class="control-label"
+              >Exclude Branch</label
+            >
+            <select
+              name="excludebranch"
+              id="excludebranch"
+              class="form-controls comp"
+              multiple
+            >
+              <option value="">Select Exclude Branch</option>
+              <!-- Add more branch options as needed -->
+            </select>
+          </div>
+
+          <!-- Product Officer -->
+          <div class="form-group">
+            <label for="productofficer" class="control-label"
+              >Product Officer</label
+            >
+            <select
+              name="productofficer"
+              id="productofficer"
+              class="form-controls comp"
+            >
+              <option value="">Select Product Officer</option>
+              <!-- Add more product officer options as needed -->
+            </select>
+          </div>
+
+          <!-- Status -->
+          <div class="form-group">
+            <label for="status" class="control-label">Status</label>
+            <select name="status" id="status" class="form-control comp">
+              <option value="ACTIVE">ACTIVE</option>
+              <option value="INACTIVE">INACTIVE</option>
+              <!-- Add more statuses if needed -->
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================
+               SECTION: Repayment Settings
+               ======================= -->
+      <section class="section">
+        <h2 class="mb-4 text-lg font-semibold">Repayment Settings</h2>
+        <!-- Repayment Settings -->
+        <div class="form-group">
+          <label for="repaymentsettings" class="control-label"
+            >Repayment Settings</label
+          >
+          <select
+            name="repaymentsettings"
+            id="repaymentsettings"
+            class="form-control comp"
+          >
+            <option value="">Select Repayment Settings</option>
+            <option value="ACCOUNT">ACCOUNT</option>
+            <option value="PRODUCT">PRODUCT</option>
+          </select>
+        </div>
+
+        <div
+          id="repayment-details"
+          class="mt-4 grid hidden grid-cols-1 gap-6 lg:grid-cols-2"
+        >
+          <!-- Repayment Frequency -->
+          <div class="form-group relative">
+            <label for="repaymentfrequency" class="control-label"
+              >Repayment Frequency</label
+            >
+            <input
+              type="text"
+              readonly
+              name="repaymentfrequency"
+              id="repaymentfrequency"
+              onclick="handledateai('repaymentfrequency', 'Please describe how you would want the interval to be in your language and trust us we will get it right!!')"
+              class="form-control comp cursor-pointer"
+              placeholder="Enter Frequency"
+            />
+            <span
+              class="material-symbols-outlined absolute right-2 top-2 -translate-y-1/2 transform cursor-pointer text-gray-500"
+              onclick="codemeaning('repaymentfrequency')"
+              style="font-size: 18px"
+            >
+              visibility
+            </span>
+          </div>
+
+          <!-- Number of Repayments -->
+          <div class="form-group">
+            <label for="numberofrepayments" class="control-label"
+              >Number of Repayments</label
+            >
+            <input
+              type="number"
+              name="numberofrepayments"
+              id="numberofrepayments"
+              class="form-control comp"
+              placeholder="Enter Number of Repayments"
+            />
+          </div>
+
+          <!-- Duration -->
+          <!-- <div class="form-group">
+                  <label for="duration" class="control-label">Duration</label>
+                  <input 
+                    type="number" 
+                    name="duration" 
+                    id="duration" 
+                    class="form-control comp" 
+                    placeholder="Enter Duration">
+                </div>
+        
+                <div class="form-group">
+                  <label for="durationcategory" class="control-label">Duration Category</label>
+                  <select 
+                    name="durationcategory" 
+                    id="durationcategory" 
+                    class="form-control comp">
+                    <option value="DAY">DAY</option>
+                    <option value="WEEK">WEEK</option>
+                    <option value="MONTH">MONTH</option>
+                    <option value="YEAR">YEAR</option>
+                  </select>
+                </div> -->
+        </div>
+      </section>
+
+      <!-- =======================
+               SECTION: Interest & Penalty
+               ======================= -->
+      <section class="section">
+        <h2 class="mb-4 text-lg font-semibold">Interest &amp; Penalty</h2>
+        <!-- Interest Method -->
+        <div class="form-group">
+          <label for="interestmethod" class="control-label"
+            >Interest Method</label
+          >
+          <select
+            name="interestmethod"
+            id="interestmethod"
+            class="form-control comp"
+          >
+            <option value="NO INTEREST">NO INTEREST</option>
+            <option value="FLAT RATE">FLAT RATE</option>
+            <option value="ONE OF INTEREST">ONE OF INTEREST</option>
+            <option value="INTEREST ONLY">INTEREST ONLY</option>
+            <option value="EQUAL INSTALLMENTS">EQUAL INSTALLMENTS</option>
+            <option value="REDUCING BALANCE">REDUCING BALANCE</option>
+            <option value="BALLOON LOAN">BALLOON LOAN</option>
+            <option value="FIXED RATE">FIXED RATE</option>
+            <option value="UNSECURE LOAN">UNSECURE LOAN</option>
+            <option value="INSTALLMENT LOAN">INSTALLMENT LOAN</option>
+            <option value="PAYDAY LOAN">PAYDAY LOAN</option>
+            <option value="MICRO LOAN">MICRO LOAN</option>
+            <option value="BRIDGE LOAN">BRIDGE LOAN</option>
+            <option value="AGRICULTURAL LOAN">AGRICULTURAL LOAN</option>
+            <option value="EDUCATION LOAN">EDUCATION LOAN</option>
+            <option value="WORKIN CAPITAL">WORKIN CAPITAL</option>
+            <!-- Add more if needed -->
+          </select>
+        </div>
+        <div
+          id="interestpenalty"
+          class="mt-4 grid hidden grid-cols-1 gap-6 lg:grid-cols-3"
+        >
+          <!-- Interest Rate -->
+          <div class="form-group">
+            <label for="interestrate" class="control-label"
+              >Interest Rate</label
+            >
+            <input
+              type="number"
+              step="0.01"
+              name="interestrate"
+              id="interestrate"
+              class="form-control comp"
+              placeholder="Enter Interest Rate"
+            />
+          </div>
+
+          <!-- Interest Rate Type -->
+          <div class="form-group">
+            <label for="interestratetype" class="control-label"
+              >Interest Rate Type</label
+            >
+            <select
+              name="interestratetype"
+              id="interestratetype"
+              class="form-control comp"
+            >
+              <option value="" disabled selected>
+                Select Interest Rate Type
+              </option>
+              <option value="INSTALLMENT">INSTALLMENT</option>
+              <option value="PRINCIPAL">PRINCIPAL</option>
+              <!-- Add more options if needed -->
+            </select>
+          </div>
+
+          <!-- Default Penalty ID -->
+          <div class="form-group">
+            <label for="defaultpenaltyid" class="control-label"
+              >Default Penalty ID</label
+            >
+            <select
+              name="defaultpenaltyid"
+              id="defaultpenaltyid"
+              class="form-control comp"
+            >
+              <option value="" disabled selected>
+                Select Default Penalty ID
+              </option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+
+          <!-- Separate Interest (Toggle) -->
+          <div class="form-group">
+            <label class="control-label">Separate Interest</label>
+            <label
+              class="relative mb-[1px] inline-flex cursor-pointer items-center bg-[#1d68e305] p-2 pl-1"
+            >
+              <input
+                type="checkbox"
+                name="seperateinterest"
+                id="seperateinterest"
+                class="accesscontroller peer sr-only"
+              />
+              <div
+                class="peer h-6 w-11 scale-[0.8] rounded-full bg-gray-400 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-blue-300 rtl:peer-checked:after:-translate-x-full"
+              ></div>
+              <span class="ms-2 text-xs font-medium text-blue-900"
+                >Separate</span
+              >
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================
+               SECTION: Loan Range
+               ======================= -->
+      <section class="section">
+        <h2 class="mb-4 text-lg font-semibold">Loan Range</h2>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <!-- Maximum Loan -->
+          <div class="form-group">
+            <label for="maximumloan" class="control-label">Maximum Loan</label>
+            <input
+              type="number"
+              step="0.01"
+              name="maximumloan"
+              id="maximumloan"
+              class="form-control comp"
+              placeholder="Enter Maximum Loan"
+            />
+          </div>
+
+          <!-- Minimum Loan -->
+          <div class="form-group">
+            <label for="minimumloan" class="control-label">Minimum Loan</label>
+            <input
+              type="number"
+              step="0.01"
+              name="minimumloan"
+              id="minimumloan"
+              class="form-control comp"
+              placeholder="Enter Minimum Loan"
+            />
+          </div>
+
+          <!-- User Account -->
+          <div class="form-group">
+            <label for="useraccount" class="control-label">User Account</label>
+            <input
+              type="number"
+              name="useraccount"
+              id="useraccount"
+              class="form-control comp"
+              placeholder="Enter User Account"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================
+               SECTION: Eligibility Criteria
+               ======================= -->
+      <section class="section">
+        <h2 class="mb-4 text-lg font-semibold">Eligibility Criteria</h2>
+        <div class="form-group">
+          <label for="eligibilityproductcategory" class="control-label"
+            >Product Category</label
+          >
+          <select
+            name="eligibilityproductcategory"
+            id="eligibilityproductcategory"
+            onchange="toggleEligibilityFields(this.value)"
+            class="form-control comp"
+          >
+            <option value="">--SELECT PRODUCT CATEGORY--</option>
+            <option value="LOAN">LOAN</option>
+            <option value="SAVINGS">SAVINGS</option>
+            <!-- Add more categories if needed -->
+          </select>
+        </div>
+        <div
+          class="mt-5 grid hidden grid-cols-1 gap-6 lg:grid-cols-2"
+          id="eligibility-fields"
+        >
+          <!-- Eligibility Product Category -->
+
+          <!-- Eligibility Product -->
+          <div class="form-group">
+            <label for="eligibilityproduct" class="control-label"
+              >Eligibility Product</label
+            >
+            <select
+              name="eligibilityproduct"
+              id="eligibilityproduct"
+              class="form-control comp"
+            >
+              <option value="0">-- Select Eligibility Product --</option>
+              <!-- Dynamically populate based on categories -->
+            </select>
+          </div>
+
+          <!-- Eligibility Account Age -->
+          <div class="form-group">
+            <label for="eligibilityaccountage" class="control-label"
+              >Account Age (months)</label
+            >
+            <input
+              type="number"
+              name="eligibilityaccountage"
+              id="eligibilityaccountage"
+              class="form-control comp"
+              placeholder="Enter Eligibility Account Age"
+            />
+          </div>
+
+          <!-- Eligibility Min Balance -->
+          <div class="form-group">
+            <label for="eligibilityminbalance" class="control-label"
+              >Minimum Balance</label
+            >
+            <input
+              type="number"
+              step="0.01"
+              name="eligibilityminbalance"
+              id="eligibilityminbalance"
+              class="form-control comp"
+              placeholder="Enter Eligibility Min Balance"
+            />
+          </div>
+
+          <!-- Eligibility Min Credit -->
+          <div class="form-group">
+            <label for="eligibilitymincredit" class="control-label"
+              >Minimum Credit</label
+            >
+            <input
+              type="number"
+              step="0.01"
+              name="eligibilitymincredit"
+              id="eligibilitymincredit"
+              class="form-control comp"
+              placeholder="Enter Eligibility Min Credit"
+            />
+          </div>
+
+          <!-- Eligibility Min Debit -->
+          <div class="form-group">
+            <label for="eligibilitymindebit" class="control-label"
+              >Minimum Debit</label
+            >
+            <input
+              type="number"
+              step="0.01"
+              name="eligibilitymindebit"
+              id="eligibilitymindebit"
+              class="form-control comp"
+              placeholder="Enter Eligibility Min Debit"
+            />
+          </div>
+
+          <!-- Eligibility Minimum Loan -->
+          <div class="form-group">
+            <label for="eligibilityminimumloan" class="control-label"
+              >Minimum Loan</label
+            >
+            <input
+              type="number"
+              step="0.01"
+              name="eligibilityminimumloan"
+              id="eligibilityminimumloan"
+              class="form-control comp"
+              placeholder="Enter Eligibility Minimum Loan"
+            />
+          </div>
+
+          <!-- Eligibility Minimum Closed Accounts -->
+          <div class="form-group">
+            <label for="eligibilityminimumclosedaccounts" class="control-label"
+              >Minimum Closed Accounts</label
+            >
+            <input
+              type="number"
+              name="eligibilityminimumclosedaccounts"
+              id="eligibilityminimumclosedaccounts"
+              class="form-control comp"
+              placeholder="Enter Eligibility Minimum Closed Accounts"
+            />
+          </div>
+
+          <!-- Eligibility Type -->
+          <div class="form-group">
+            <label for="eligibilitytype" class="control-label"
+              >Eligibility Type</label
+            >
+            <select
+              name="eligibilitytype"
+              id="eligibilitytype"
+              class="form-control comp"
+              >
+              <option value="">--SELECT ELIGIBILITY TYPE--</option>
+              <option value="PERCENTAGE">PERCENTAGE</option>
+              <option value="AMOUNT">AMOUNT</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================
+               SUBMIT BUTTON
+               ======================= -->
+      <div class="mt-5 flex justify-end">
+        <button id="submit" type="button" class="btn">
+          <div class="btnloader" style="display: none"></div>
+          <span>Submit</span>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="" id="viewloanproduct">
+    <div class="table-content">
+      <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>product name</th>
+            <th>description</th>
+            <th>memberships</th>
+            <th>currency</th>
+            <th>repayment settings</th>
+            <th>interest method</th>
+            <th>interest rate</th>
+            <th>default penalty</th>
+            <th>status</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+
+  <div class="hidden" id="viewloanproductdraft">
+    <form id="loanproductfilterform" class="">
+      <div class="flex flex-col space-y-3 rounded-sm bg-blue-100 p-5 xl:p-10">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-5">
+          <div class="form-group col-span-4">
+            <label for="q" class="control-label">Enter any data in mind</label>
+            <input
+              type="text"
+              name="q"
+              id="q"
+              class="form-control comp bg-white"
+              placeholder="Enter Query"
+            />
+          </div>
+          <div class="mt-5 flex justify-end">
+            <button id="filter2" type="button" class="btn">
+              <div class="btnloader" style="display: none"></div>
+              <span>Search</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="table-content">
+      <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th style="width: 10px">s/n</th>
+            <th>product name</th>
+            <th>description</th>
+            <th>memberships</th>
+            <th>currency</th>
+            <th>repayment settings</th>
+            <th>interest method</th>
+            <th>interest rate</th>
+            <th>default penalty</th>
+            <th>status</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody id="tabledata2">
+          <tr>
+            <td colspan="100%" class="text-center opacity-70">
+              Table is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-status"></div>
+  </div>
+</section>

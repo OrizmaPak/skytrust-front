@@ -1,0 +1,57 @@
+<section class="animate__animated animate__fadeIn relative">
+  <p class="page-title">
+      <span>loan disbursement</span>
+  </p>
+  <!-- here is the tab navigation -->
+  <ul class="cark:border-gray-700 cark:text-gray-400 flex border-b border-gray-200 text-center text-sm font-medium text-gray-500">
+      <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+      <li  class="cp viewer optioner active me-2 !text-blue-600" name="viewdisbursement" onclick="runoptioner(this)">
+          <p class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600">view disbursement</p>
+      </li> 
+  </ul>
+  
+   <div class="" id="viewdisbursement">
+    <form id="disbursementfilterform" class="">
+      <div class="flex flex-col space-y-3 rounded-sm bg-blue-100 p-5 xl:p-10">
+          <div class="grid grid-cols-1 gap-6 lg:grid-cols-4">
+              <div class="form-group col-span-3">
+                  <label for="queryUser" class="control-label">Search</label>
+                  <input type="text" name="q" id="q" class="form-control comp bg-white" placeholder="Search by anything">
+              </div>
+              <div class="mt-5 flex justify-end">
+                  <button id="querySubmit" type="button" class="btn">
+                      <div class="btnloader" style="display: none;"></div>
+                      <span>Search</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </form>
+      <div class="table-content">
+          <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+          <table class="table-auto">
+              <thead>
+                  <tr>
+                      <th style="width:10px">s/n</th>
+                      <th>registration date</th>
+                      <th>account number</th>
+                      <th>full name</th>
+                      <th>Loan Amount</th>
+                      <th>Loan Product</th>
+                      <th>Membership</th>
+                      <th>branch</th>
+                      <th>disbursement reference</th>
+                      <th>action</th>
+                  </tr>
+              </thead>
+              <tbody id="tabledata">
+                 <tr>
+                    <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                 </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="table-status"></div>
+  </div>
+  
+ </section> 

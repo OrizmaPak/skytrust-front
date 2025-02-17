@@ -1,0 +1,68 @@
+<section class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-6">
+        <!-- Header -->
+        <h1 class="mb-6 text-2xl font-bold text-gray-800">Property Transaction Report</h1>
+
+        <form id="propertytransactionreportfilterform" class="bg-[#90B6D4]">
+            <div class="flex flex-col space-y-3 rounded-sm bg-white/90 p-5 xl:p-10">
+                <div class="form-group col-span-3">
+                    <label for="queryUser" class="control-label">Search</label>
+                    <input type="text" name="q" id="q" class="form-control comp bg-white" placeholder="Search by anything" />
+                </div>
+
+                <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                    <div class="form-group">
+                        <label for="startdate" class="control-label">Start Date</label>
+                        <input type="date" name="startdate" id="startdate" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="enddate" class="control-label">End Date</label>
+                        <input type="date" name="enddate" id="enddate" class="form-control">
+                    </div>
+
+                    <div class="form-group w-full">
+                        <label for="branch" class="control-label">Branch</label>
+                        <select name="branch" id="branch" class="form-controls">
+                            <option value="">-- Select Branch --</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-span-3 mt-5 flex justify-end">
+                        <button id="submit" type="button" class="btn">
+                            <div class="btnloader" style="display: none;"></div>
+                            <span>Submit</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table class="table-auto">
+              <thead>
+                <tr>
+                  <th style="width: 10px">s/n</th>
+                  <th>Date</th>
+                  <th>Account Name</th>
+                  <th>Account No</th>
+                  <th>Reference</th>
+                  <th>Description</th>
+                  <th>Transaction type</th>
+                  <th>Paid Value</th>
+                </tr>
+              </thead>
+              <tbody id="tabledata">
+                <tr>
+                  <td colspan="100%" class="text-center opacity-70">
+                    Table is empty
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-status"></div>
+    </div>
+</section>
+

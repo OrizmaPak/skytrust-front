@@ -1,0 +1,45 @@
+<section class="font-sans bg-gray-100">
+    <div class="container p-6 mx-auto">
+        <!-- Header -->
+        <h1 class="mb-6 text-2xl font-bold text-gray-800">View Composite Items</h1>
+
+        <!-- Search Bar -->
+        <div class="flex items-center mb-4">
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="Search by Item Name or ID"
+                class="flex-grow p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <button
+                id="searchButton"
+                class="px-4 py-2 ml-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none"
+            >
+                Search
+            </button>
+        </div>
+
+        <div class="table-content">
+            <table class="table-auto">
+              <thead>
+                <tr>
+                  <th style="width: 10px">s/n</th>
+                  <th>Item ID</th>
+                  <th>Item Name</th>
+                  <th>No of Items</th>
+                  <th>Price</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="tabledata">
+                <tr>
+                  <td colspan="100%" class="text-center opacity-70">
+                    Table is empty
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-status"></div>
+    </div>
+</section>

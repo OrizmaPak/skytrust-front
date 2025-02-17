@@ -1,0 +1,238 @@
+<section class="animate__animated animate__fadeIn">
+    <p class="page-title">
+        <span>RECEIVEPURCHASES</span>
+    </p>
+
+    <!-- here is the tab navigation -->
+  <ul  class="cark:border-gray-700 cark:text-gray-400 flex flex-wrap border-b border-gray-200 text-center text-sm font-medium text-gray-500">
+  <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+  <li class="cp viewer optioner active me-2 !text-blue-600" name="viewreceivepurchases" onclick="runoptioner(this)">
+    <p
+      class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+    >
+      view receive purchases
+    </p>
+  </li>
+  <li
+    id=""
+    class="cp updater optioner me-2"
+    name="receivepurchasesform"
+    onclick="runoptioner(this)"
+  >
+    <p
+      class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+    >
+      Manage receive purchases
+    </p>
+  </li>
+</ul>
+
+<form id="receivepurchasesform" class="hidden" onsubmit="event.preventDefault();">
+    <div id="purchaseform" class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 rounded-sm">
+        <div class="grid grid-cols-1 lg:grid-cols-6 gap-6">
+            <div class="form-group col-span-4">
+                <label for="logoname" class="control-label">reference / purchase order</label>
+                <input type="text" name="transactionref" id="transactionref" class="form-control compp" placeholder="Enter Reference.">
+            </div>
+            <div class="form-group mt-[18px] col-span-2">
+                <button id="pullitemsbtn" type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
+                    New Received Purchases
+                </button>
+            </div>
+        </div>
+        <div id="purchaseformrp" class="flex flex-col hidden">
+            <div class="grid grid-cols-1 gap-6 my-5">
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Supplier</label>
+                    <select name="supplier" id="supplier" class="form-controls comp">
+                        <option value="">-- Select Supplier --</option>
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="form-group">
+                    <label for="branch" class="control-label">Branch</label>
+                    <select name="branch" id="branch" class="form-controls comp">
+                        <option value="">-- Select Branch --</option>
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="form-group">
+                        <label for="department" class="control-label">Department</label>
+                        <select name="department" id="departmentfrom" class="form-control comp">
+                            <option value="">-- Select Department --</option>
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="logoname" class="control-label">Date</label>
+                        <input type="date" name="transactiondate" id="transactiondate" class="form-control comp" placeholder="Enter Address">
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="grid grid-cols-1 lg:grid-cols-2 gap-6"> -->
+                <!-- <div class="form-group">
+                    <label for="logoname" class="control-label">reference</label>
+                    <input type="text" readonly name="transactionref" id="transactionref" class="form-control" placeholder="Reference is auto generated.">
+                </div> -->
+            <!-- </div> -->
+            <div class="grid grid-cols-1 lg:grid-cols-1 gap-6">
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Document No / Description (optional)</label>
+                    <textarea name="description" id="description" class="form-control" placeholder="Enter Description"></textarea>
+                </div>
+            </div>
+            <!--<hr class="my-10">-->
+    
+     <div >
+        <div class="table-content mt-5">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Unit cost</th>
+                        <th>quantity</th>
+                        <th>value</th>
+                        <!-- <th></th> -->
+                        <th><button onclick="addrowreceivepurchases()" title="Edit row entry" class="material-symbols-outlined rounded-full bg-primary-g h-8 w-8 text-white drop-shadow-md text-xs" style="font-size: 18px;">add</button></th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata2" class="">
+                   <tr id="reqrow_0">
+                        <td class="text-center opacity-70"> 
+                        <label class="hidden">Item</label>
+                            <select name="supplyitem" id="supplyitem_0" class="form-controls comp">
+                            </select>
+                        </td>
+                        <td>
+                            <label class="hidden">Expected Cost</label>
+                            <input onchange="receivepurchasesreqcal(this)" type="number" id="cost_0" name="cost" class="form-control comp comma" placeholder="Enter Expected Cost">
+                        </td>
+                        <td>
+                            <label class="hidden">Quantity</label>
+                            <input onchange="receivepurchasesreqcal(this)" type="number" id="qty_0" name="qty" class="form-control comp comma" placeholder="Enter Quantity">
+                        </td>
+                        <td>
+                            <label class="hidden">Value</label>
+                            <input readonly type="text" id="val_0" name="value[]" class="form-control comp comma" placeholder="">
+                        </td>
+                        <td>
+                            <div class="flex gap-4 items-center h-full w-fit py-3">
+                                <button onclick="addrowreceivepurchases()" title="Edit row entry" class="material-symbols-outlined rounded-full bg-primary-g h-8 w-8 text-white drop-shadow-md text-xs" style="font-size: 18px;">add</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="table-status"></div> -->
+    </div>
+    <div class=" flex justify-end gap-2">
+             <p class="font-normal">Total Order:</p><p class="font-semibold comma" id="totalorder">Nill</p>
+         </div>
+         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="form-group">
+                <label for="amountpaid" class="control-label">Amount Paid</label>
+                <input type="number" name="amountpaid" id="amountpaid" class="form-control bg-white comma" placeholder="Enter Amount Paid">
+            </div>
+            <div class="form-group">
+                <label for="paymentref" class="control-label">Payment Reference</label>
+                <input type="text" name="paymentref" id="paymentref" class="form-control bg-white" placeholder="Enter Payment Reference">
+            </div>
+                <input type="hidden" name="reference" id="reference" class="form-control bg-white" placeholder="Enter Payment Reference">
+        </div>
+        <div class="mt-5 grid grid-cols-2 gap-4">
+            <div>
+              <label for="paymentMethod" class="block text-sm font-medium text-gray-700">Payment Method</label>
+              <select id="paymentMethod" name="tfrom" class="form-control bg-white">
+                <option value="">Select Payment Method</option>
+                <option value="CASH">CASH</option>
+                <option value="BANK">TRANSFER</option>
+              </select>
+            </div>
+            <div>
+              <label for="voucher" class="block text-sm font-medium text-gray-700">Voucher</label>
+              <input type="file" id="voucher" name="voucher" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+            </div>
+          </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <div></div>
+                <div></div>
+                
+                <div class="flex justify-end mt-5">
+                     <button id="submit" type="button" class="btn">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Submit</span>
+                    </button>
+                    <!-- <button id="submit" type="button" class="w-full md:w-max rounded-md text-white text-sm capitalize bg-gradient-to-tr from-blue-400 via-blue-500 to-primary-g px-8 py-3 lg:py-2 shadow-md font-medium hover:opacity-75 transition duration-300 ease-in-out flex items-center justify-center gap-3">-->
+                    <!--    <div class="btnloader" style="display: none;"></div>-->
+                    <!--    <span>Submit</span>-->
+                    <!--</button>-->
+                </div>
+                
+            </div> 
+
+        </div>
+    </div>
+    </form>
+    
+    <div class="" id="viewreceivepurchases">
+        <form id="viewreceivepurchasesform" class="">
+          <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Start Date</label>
+                    <input type="date" name="startdate" id="startdate" class="form-control bg-white" placeholder="Search by Item Name">
+                </div>
+                <div class="form-group">
+                    <label for="logoname" class="control-label">End Date</label>
+                    <input type="date" name="enddate" id="enddate" class="form-control bg-white" placeholder="Search by Item Name">
+                </div>
+            </div>
+              <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                  <div class="form-group col-span-3">
+                      <label for="queryUser" class="control-label">Search</label>
+                      <input type="text" name="q" id="q" class="form-control comp bg-white" placeholder="Search by anything">
+                  </div>
+                  <div class="flex justify-end mt-5">
+                      <button id="querySubmit" type="button" class="btn">
+                          <div class="btnloader" style="display: none;"></div>
+                          <span>Search</span>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </form>
+      <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+        <div class="table-content">
+          <table class="table-auto">
+            <thead>
+              <tr>
+                <th style="width:10px">s/n</th>
+                <th>TRANSACTION<br/>DATE</th>
+                <th>reference</th>
+                <th>items<br/>No.</th>
+                <th>ITEM&nbsp;NAME&nbsp;|&nbsp;[E.COST]&nbsp;|&nbsp;[QUANTITY]</th>
+                <th>GRAND<br/>TOTAL</th>
+                <th>SUPPLIER</th>
+                <th>branch</th>
+                <th>department</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody id="tabledata">
+              <tr>
+                <td colspan="100%" class="text-center opacity-70">
+                  Table is empty
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-status"></div>
+      </div>
+
+</section>  

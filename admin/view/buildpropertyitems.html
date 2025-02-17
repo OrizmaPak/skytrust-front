@@ -1,0 +1,89 @@
+<form id="buildpropertyitemsform" class="font-sans bg-gray-100">
+    <div class="container p-6 mx-auto space-y-6">
+      <!-- Header -->
+      <h1 class="text-2xl font-bold text-gray-800">Build Property Items</h1>
+  
+      <!-- Add Item to Build -->
+      <div class="p-6 bg-white rounded-lg shadow-md">
+        <h2 class="mb-4 text-lg font-semibold text-gray-700">Add Item to Build</h2>
+        <div class="flex flex-col gap-4 md:flex-row md:items-end">
+          <div class="flex-grow form-group">
+            <label for="itemToBuild" class="block mb-2 text-sm font-medium text-gray-600">Item To Build</label>
+            <select
+              id="itemToBuild"
+              class="p-2 w-full rounded-lg border border-gray-300 comp focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+                <option value="" disabled>-- Select Item to Build --</option>
+                <!-- Options will be dynamically generated -->
+            </select>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Add Item -->
+      <div class="p-6 bg-white rounded-lg shadow-md">
+        <h2 class="mb-4 text-lg font-semibold text-gray-700">Add Item</h2>
+        <div class="flex flex-col gap-4 items-center md:flex-row md:items-end">
+          <div class="flex-grow">
+            <label for="addItem" class="block mb-2 text-sm font-medium text-gray-600">Item</label>
+            <select
+              id="addItem"
+              class="p-2 w-full rounded-lg border border-gray-300 comp focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">--select item to add --</option>
+            </select>
+          </div>
+          <div class="w-24">
+            <label for="quantity" class="block mb-2 text-sm font-medium text-gray-600">Quantity</label>
+            <input
+              id="quantity"
+              type="number"
+              class="p-2 w-full rounded-lg border border-gray-300 comp focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Qty"
+            />
+          </div>
+          <button
+            id="additembtn"
+            type="button"
+            class="px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+  
+      <!-- Items Table -->
+      <div class="p-6 bg-white rounded-lg shadow-md">
+        <h2 class="mb-4 text-lg font-semibold text-gray-700">Items</h2>
+        <div class="overflow-x-auto table-content">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="text-gray-600 bg-gray-100 border-b">
+                <th class="p-2 font-medium text-left">Item ID</th>
+                <th class="p-2 font-medium text-left">Item Name</th>
+                <th class="p-2 font-medium text-left">Price</th>
+                <th class="p-2 font-medium text-left">Quantity</th>
+                <th class="p-2 font-medium text-left">Action</th>
+              </tr>
+            </thead>
+            <tbody id="itemsTable">
+              <tr>
+                <td colspan="5" class="text-center opacity-70">No Data Available</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+      <!-- Save Button -->
+      <div>
+        <div class="flex justify-end mt-5">
+          <button id="submit" type="button" class="btn">
+              <div class="btnloader" style="display: none;"></div>
+              <span>Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+  

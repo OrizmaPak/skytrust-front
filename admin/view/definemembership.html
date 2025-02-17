@@ -1,0 +1,59 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>DEFINE MEMBERSHIP</span>
+    </p>
+    <!-- here is the tab navigation -->
+    <ul class="flex text-sm font-medium text-center text-gray-500 border-b border-gray-200 cark:border-gray-700 cark:text-gray-400">
+        <!--<li id="rccview" class="me-2 cp viewer" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+        <li  class="me-2 cp viewer optioner !text-blue-600 active" name="viewdefinemembership" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize">View define membership</p>
+        </li> 
+        <li id="" class="me-2 cp updater  optioner" name="definemembershipform" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize ">Manage define membership</p>
+        </li>
+    </ul>
+
+    <form id="definemembershipform" class="hidden">
+        <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 rounded-sm">
+            <div class="form-group">
+                <label for="definemembership" class="control-label">Define membership</label>
+                    <input type="text" name="member" id="member" class="form-control comp" placeholder="Enter Membership">
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div></div>
+                <div></div>
+                <div class="flex justify-end mt-5">
+                    <button id="submit" type="button" class="btn">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>   
+    
+     <div class="" id="viewdefinemembership">
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th style="width:10px">s/n</th>
+                        <th>Member</th>     
+                        <th>add member on registration</th>     
+                        <th>status</th>     
+                        <th>Action</th>     
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    
+   </section> 

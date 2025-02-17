@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User | Sky Trust</title>
+    <link
+      rel="shortcut icon"
+      href="/view/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./css/style.js"></script>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/css_vanilla.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+        <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0"
+    />
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />-->
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />-->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.default.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/css/intlTelInput.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/js/intlTelInput.min.js"></script>
+
+    <!-- // Required dependencies - add these to your head section -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  </head>
+
+  <body>
+    <input
+      type="hidden"
+      name="your_companyname"
+      id="your_companyname"
+      value="Sky Trust"
+    />
+    <input type="hidden" name="your_branch" id="your_branch" readonly="" />
+    <input type="hidden" name="" id="your_role" value="" readonly="" />
+    <input type="hidden" name="" id="your_companyphone" value="" readonly="" />
+    <input
+      type="hidden"
+      name=""
+      id="your_companyaddress"
+      value=""
+      readonly=""
+    />
+    <input type="hidden" name="" id="your_companylogo" value="" readonly="" />
+    <input type="hidden" name="" id="your_companyemail" value="" readonly="" />
+
+    <main class="bg-primary/10 h-screen">
+      <div class="h-full">
+        <header>
+          <div class="flex items-center border-b border-gray-200/50 bg-white">
+            <p class="hemsnameQ">
+              <span
+                class="font-heebo block py-3 pl-5 text-base font-bold uppercase text-primary-g selection:bg-white xl:w-[250px]"
+                >Sky Trust<span class="text-gray-400"> MPCS</span></span
+              >
+            </p>
+
+            <div
+              class="flex flex-1 items-center justify-end xl:justify-between"
+            >
+              <button
+                id="toggler"
+                class="hover:bg-primary flex h-7 w-7 items-center justify-center rounded text-gray-400 transition duration-300 ease-linear"
+              >
+                <span class="material-symbols-outlined">menu</span>
+              </button>
+              <span class="flex items-center">
+                <a
+                  href="?r=resolve_ticket"
+                  class="relative w-max"
+                  id="user_notification"
+                  style="display: none"
+                >
+                  <button
+                    title="notification"
+                    class="hover:bg-primary flex h-7 w-7 items-center justify-center rounded text-gray-500 transition duration-300 ease-linear"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 19px"
+                      >notifications</span
+                    >
+                  </button>
+                  <span
+                    class="absolute flex items-center justify-center rounded-full bg-primary-g text-white"
+                    style="
+                      display: none;
+                      position: absolute;
+                      top: 3px;
+                      left: 3px;
+                      height: 7px;
+                      width: 7px;
+                    "
+                  ></span>
+                </a>
+                <span
+                  class="relative order-first flex gap-2 px-1 xl:order-last"
+                >
+                  <button
+                    onclick="notificationpanel()"
+                    title="logout"
+                    class="qq hover:bg-primary relative flex h-7 w-7 items-center justify-center rounded text-gray-500 transition duration-300 ease-linear"
+                  >
+                    <span
+                      class="qq material-symbols-outlined"
+                      style="font-size: 19px"
+                      >notifications</span
+                    >
+                    <p
+                      id="notification_badge_count"
+                      class="qq absolute right-[3px] top-[-4px] hidden rounded-full bg-[blue] px-1 text-xs text-white shadow-lg"
+                    >
+                      0
+                    </p>
+                  </button>
+                  <div
+                    id="notificationpanel"
+                    class="qq absolute left-[-220px] top-10 z-[500] flex !h-[0px] h-[400px] w-[250px] flex-col gap-4 overflow-auto rounded-md bg-[white] px-3 text-center shadow transition-all"
+                  >
+                    <p class="qq mt-3 font-semibold">Notification</p>
+                    <hr class="qq opacity-[0.5]" />
+                    <p class="qq text-xs font-normal">
+                      Your Attention needed!!
+                    </p>
+                    <div id="notification_content_holder">
+                      <!--<div name="notification_approvenotification" class="qq flex justify-between rounded-md border p-2">-->
+                      <!--    <div class="qq flex flex-col gap-2">-->
+                      <!--        <p class="qq text-left text-sm font-semibold">Requisition</p>-->
+                      <!--        <p class="qq text-xs font-normal">Items needs approval.</p>-->
+                      <!--    </div>-->
+                      <!--    <p class="qq my-auto rounded-full bg-blue-500 px-1 text-xs text-white">1</p>-->
+                      <!--</div>-->
+                    </div>
+                  </div>
+                  <button
+                    onclick="logoff()"
+                    title="logout"
+                    class="hover:bg-primary flex h-7 w-7 items-center justify-center rounded text-gray-500 transition duration-300 ease-linear"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 19px"
+                      >power_settings_new</span
+                    >
+                  </button>
+                </span>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <section>
+          <div class="relative flex h-screen">
+            <!-- navigation -->
+            <nav
+              id="navigation"
+              class="fixed left-0 top-0 z-40 h-full w-4/5 overflow-auto border-r-2 border-gray-200/50 bg-white pb-14 lg:relative lg:z-0 xl:w-[250px]"
+            >
+              <div
+                id="hoverer"
+                class="h-full overflow-y-auto overflow-x-hidden px-2"
+              >
+                <div
+                  class="sticky top-0 m-auto flex w-5/6 flex-col items-center border-b border-gray-200/50 bg-white py-5"
+                >
+                  <span
+                    class="h-auto w-[50px] overflow-hidden rounded-full lg:w-[60px]"
+                  >
+                    <img
+                      name="user_image"
+                      src="./images/default-avatar.png"
+                      alt="user Avater"
+                      class="h-auto w-full object-center"
+                    />
+                  </span>
+                  <span
+                    class="text-normal font-mont mt-2 font-extrabold capitalize"
+                    name="user_name"
+                    >Loading...</span
+                  >
+                  <span
+                    class="text-3xs rounded-full bg-blue-500 px-2 py-0.5 text-center font-bold capitalize text-white"
+                    name="user_role"
+                    >loading...</span
+                  >
+                  <span
+                    name="user_email"
+                    class="text-blue font-mont mt-2 text-[9px] font-medium"
+                    >loading...</span
+                  >
+                  <form id="changelocationfly">
+                    <select
+                      id="branch1"
+                      name="branch1"
+                      class="mt-4 w-full rounded-md !border border-b-2 border-gray-300 bg-transparent text-center text-sm font-semibold shadow-sm transition duration-300 ease-linear focus:border-primary-g focus:outline-none focus:ring-0"
+                    >
+                      <option value="">Loading...</option>
+                    </select>
+                  </form>
+                </div>
+                <ul id="navigationcontainer" class="font-poppins mt-2">
+                  <li class="nav-item">
+                    <span
+                      class="navitem-title group text-[#292929]"
+                      title="Overview of your account more details here..."
+                      id="dashboard"
+                    >
+                      <span
+                        class="material-symbols-outlined group-hover:text-primary-g"
+                        style="font-size: 20px"
+                        >dashboard</span
+                      >
+                      <span class="group-hover:text-primary-g">
+                        <span>Dashboard</span>
+                      </span>
+                    </span>
+                  </li>
+                  
+                  <!-- ADMINISTRATION -->
+                  <li class="nav-item">
+                    <span class="navitem-title group text-[#292929]">
+                      <span
+                        class="material-symbols-outlined group-hover:text-primary-g"
+                        style="font-size: 20px"
+                        >person</span
+                      >
+                      <span class="group-hover:text-primary-g">
+                        <span>Administration</span>
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-size: 15px"
+                          >chevron_right</span
+                        >
+                      </span>
+                    </span>
+                    <ul class="ml-14 flex flex-col gap-y-4">
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="profile"
+                      >
+                        Profile
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="changepassword"
+                      >
+                        Change Password
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="managepin"
+                      >
+                        Manage pin
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="branchmanagement"
+                      >
+                        Branch Management
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="onlineusers"
+                      >
+                        Online Users
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="cashierlimit"
+                      >
+                        Cashier Limit
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="taskmanagement"
+                      >
+                        Task Management
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="registrationpoint"
+                      >
+                        Registration Point
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="rejecttransactiondate"
+                      >
+                        Reject Transaction Date
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="department"
+                      >
+                        Department
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="definemembership"
+                      >
+                        Define Membership
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="positionmembership"
+                      >
+                        Position Membership
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="activity"
+                      >
+                        Activity Panel
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="permissionsettings"
+                      >
+                        Access Control
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="organizationsettings"
+                      >
+                        Organization Setting
+                      </li>
+                      <!-- <li class="navitem-child text-[#292929]" title="" id="changepassword">Change Password</li>
+                                        <li class="navitem-child text-[#292929]" title="" id="useractivity">Activity Panel</li>
+                                        <li class="navitem-child text-[#292929]" title="" id="department">Department</li>
+                                        <li class="navitem-child text-[#292929]" title="" id="accesscontrol">Access Control</li>
+                                        <li class="navitem-child text-[#292929]" title="" id="userspage">Users</li>
+                                        <li class="navitem-child text-[#292929]" title="" id="ratecode">Rate code</li>
+                                        <li class="navitem-child text-[#292929]" title="" id="bookplan">Booking Plan</li>
+                                        <li class="navitem-child text-[#292929]" title="Create, update, and manage discount coupons, promotional codes, and special offers for guests." id="discountcouponp">discount</li>
+                                        <li class="navitem-child text-[#292929]" title="Create, update, and manage cost centers for tracking and allocating expenses." id="costcenter">Cost Center</li>
+                                        <li class="navitem-child text-[#292929]" title="Configure system settings, application preferences and set accounts." id="settings">Settings</li> -->
+                    </ul>
+                  </li>
+                  <!-- INVENTORY -->
+                  <li class="nav-item">
+                    <span class="navitem-title group text-[#292929]">
+                      <span
+                        class="material-symbols-outlined group-hover:text-primary-g"
+                        style="font-size: 20px"
+                        >storefront</span
+                      >
+                      <span class="group-hover:text-primary-g">
+                        <span>Inventory</span>
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-size: 15px"
+                          >chevron_right</span
+                        >
+                      </span>
+                    </span>
+                    <ul class="ml-14 flex flex-col gap-y-4">
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title="Add new inventory items, define their details, and manage stock levels."
+                        id="createinventory"
+                      >
+                        Create Inventory
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title="View and review the details of current inventory items, including quantities and descriptions."
+                        id="viewinventory"
+                      >
+                        View Inventory
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title="Enter and manage the initial stock quantities for your inventory items."
+                        id="openingstock"
+                      >
+                        Opening Stock
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title="Edit inventory details, adjust stock levels, and manage item information."
+                        id="updateinventory"
+                      >
+                        Update Inventory
+                      </li>
+                      <!-- <li class="navitem-child text-[#292929]" id="warehousestorage">Warehouse/Department</li>-->
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="requisition"
+                      >
+                        Out take Requisition
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title="View and review details of current requisitions, including requests, statuses, and fulfillment."
+                        id="viewrequisition"
+                      >
+                        View Out-Take Requisition
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="approverequisition"
+                      >
+                        Approve Out-Takes
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="inrequisition"
+                      >
+                        In-take Requisition
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="viewinrequisition"
+                      >
+                        View In-take Requisition
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="approveinrequisition"
+                      >
+                        Approve In-Takes
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="issuetype"
+                      >
+                        issue type
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="issuelog"
+                      >
+                        issue log
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="viewreturneditems"
+                      >
+                        View Returned Items
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title="View and manage the detailed stock ledger, including inventory transactions, stock adjustments, and historical records of item movements and balances."
+                        id="stockhistory"
+                      >
+                        Stock Ledger
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title="Calculate and review the value of current inventory based on stock quantities, item costs, and market conditions for financial and management purposes."
+                        id="stockvaluation"
+                      >
+                        Stock valuation
+                      </li>
+                    </ul>
+                  </li>
+                  <!-- MEMBERS -->
+                  <li class="nav-item">
+                    <span class="navitem-title group text-[#292929]">
+                      <span
+                        class="material-symbols-outlined group-hover:text-primary-g"
+                        style="font-size: 20px"
+                        >card_membership</span
+                      >
+                      <span class="group-hover:text-primary-g">
+                        <span>Members</span>
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-size: 15px"
+                          >chevron_right</span
+                        >
+                      </span>
+                    </span>
+                    <ul class="ml-14 flex flex-col gap-y-4">
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="addmember"
+                      >
+                        Add Member
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="managemembership"
+                      >
+                        manage membership
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="viewmembers"
+                      >
+                        view members
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="yourreferrals"
+                      >
+                        Your Referrals
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        title=""
+                        id="regpointreferrals"
+                      >
+                        Registration Point Referrals
+                      </li>
+                      <!-- <li class="navitem-child text-[#292929]" title="" id="hotelguest">Guests Management</li> -->
+                    </ul>
+                  </li>
+                  <!-- SAVINGS -->
+                  <li class="nav-item">
+                    <span class="navitem-title group text-[#292929]">
+                      <span
+                        class="material-symbols-outlined group-hover:text-primary-g"
+                        style="font-size: 20px"
+                        >energy_savings_leaf</span
+                      >
+                      <span class="group-hover:text-primary-g">
+                        <span>Savings</span>
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-size: 15px"
+                          >chevron_right</span
+                        >
+                      </span>
+                    </span>
+                    <ul class="ml-14 flex flex-col gap-y-4">
+                      <li
+                        class="navitem-child text-[#292929]"
+                        id="savingsproduct"
+                      >
+                        Products
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        id="savingaccount"
+                      >
+                        Accounts
+                      </li>
+                      <!-- <li class="navitem-child text-[#292929]" id="invoicing">invoicing</li> 
+                                        <li class="navitem-child text-[#292929]" id="receipts">Receive Deposits</li> 
+                                        <li class="navitem-child text-[#292929]" id="salesreport">sales report</li>
+                                        <li class="navitem-child text-[#292929]" title="CONTINUING WITH THIS REVERSAL WILL ERASE REVERSED TRANSACTION PERMANENTLY" id="reversal">reversals</li>
+                                        <li class="navitem-child text-[#292929]" id="viewreversal">view reversals</li> -->
+
+                    </ul>
+                  </li>
+                  <!-- LOANS -->
+                  <li class="nav-item">
+                    <span class="navitem-title group text-[#292929]">
+                      <span
+                        class="material-symbols-outlined group-hover:text-primary-g"
+                        style="font-size: 20px"
+                        >money_bag</span
+                      >
+                      <span class="group-hover:text-primary-g">
+                        <span>Loans</span>
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-size: 15px"
+                          >chevron_right</span
+                        >
+                      </span>
+                    </span>
+                    <ul class="ml-14 flex flex-col gap-y-4">
+                      <li class="navitem-child text-[#292929]" id="loanfees">
+                        fees
+                      </li>
+                      <li class="navitem-child text-[#292929]" id="loanproduct">
+                        products
+                      </li>
+                      <li class="navitem-child text-[#292929]" id="loanaccount">
+                        Accounts
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        id="loancollateral"
+                      >
+                        Loan Collateral
+                      </li>
+                      <li
+                        class="navitem-child text-[#292929]"
+                        id="disbursement"
+                      >
+                        Disbursement
+                      </li>
+                      <!-- <li class="navitem-child text-[#292929]" id="salesreportpos">sales report</li> -->
+                    </ul>
+                  </li>
+                  <!-- PROPERTY -->
+                  <li class="nav-item"> 
+                    <span class="navitem-title group text-[#292929]">
+                        <span class="material-symbols-outlined group-hover:text-primary-g"
+                            style="font-size: 20px;">home</span>
+                        <span class="group-hover:text-primary-g">
+                            <span>Property</span>
+                            <span class="material-symbols-outlined" style="font-size: 15px;">chevron_right</span>
+                        </span>
+                    </span>
+                    <ul class="ml-14 flex flex-col gap-y-4">
+                        <li class="navitem-child text-[#292929]" title="" id="buildpropertyitems">Build Property Items</li>   
+                        <li class="navitem-child text-[#292929]" title="" id="categoryvaluetimeline">Category Value Timeline</li>   
+                        <li class="navitem-child text-[#292929]" title="" id="propertyproduct">Property product</li>   
+                        <li class="navitem-child text-[#292929]" title="" id="propertyaccount">Property Account</li>   
+                        <li class="navitem-child text-[#292929]" title="" id="viewpropertyaccount">View Property Account</li>   
+                        <li class="navitem-child text-[#292929]" title="" id="viewcompositeitems">View Composite Items</li>   
+                        <li class="navitem-child text-[#292929]" title="" id="maturedpropertyaccounts">Matured Property Accounts</li>   
+                        <li class="navitem-child text-[#292929]" title="" id="propertytransactionreport">Property Transaction Report</li>   
+                        <li class="navitem-child text-[#292929]" title="" id="missedpropertymaturity">Missed Property Maturity</li>   
+                    </ul>
+                  </li>
+                  <!-- ROTARY SAVINGS -->
+                  <li class="nav-item">
+                    <span class="navitem-title group text-[#292929]">
+                      <span
+                        class="material-symbols-outlined group-hover:text-primary-g"
+                        style="font-size: 20px"
+                        >diversity_2</span
+                      >
+                      <span class="group-hover:text-primary-g">
+                        <span>Rotary Savings</span>
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-size: 15px"
+                          >chevron_right</span
+                        >
+                      </span>
+                    </span>
+                    <ul class="ml-14 flex flex-col gap-y-4">
+                      <li class="navitem-child text-[#292929]" id="rotaryproduct">
+                        rotary product 
+                      </li>
+                      <li class="navitem-child text-[#292929]" id="rotarysavings">
+                        rotary account 
+                      </li>
+                      <!-- <li class="navitem-child text-[#292929]" id="posreceipt">
+                        receipt
+                      </li> -->
+                    </ul>
+                  </li>
+                  <!-- SALES -->
+                  <li class="nav-item">
+                    <span class="navitem-title group text-[#292929]">
+                      <span
+                        class="material-symbols-outlined group-hover:text-primary-g"
+                        style="font-size: 20px"
+                        >point_of_sale</span
+                      >
+                      <span class="group-hover:text-primary-g">
+                        <span>Sales</span>
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-size: 15px"
+                          >chevron_right</span
+                        >
+                      </span>
+                    </span>
+                    <ul class="ml-14 flex flex-col gap-y-4">
+                      <li class="navitem-child text-[#292929]" id="makesales">
+                        Make Sales
+                      </li>
+                      <li class="navitem-child text-[#292929]" id="viewmakesales">
+                        View Sales
+                      </li>
+                      <li class="navitem-child text-[#292929]" id="salesanalytics">
+                        Sales Analytics
+                      </li>
+                      <!-- <li class="navitem-child text-[#292929]" id="posreceipt">
+                        receipt
+                      </li> -->
+                    </ul>
+                  </li>
+                  <!-- TRANSACTIONS -->
+                  <li class="nav-item">
+                    <span class="navitem-title group text-[#292929]">
+                      <span
+                        class="material-symbols-outlined group-hover:text-primary-g"
+                        style="font-size: 20px"
+                        >currency_exchange</span
+                      >
+                      <span class="group-hover:text-primary-g">
+                        <span>Transactions</span>
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-size: 15px"
+                          >chevron_right</span
+                        >
+                      </span>
+                    </span>
+                    <ul class="ml-14 flex flex-col gap-y-4">
+                      <li class="navitem-child text-[#292929]" id="statementofaccount">
+                        Statment of Account
+                      </li>
+                      <li class="navitem-child text-[#292929]" id="collection">
+                        Collection
+                      </li>
+                      <li class="navitem-child text-[#292929]" id="collectionview">
+                        Collection View
+                      </li>
+                      <li class="navitem-child text-[#292929] !hidden" id="deposit">
+                        deposit
+                      </li>
+                      <!-- <li class="navitem-child text-[#292929]" id="posreceipt">
+                        receipt
+                      </li> -->
+                    </ul>
+                  </li>
+                  <!-- MAINTENANCE -->
+                  <li class="nav-item hidden">
+                    <span class="navitem-title group text-[#292929]">
+                      <span
+                        class="material-symbols-outlined group-hover:text-primary-g"
+                        style="font-size: 20px"
+                        >engineering</span
+                      >
+                      <span class="group-hover:text-primary-g">
+                        <span>Maintenance</span>
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-size: 15px"
+                          >chevron_right</span
+                        >
+                      </span>
+                    </span>
+                    <ul class="ml-14 flex flex-col gap-y-4">
+                      <li
+                        class="navitem-child capitalize text-[#292929]"
+                        id="maintenancerequest"
+                      >
+                        Maintenance Request
+                      </li>
+                      <li
+                        class="navitem-child capitalize text-[#292929]"
+                        id="viewmaintenancerequest"
+                      >
+                        View Maintenance Request
+                      </li>
+                      <li
+                        class="navitem-child capitalize text-[#292929]"
+                        id="workorder"
+                      >
+                        work order
+                      </li>
+                    </ul>
+                  </li>
+                  <!-- PURCHASES -->
+                  <li class="nav-item"> 
+                      <span class="navitem-title group text-[#292929]">
+                          <span class="material-symbols-outlined group-hover:text-primary-g"
+                              style="font-size: 20px;">library_add</span>
+                          <span class="group-hover:text-primary-g">
+                              <span>Purchases</span>
+                              <span class="material-symbols-outlined" style="font-size: 15px;">chevron_right</span>
+                          </span>
+                      </span>
+                      <ul class="ml-14 flex flex-col gap-y-4">
+                          <li class="navitem-child text-[#292929]" id="managesupplier">Manage Supplier</li>
+                          <li class="navitem-child text-[#292929]" id="purchaseorder">Purchase Order</li>
+                        <li class="navitem-child text-[#292929]" id="receivepurchases">Receive Purchases</li>
+                        <li class="navitem-child text-[#292929]" id="serviceorder">Service Order</li>
+                        <li class="navitem-child text-[#292929]" id="receiveservice">Receive Service</li>
+                        <li class="navitem-child text-[#292929]" id="rejectedservice">Rejected Service</li>
+                        <li
+                          class="navitem-child text-[#292929]"
+                          id="payment"
+                        >
+                          Payment
+                        </li>
+                            <!--<li class="navitem-child text-[#292929]" id="viewpurchases">View Purchases</li>
+                          <li class="navitem-child text-[#292929]" id="expenses">Expenses</li> 
+                          <li class="navitem-child text-[#292929]" id="payment">payment</li> 
+                          <li class="navitem-child text-[#292929]" id="payables">Payables</li>
+                          <li class="navitem-child text-[#292929]" id="allpayables">All Payables</li>
+                          <li class="navitem-child text-[#292929]" title="CONTINUING WITH THIS REVERSAL WILL ERASE REVERSED TRANSACTION PERMANENTLY" id="reversals">reversals</li>
+                          <li class="navitem-child text-[#292929]" id="viewreversals">view reversals</li> -->
+                      </ul>
+                  </li>
+                  <!-- EXPENSE -->
+                  <li class="nav-item"> 
+                      <span class="navitem-title group text-[#292929]">
+                          <span class="material-symbols-outlined group-hover:text-primary-g"
+                              style="font-size: 20px;">receipt_long</span>
+                          <span class="group-hover:text-primary-g">
+                              <span>Expense</span>
+                              <span class="material-symbols-outlined" style="font-size: 15px;">chevron_right</span>
+                          </span>
+                      </span>
+                      <ul class="ml-14 flex flex-col gap-y-4">
+                        <li class="navitem-child text-[#292929]" id="allocateexpenditure">Allocate Expenditure</li>
+                        <li class="navitem-child text-[#292929]" id="payables">Payables</li>
+                        <li class="navitem-child text-[#292929]" id="allpayables">All Payables</li>
+                        <li class="navitem-child text-[#292929]" id="supplierpayout">Supplier Payout</li>
+                        <li class="navitem-child text-[#292929]" title="CONTINUING WITH THIS REVERSAL WILL ERASE REVERSED TRANSACTION PERMANENTLY" id="reversals">reversals</li>
+                        <li class="navitem-child text-[#292929]" id="viewreversals">view reversed Payments</li> 
+                        <li class="navitem-child text-[#292929]" id="viewdeletedtransaction">deleted transactions</li> 
+                            <!--<li class="navitem-child text-[#292929]" id="viewpurchases">View Purchases</li>
+                          <li class="navitem-child text-[#292929]" id="expenses">Expenses</li> 
+                          <li class="navitem-child text-[#292929]" id="payment">payment</li> -->
+                      </ul>
+                  </li>
+                  <!-- CASH OFFICE -->
+                  <li class="nav-item"> 
+                      <span class="navitem-title group text-[#292929]">
+                          <span class="material-symbols-outlined group-hover:text-primary-g"
+                              style="font-size: 20px;">payments</span>
+                          <span class="group-hover:text-primary-g">
+                              <span>Cash Office</span>
+                              <span class="material-symbols-outlined" style="font-size: 15px;">chevron_right</span>
+                          </span>
+                      </span>
+                      <ul class="ml-14 flex flex-col gap-y-4">
+                        <li class="navitem-child text-[#292929]" id="cashdeposit">Cash Deposit</li>
+                        <li class="navitem-child text-[#292929]" id="withdrawal">withdrawal</li>
+                            <!--<li class="navitem-child text-[#292929]" id="viewpurchases">View Purchases</li>
+                          <li class="navitem-child text-[#292929]" id="expenses">Expenses</li> 
+                          <li class="navitem-child text-[#292929]" id="payment">payment</li> -->
+                      </ul>
+                  </li>
+                  <!-- ACCOUNTS -->
+                  <li class="nav-item"> 
+                                    <span class="navitem-title group text-[#292929]">
+                                        <span class="material-symbols-outlined group-hover:text-primary-g"
+                                            style="font-size: 20px;">attach_money</span>
+                                        <span class="group-hover:text-primary-g">
+                                            <span>Accounts</span>
+                                            <span class="material-symbols-outlined" style="font-size: 15px;">chevron_right</span>
+                                        </span>
+                                    </span>
+                                    <ul class="ml-14 flex flex-col gap-y-4">
+                                        <li class="navitem-child text-[#292929]" title="" id="account">Manage GL Account</li>
+                                        <!-- <li class="navitem-child text-[#292929]" id="addglaccount">Add GL Account</li>
+
+                                        <li class="navitem-child text-[#292929]" id="viewglaccount">View GL Accounts</li>
+                                        <li class="navitem-child text-[#292929]" id="addgltransaction">Add GL Transaction</li>
+                                        <li class="navitem-child text-[#292929]" id="gltransactionhistory">GL Transaction History</li>
+                                        <li class="navitem-child text-[#292929]" id="trialbalance">Trial Balance</li>
+                                        <li class="navitem-child text-[#292929]" id="incomestatement">Income Statement</li>
+                                        <li class="navitem-child text-[#292929]" id="balancesheet">Balance Sheet</li>
+                                        <li class="navitem-child text-[#292929]" id="generalaccountreport">General Sales Report</li>
+                                        <li class="navitem-child text-[#292929]" id="endofdayreport">Night Audit/ End of Day Report</li> -->
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <section
+              class="flex w-full flex-col justify-between overflow-auto px-0 xl:px-1"
+            >
+              <!-- content area -->
+              <div
+                class="h-[90%] w-full overflow-y-auto overflow-x-hidden pb-10"
+              >
+                <div class="mx-auto mt-1 w-full xl:px-10" id="workspace"></div>
+              </div>
+              <footer
+                class="fixed bottom-0 mt-10 w-screen bg-[#f5f5f6] px-5 xl:p-0"
+              >
+                <p
+                  class="mx-auto w-full border-t border-gray-200 py-1 text-xs text-gray-400"
+                >
+                  &copy;
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  divinehelpfarmers.com
+                </p>
+              </footer>
+            </section>
+
+            <div
+              id="arcontainer"
+              class="fixed left-[100%] top-0 flex h-screen w-screen justify-end bg-[#00000042] transition-all duration-[0.5s]"
+            >
+              <button
+                type="button"
+                id="aropener"
+                class="rounded-xs absolute left-[-75px] top-20 mb-2 me-2 bg-gradient-to-r from-cyan-400 via-cyan-500 to-green-600 py-2.5 pl-3 pr-5 text-center !text-xs text-sm font-medium text-white opacity-[0.7] shadow hover:bg-gradient-to-br focus:outline-none"
+              >
+                More <br />
+                Details
+              </button>
+              <div
+                id="arshadow"
+                class="shadow-xs relative h-full w-full max-w-[300px] bg-[#ffffffa3] px-2 py-4 shadow"
+              >
+                <button
+                  type="button"
+                  id="arremover"
+                  class="absolute left-[-25px] top-7 mb-2 me-2 rounded-full bg-gradient-to-r from-red-400 via-red-500 to-red-600 px-5 py-2.5 text-center text-sm text-xs font-medium text-white opacity-[0.8] shadow hover:bg-gradient-to-br focus:outline-none"
+                >
+                  X
+                </button>
+                <p class="text-center font-bold text-[black]">
+                  UPDATE COMING SOON
+                </p>
+
+                <div class="search-box mx-auto scale-[0.7]">
+                  <button class="btn-search">
+                    <span class="material-symbols-outlined text-white"
+                      >search</span
+                    >
+                  </button>
+                  <input
+                    type="text"
+                    class="input-search text-black"
+                    id="searchavailableroom"
+                    placeholder="Type to Search..."
+                  />
+                </div>
+
+                <p class="relative text-center text-xs">
+                  We will update you soon!!
+                  
+                </p>
+
+                <div
+                  id="availableroomcontainer"
+                  class="my-3 h-screen overflow-y-auto"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <div class="j-outer-container" id="jmodal-area">
+      <div class="modal-content" id="modal-content"></div>
+    </div>
+
+    <script>
+      function getRandomQuery() {
+        return `?q=${Math.floor(Math.random() * 100000000)}`;
+      }
+
+      const scripts = [
+        "./js/util.js",
+        "./js/oreutil.js",
+        "./js/router.js",
+        "./js/index.js",
+        "https://cdn.jsdelivr.net/npm/chart.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js",
+        // "//unpkg.com/alpinejs",
+      ];
+
+      scripts.forEach((src) => {
+        const script = document.createElement("script");
+        script.src = src.includes("http") ? src : `${src}${getRandomQuery()}`;
+        if (src.includes("alpinejs")) script.defer = true;
+        document.body.appendChild(script);
+      });
+    </script>
+
+    <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/vendor/datatables.net/js/dataTables.min.js"></script>
+    <script src="./node_modules/preline/dist/preline.js"></script>
+  </body>
+</html>

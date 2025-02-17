@@ -1,0 +1,14 @@
+HTTrack3.49-2+htsswf+htsjava launched on Mon, 10 Feb 2025 10:22:40 at https://softivuspro.com/bankhub-html/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://softivuspro.com/bankhub-html/ -O1 "C:\Users\Orizma\Desktop\oreva\PERSONAL\OVO\BANK\template online banking 2\online banking" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+10:24:32	Error: 	"Not Found" (404) at link https://softivuspro.com/bankhub-html/__webpack_require__.r(__webpack_exports__); (from https://softivuspro.com/bankhub-html/assets/js/app.js)
+10:24:32	Error: 	"Not Found" (404) at link https://softivuspro.com/bankhub-html/); (from https://softivuspro.com/bankhub-html/assets/js/app.js)
+10:24:32	Error: 	"Not Found" (404) at link https://softivuspro.com/bankhub-html/src/assets/js/app.js (from https://softivuspro.com/bankhub-html/assets/js/app.js)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 52 seconds : 155 links scanned, 151 files written (9202147 bytes overall) [3214490 bytes received at 28700 bytes/sec], 8502924 bytes transferred using HTTP compression in 97 files, ratio 28%, 11.3 requests per connection
+(3 errors, 0 warnings, 0 messages)

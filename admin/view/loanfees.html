@@ -1,0 +1,97 @@
+<section class="animate__animated animate__fadeIn relative">
+    <p class="page-title">
+        <span>loanfees</span>
+    </p>
+    <!-- here is the tab navigation -->
+    <ul class="flex text-sm font-medium text-center text-gray-500 border-b border-gray-200 cark:border-gray-700 cark:text-gray-400">
+        <!--<li id="rccview" class="me-2 cp viewer" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+        <li  class="me-2 cp viewer optioner !text-blue-600 active" name="viewloanfees" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize">view loanfees</p>
+        </li> 
+        <li id="" class="me-2 cp updater  optioner" name="loanfeesform" onclick="runoptioner(this)">
+            <p class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 capitalize ">Manage loanfees</p>
+        </li>
+    </ul>
+
+    <form id="loanfeesform" class="hidden">
+        <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 rounded-sm">
+            <div class="form-group">
+                <label for="feename" class="control-label">Fee Name</label>
+                <input type="text" name="feename" id="feename" class="form-control comp" placeholder="Enter Fee Name">
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="form-group">
+                    <label for="feemethod" class="control-label">Fee Method</label>
+                    <select name="feemethod" id="feemethod" class="form-control comp">
+                        <option value="">-- Select Fee Method --</option>
+                        <option value="FORM FEE">FORM FEE</option>
+                        <option value="PROCESSING FEE">PROCESSING FEE</option>
+                        <option value="INSURANCE FEE">INSURANCE FEE</option>
+                        <option value="DEDUCTION FEE">DEDUCTION FEE</option>
+                        <option value="PENALTY">PENALTY</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="chargesbasedon" class="control-label">Charges Based On</label>
+                    <select name="chargesbasedon" id="chargesbasedon" class="form-control comp">
+                        <option value="">-- Select Charges Based On --</option>
+                        <option value="PRINCIPAL AMOUNT ONLY">PRINCIPAL AMOUNT ONLY</option>
+                        <option value="PRINCIPAL AND INTEREST">PRINCIPAL AND INTEREST</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="chargeamount" class="control-label">Charge Amount</label>
+                    <input type="number" step="0.01" name="chargeamount" id="chargeamount" class="form-control comp" placeholder="Enter Charge Amount">
+                </div>
+                <div class="form-group">
+                    <label for="chargetype" class="control-label">Charge Type</label>
+                    <select name="chargetype" id="chargetype" class="form-control comp">
+                        <option value="">-- Select Charge Type --</option>
+                        <option value="PERCENTAGE">PERCENTAGE</option>
+                        <option value="AMOUNT">AMOUNT</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="glaccount" class="control-label">GL Account</label>
+                    <select name="glaccount" id="glaccount" class="form-controls comp defaultacc">
+                        <option value="">-- Select GL Account --</option>
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="flex justify-end mt-5">
+                    <button id="submit" type="button" class="btn">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+     <div class="" id="viewloanfees">
+        <div class="table-content">
+            <!--<p class="text-md font-semibold">Balance Brought Forward(B/F): <span id="bbf"></span></p>-->
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th style="width:10px">s/n</th>
+                        <th>fee name</th>
+                        <th>method</th>
+                        <th>charge base</th>
+                        <th>charge amount</th>
+                        <th>account</th>
+                        <th>status</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                   <tr>
+                        <td colspan="100%" class="text-center opacity-70"> Table is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    
+   </section> 

@@ -1,0 +1,421 @@
+<section class="animate__animated animate__fadeIn">
+    <p class="page-title"> 
+        <span>makesales</span>
+    </p>
+
+    <ul
+    class="cark:border-gray-700 cark:text-gray-400 flex flex-wrap border-b border-gray-200 text-center text-sm font-medium text-gray-500"
+  >
+    <!--<li id="rccview" class="cp viewer me-2" onclick="did('cancelreservationform').classList.add('hidden');this.children[0].classList.add('active', '!text-blue-600');did('lostandfoundview').classList.remove('hidden');this.nextElementSibling.children[0].classList.remove('active', '!text-blue-600');">-->
+    <li
+      class="cp viewer optioner active me-2 !text-blue-600"
+      name="makesalesform"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        Make Sales
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="viewsalesday"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        View sales (per day)
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="viewsalesmonth"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        View sales (per month)
+      </p>
+    </li>
+    <li
+      id=""
+      class="cp updater optioner me-2"
+      name="viewsalesyear"
+      onclick="runoptioner(this)"
+    >
+      <p
+        class="inline-block rounded-t-lg p-4 capitalize hover:bg-gray-50 hover:text-gray-600"
+      >
+        View sales (per year)
+      </p>
+    </li> <!-- -->
+  </ul>
+
+    <div id="makesalesform">
+        <div class="flex flex-col space-y-3 bg-white/90 p-5 xl:p-10 rounded-sm">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 my-5">
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Source Branch</label>
+                    <select name="branchfrom" id="branchfrom" class="form-controls comp !text-black !bg-white">
+                            <option>Loading...</option>
+                        </select>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="logoname" class="control-label">Destination branch</label>
+                    <select name="branchto" id="branchto" class="form-controls comp !text-black !bg-white">
+                            <option>Loading...</option>
+                        </select>
+                </div> -->
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Source Department</label>
+                    <select name="departmentfrom" id="departmentfrom" class="form-control comp !text-black !bg-white">
+                            <option>Loading...</option>
+                        </select> 
+                </div>
+                <!-- <div class="form-group">
+                    <label for="logoname" class="control-label">Destination Department</label>
+                    <select name="departmentto" id="departmentto" class="form-control comp !text-black !bg-white">
+                            <option>Loading...</option>
+                        </select> 
+                </div> -->
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Document No / Description (optional)</label>
+                    <input type="text" name="description" id="description" class="form-control" placeholder="Enter Description">
+                </div> 
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Date</label>
+                    <input type="date" name="transactiondate" id="transactiondate" readonly class="form-control comp" placeholder="Enter Address">
+                </div>
+                <div class="form-group">
+                    <label for="logoname" class="control-label">Reference</label>
+                    <input type="text"  name="reference" id="reference" class="form-control" placeholder="Enter Reference">
+                </div>
+                </div>
+            </div>
+            <!--<hr class="my-10">-->
+    
+     <div >
+        <div class="flex justify-center items-center my-5 bg-gradient-to-r from-blue-500 to-indigo-600 py-5 rounded-xl shadow-lg">
+            <table class="border-collapse border border-gray-200 shadow-xl rounded-xl overflow-hidden">
+                <tbody id="entrybody">
+                    <tr id="readyholder">
+                        <td colspan="100%" class="text-center opacity-70 text-white"> Awaiting for source branch and department to be set... </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-content mt-5">
+            <table >
+                <thead>
+                    <tr>
+                        <th style="width:300px">Item</th>
+                        <th style="width:150px">Item Info</th>
+                        <th style="width:100px">Unit cost</th>
+                        <th style="width:100px">Unit price</th>
+                        <th style="width:100px">quantity</th>
+                        <th style="width:150px">value</th>
+                        <th><p class="flex gap-1 cp justify-center hover:border border-white transition-all items-center p-1 px-2 rounded bg-[#14ad16]" onclick="reqaddrowmakesales()"><button title="Edit row entry" class="material-symbols-outlined rounded-full bg-white h-8 w-8 text-[green] font-bold drop-shadow-md text-xs" style="font-size: 18px;">add</button>&nbsp;Add&nbsp;Item</p></th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata">
+                    <tr><td colspan="100%" class="text-center opacity-70">Awaiting for source branch and department to be set...</td></tr>
+                   <!--<tr id="reqrow_0">-->
+                   <!--     <td class="text-center opacity-70"> -->
+                   <!--     <label class="hidden">Item</label>-->
+                   <!--         <select name="supplyfrom" id="supplyfrom_0" class="form-control comp">-->
+                   <!--             <option value=''>-- Select item --</option>-->
+                   <!--         </select>-->
+                   <!--     </td>-->
+                   <!--     <td>-->
+                   <!--         <p>Type: <span id="type_0"></span></p>-->
+                   <!--         <p>Group: <span id="group_0"></span></p>-->
+                   <!--         <p>Stock Balance: <span id="class_0"></span></p>-->
+                   <!--     </td>-->
+                   <!--     <td>-->
+                   <!--         <label class="hidden">Cost</label>-->
+                   <!--         <input onchange="makesalescal2(this)" type="number" id="cost_0" name="cost" class="form-control comp" placeholder="Enter Cost">-->
+                   <!--     </td>-->
+                   <!--     <td>-->
+                   <!--         <label class="hidden">Quantity</label>-->
+                   <!--         <input onchange="makesalescal2(this)" type="number" id="qty_0" name="qty" class="form-control comp" placeholder="Qty">-->
+                   <!--     </td>-->
+                   <!--     <td>-->
+                   <!--         <label class="hidden">Value</label>-->
+                   <!--         <input readonly type="text" id="val_0" name="value[]" class="form-control comp" placeholder="">-->
+                   <!--     </td>-->
+                   <!--     <td>-->
+                   <!--         <div class="flex gap-4 items-center h-full w-fit py-3">-->
+                   <!--             <button onclick="reqaddrowmakesales()" title="Edit row entry" class="material-symbols-outlined rounded-full bg-primary-g h-8 w-8 text-white drop-shadow-md text-xs" style="font-size: 18px;">add</button>-->
+                                <!--<button onclick="reqaddrow()" title="Edit row entry" class="material-symbols-outlined rounded-full bg-[red] h-8 w-8 text-white drop-shadow-md text-xs" style="font-size: 18px;">delete</button>-->
+                   <!--         </div>-->
+                   <!--     </td>-->
+                   <!-- </tr>-->
+                </tbody>
+            </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-4">
+        <div></div>
+        <div>
+            <label for="paymentMethod" class="block text-sm font-medium text-gray-700">Payment Method</label>
+            <select id="paymentMethod" name="paymentMethod" class="form-control comp mt-1 block w-full">
+                <option value="">-- Select Payment Method --</option>
+                <option value="CASH">Cash</option>
+                <option value="BANK">Bank</option>
+            </select>
+        </div>
+        <div>
+            <label for="amountPaid" class="block text-sm font-medium text-gray-700">Amount Paid</label>
+            <input type="number" id="amountpaid" name="amountpaid" class="form-control comp mt-1 block w-full" placeholder="Enter amount paid">
+        </div>
+    </div>
+    <div class=" flex justify-end gap-2">
+             <p class="font-normal">Total Order:</p><p class="font-semibold" id="rptotalorder">Nill</p>
+         </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <div></div>
+                <div></div>
+                
+                <div class="flex justify-end mt-5">
+                     <button id="salessubmit" type="button" class="btn">
+                        <div class="btnloader" style="display: none;"></div>
+                        <span>Make Sales</span>
+                    </button>
+                    <!-- <button id="submit" type="button" class="w-full md:w-max rounded-md text-white text-sm capitalize bg-gradient-to-tr from-blue-400 via-blue-500 to-primary-g px-8 py-3 lg:py-2 shadow-md font-medium hover:opacity-75 transition duration-300 ease-in-out flex items-center justify-center gap-3">-->
+                    <!--    <div class="btnloader" style="display: none;"></div>-->
+                    <!--    <span>Send For Approval</span>-->
+                    <!--</button>-->
+                </div>
+                
+            </div> 
+
+        </div>
+    </div>
+    
+    <div id="viewsalesday" class="hidden">
+        <form id="viewsalesdayform">
+          <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+              <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                  <div class="form-group col-span-3">
+                      <label for="queryUser" class="control-label">Enter Date</label>
+                      <input type="date" name="date" id="viewsalesdaydate" class="form-control comp bg-white" placeholder="Search by anything">
+                  </div>
+                  <div class="flex justify-end mt-5">
+                      <button id="viewsalesdaySubmit" type="button" class="btn">
+                          <div class="btnloader" style="display: none;"></div>
+                          <span>Search</span>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </form>
+        <div class="table-content">
+              <div class="flex flex-wrap justify-between items-center p-4 bg-white ">
+                  <div class="flex items-center space-x-4">
+                      <div class="p-3 bg-blue-500 text-white rounded-full">
+                          <span class="material-symbols-outlined">shopping_cart</span>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-500">Total Sales Count</p>
+                          <p class="text-xl font-semibold" id="totalsalescount">0</p>
+                      </div>
+                  </div>
+                  <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                      <div class="p-3 bg-green-500 text-white rounded-full">
+                          <span class="material-symbols-outlined">attach_money</span>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-500">Total Sales</p>
+                          <p class="text-xl font-semibold" id="totalsalesamount">0.00</p>
+                      </div>
+                  </div>
+              </div>
+          <table class="table-auto">
+            <thead>
+                <tr>
+                    <th class="w-12">S/N</th>
+                    <th>Reference</th>
+                    <th>Date</th>
+                    <th>description</th>
+                    <th>Branch</th>
+                    <th>Total Amount</th>
+                    <th>Sales Person</th>
+                    <th>Actions</th>
+                  </tr>
+            </thead>
+            <tbody id="tabledataday">
+              <tr>
+                <td colspan="100%" class="text-center opacity-70">
+                  Table is empty
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+   
+    <div id="viewsalesmonth" class="hidden">
+        <form id="viewsalesmonthform">
+          <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+              <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                  <div class="form-group col-span-3">
+                      <label for="queryUser" class="control-label">Enter Date</label>
+                          <input type="month" name="date" id="viewsalesmonthdate" class="form-control comp bg-white" placeholder="Select Month and Year">
+                  </div>
+                  <div class="flex justify-end mt-5">
+                      <button id="viewsalesmonthSubmit" type="button" class="btn">
+                          <div class="btnloader" style="display: none;"></div>
+                          <span>Search</span>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </form>
+        <div class="table-content">
+              <div class="flex flex-wrap justify-between items-center p-4 bg-white ">
+                  <div class="flex items-center space-x-4">
+                      <div class="p-3 bg-blue-500 text-white rounded-full">
+                          <span class="material-symbols-outlined">shopping_cart</span>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-500">Total Sales Count</p>
+                          <p class="text-xl font-semibold" id="totalsalescountmonth">0</p>
+                      </div>
+                  </div>
+                  <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                      <div class="p-3 bg-green-500 text-white rounded-full">
+                          <span class="material-symbols-outlined">attach_money</span>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-500">Total Sales</p>
+                          <p class="text-xl font-semibold" id="totalsalesamountmonth">0.00</p>
+                      </div>
+                  </div>
+              </div>
+          <table class="table-auto">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Number of sales</th>
+                    <th>Total Amount</th>
+                    <!-- <th>Actions</th> -->
+                  </tr>
+            </thead>
+            <tbody id="tabledatamonth">
+              <tr>
+                <td colspan="100%" class="text-center opacity-70">
+                  Table is empty
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+   
+    <div id="viewsalesyear" class="hidden">
+        <form id="viewsalesyearform">
+          <div class="flex flex-col space-y-3 bg-blue-100 p-5 xl:p-10 rounded-sm">
+              <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                  <div class="form-group col-span-3">
+                      <label for="queryUser" class="control-label">Enter Date</label>
+                          <select name="year" id="viewsalesyeardate" class="form-control comp bg-white">
+                              <option value="" disabled selected>Select Year</option>
+                              <!-- Generate options for years from 2020 to 2050 -->
+                              <option value="2020">2020</option>
+                              <option value="2021">2021</option>
+                              <option value="2022">2022</option>
+                              <option value="2023">2023</option>
+                              <option value="2024">2024</option>
+                              <option value="2025">2025</option>
+                              <option value="2026">2026</option>
+                              <option value="2027">2027</option>
+                              <option value="2028">2028</option>
+                              <option value="2029">2029</option>
+                              <option value="2030">2030</option>
+                              <option value="2031">2031</option>
+                              <option value="2032">2032</option>
+                              <option value="2033">2033</option>
+                              <option value="2034">2034</option>
+                              <option value="2035">2035</option>
+                              <option value="2036">2036</option>
+                              <option value="2037">2037</option>
+                              <option value="2038">2038</option>
+                              <option value="2039">2039</option>
+                              <option value="2040">2040</option>
+                              <option value="2041">2041</option>
+                              <option value="2042">2042</option>
+                              <option value="2043">2043</option>
+                              <option value="2044">2044</option>
+                              <option value="2045">2045</option>
+                              <option value="2046">2046</option>
+                              <option value="2047">2047</option>
+                              <option value="2048">2048</option>
+                              <option value="2049">2049</option>
+                              <option value="2050">2050</option>
+                          </select>
+                  </div>
+                  <div class="flex justify-end mt-5">
+                      <button id="viewsalesyearSubmit" type="button" class="btn">
+                          <div class="btnloader" style="display: none;"></div>
+                          <span>Search</span>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </form>
+        <div class="table-content">
+              <div class="flex flex-wrap justify-between items-center p-4 bg-white ">
+                  <div class="flex items-center space-x-4">
+                      <div class="p-3 bg-blue-500 text-white rounded-full">
+                          <span class="material-symbols-outlined">shopping_cart</span>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-500">Total Sales Count</p>
+                          <p class="text-xl font-semibold" id="totalsalescountyear">0</p>
+                      </div>
+                  </div>
+                  <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                      <div class="p-3 bg-green-500 text-white rounded-full">
+                          <span class="material-symbols-outlined">attach_money</span>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-500">Total Sales</p>
+                          <p class="text-xl font-semibold" id="totalsalesamountyear">0.00</p>
+                      </div>
+                  </div>
+              </div>
+          <table class="table-auto">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Number of sales</th>
+                    <th>Total Amount</th>
+                    <!-- <th>Actions</th> -->
+                  </tr>
+            </thead>
+            <tbody id="tabledatayear">
+              <tr>
+                <td colspan="100%" class="text-center opacity-70">
+                  Table is empty
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-status"></div>
+    </div>
+
+</section>  
